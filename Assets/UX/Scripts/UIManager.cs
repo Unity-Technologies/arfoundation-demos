@@ -1,0 +1,319 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation;
+
+public struct UXHandle
+{
+    public UIManager.InstructionUI InstructionalUI;
+    public UIManager.InstructionGoals Goal;
+
+    public UXHandle(UIManager.InstructionUI ui, UIManager.InstructionGoals goal)
+    {
+        InstructionalUI = ui;
+        Goal = goal;
+    }
+}
+
+public class UIManager : MonoBehaviour
+{
+    [SerializeField]
+    bool m_StartWithInstructionalUI = true;
+
+    public bool startWithInstructionalUI => m_StartWithInstructionalUI;
+
+    public enum InstructionUI
+    {
+        CrossPlatformFindAPlane,
+        FindAFace,
+        FindABody,
+        FindAnImage,
+        FindAnObject,
+        ARKitCoachingOverlay,
+        TapToPlace,
+        None
+    };
+
+    [SerializeField]
+    InstructionUI m_InstructionalUI;
+
+    public InstructionUI instructionalUI => m_InstructionalUI;
+
+    public enum InstructionGoals
+    {
+        FoundAPlane,
+        FoundMultiplePlanes,
+        FoundAFace,
+        FoundABody,
+        FoundAnImage,
+        FoundAnObject,
+        PlacedAnObject,
+        None
+    };
+
+    [SerializeField]
+    InstructionGoals m_InstructionalGoal;
+    
+    public InstructionGoals instructionalGoal => m_InstructionalGoal;
+
+    [SerializeField]
+    bool m_ShowSecondaryInstructionalUI;
+    
+    public bool showSecondaryInstructionalUI => m_ShowSecondaryInstructionalUI;
+
+    [SerializeField]
+    InstructionUI m_SecondaryInstructionUI = InstructionUI.TapToPlace;
+
+    public InstructionUI secondaryInstructionUI => m_SecondaryInstructionUI;
+
+    [SerializeField]
+    InstructionGoals m_SecondaryGoal = InstructionGoals.PlacedAnObject;
+
+    public InstructionGoals secondaryGoal => m_SecondaryGoal;
+
+    [SerializeField]
+    [Tooltip("Fallback to cross platform UI if ARKit coaching overlay is not supported")]
+    bool m_CoachingOverlayFallback;
+
+    public bool coachingOverlayFallback => m_CoachingOverlayFallback;
+
+    [SerializeField]
+    GameObject m_ARSessionOrigin;
+
+    public GameObject arSessionOrigin => m_ARSessionOrigin;
+
+    Func<bool> m_GoalReached;
+    bool m_SecondaryGoalReached;
+
+
+    Queue<UXHandle> m_UXOrderedQueue;
+    UXHandle m_CurrentHandle;
+    bool m_ProcessingInstructions;
+    bool m_PlacedObject;
+
+    [SerializeField]
+    ARPlaneManager m_PlaneManager;
+    
+    public ARPlaneManager planeManager => m_PlaneManager;
+
+    [SerializeField]
+    ARFaceManager m_FaceManager;
+    public ARFaceManager faceManager => m_FaceManager;
+
+    [SerializeField]
+    ARHumanBodyManager m_BodyManager;
+    public ARHumanBodyManager bodyManager => m_BodyManager;
+
+    [SerializeField]
+    ARTrackedImageManager m_ImageManager;
+    public ARTrackedImageManager imageManager => m_ImageManager;
+
+    [SerializeField]
+    ARTrackedObjectManager m_ObjectManager;
+
+    public ARTrackedObjectManager objectManager => m_ObjectManager;
+
+    [SerializeField]
+    ARUXAnimationManager m_AnimationManager;
+
+    public ARUXAnimationManager animationManager => m_AnimationManager;
+
+    bool m_FadedOff = false;
+
+    void OnEnable()
+    {
+        ARUXAnimationManager.onFadeOffComplete += FadeComplete;
+
+        PlaceObjectsOnPlane.onPlacedObject += () => m_PlacedObject = true;
+
+        GetManagers();
+        m_UXOrderedQueue = new Queue<UXHandle>();
+
+        if (m_StartWithInstructionalUI)
+        {
+            m_UXOrderedQueue.Enqueue(new UXHandle(m_InstructionalUI, m_InstructionalGoal));
+        }
+
+        if (m_ShowSecondaryInstructionalUI)
+        {
+            m_UXOrderedQueue.Enqueue(new UXHandle(m_SecondaryInstructionUI, m_SecondaryGoal));
+        }
+    }
+
+    void OnDisable()
+    {
+        ARUXAnimationManager.onFadeOffComplete -= FadeComplete;
+    }
+
+    void Update()
+    {
+        if (m_UXOrderedQueue.Count > 0 && !m_ProcessingInstructions)
+        {
+            // pop off
+            m_CurrentHandle = m_UXOrderedQueue.Dequeue();
+
+            // fade on
+            FadeOnInstructionalUI(m_CurrentHandle.InstructionalUI);
+            m_GoalReached = GetGoal(m_CurrentHandle.Goal);
+            m_ProcessingInstructions = true;
+            m_FadedOff = false;
+        }
+
+        if (m_ProcessingInstructions)
+        {
+            // start listening for goal reached
+            if (m_GoalReached.Invoke())
+            {
+                // if goal reached, fade off
+                if (!m_FadedOff)
+                {
+                    m_AnimationManager.FadeOffCurrentUI();
+                    m_FadedOff = true;
+                }
+            }
+        }
+    }
+
+    void GetManagers()
+    {
+        if (m_ARSessionOrigin)
+        {
+            if (m_ARSessionOrigin.GetComponent<ARPlaneManager>())
+                m_PlaneManager = m_ARSessionOrigin.GetComponent<ARPlaneManager>();
+
+            if (m_ARSessionOrigin.GetComponent<ARFaceManager>())
+                m_FaceManager = m_ARSessionOrigin.GetComponent<ARFaceManager>();
+
+            if (m_ARSessionOrigin.GetComponent<ARHumanBodyManager>())
+                m_BodyManager = m_ARSessionOrigin.GetComponent<ARHumanBodyManager>();
+
+            if (m_ARSessionOrigin.GetComponent<ARTrackedImageManager>())
+                m_ImageManager = m_ARSessionOrigin.GetComponent<ARTrackedImageManager>();
+
+            if (m_ARSessionOrigin.GetComponent<ARTrackedObjectManager>())
+                m_ObjectManager = m_ARSessionOrigin.GetComponent<ARTrackedObjectManager>();
+        }
+    }
+    
+    Func<bool> GetGoal(InstructionGoals goal)
+    {
+        switch (goal)
+        {
+            case InstructionGoals.FoundAPlane:
+                return PlanesFound;
+
+            case InstructionGoals.FoundMultiplePlanes:
+                return MultiplePlanesFound;
+
+            case InstructionGoals.FoundABody:
+                return BodyFound;
+
+            case InstructionGoals.FoundAFace:
+                return FaceFound;
+
+            case InstructionGoals.FoundAnImage:
+                return ImageFound;
+
+            case InstructionGoals.FoundAnObject:
+                return ObjectFound;
+
+            case InstructionGoals.PlacedAnObject:
+                return PlacedObject;
+
+            case InstructionGoals.None:
+                return () => false;
+        }
+
+        return () => false;
+    }
+
+    void FadeOnInstructionalUI(InstructionUI ui)
+    {
+        switch (ui)
+        {
+            case InstructionUI.CrossPlatformFindAPlane:
+                m_AnimationManager.ShowCrossPlatformFindAPlane();
+                break;
+
+            case InstructionUI.FindAFace:
+                m_AnimationManager.ShowFindFace();
+                break;
+
+            case InstructionUI.FindABody:
+                m_AnimationManager.ShowFindBody();
+                break;
+
+            case InstructionUI.FindAnImage:
+                m_AnimationManager.ShowFindImage();
+                break;
+
+            case InstructionUI.FindAnObject:
+                m_AnimationManager.ShowFindObject();
+                break;
+
+            case InstructionUI.ARKitCoachingOverlay:
+                if (m_AnimationManager.ARKitCoachingOverlaySupported())
+                {
+                    m_AnimationManager.ShowCoachingOverlay();
+                }
+                else
+                {
+                    // fall back to cross platform overlay
+                    if (m_CoachingOverlayFallback)
+                    {
+                        m_AnimationManager.ShowCrossPlatformFindAPlane();
+                    }
+                }
+                break;
+
+            case InstructionUI.TapToPlace:
+                m_AnimationManager.ShowTapToPlace();
+                break;
+
+            case InstructionUI.None:
+
+                break;
+        }
+    }
+
+    bool PlanesFound()
+    {
+        return m_PlaneManager?.trackables.count > 0;
+    }
+
+    bool MultiplePlanesFound()
+    { 
+        return m_PlaneManager?.trackables.count > 1;
+    }
+
+    bool FaceFound()
+    {
+        return m_FaceManager?.trackables.count > 0;
+    }
+
+    bool BodyFound()
+    {
+        return m_BodyManager?.trackables.count > 0;
+    }
+
+    bool ImageFound()
+    {
+        return m_ImageManager?.trackables.count > 0;
+    }
+
+    bool ObjectFound()
+    {
+        return m_ObjectManager?.trackables.count > 0;
+    }
+
+    void FadeComplete()
+    {
+        m_ProcessingInstructions = false;
+    }
+
+    bool PlacedObject()
+    {
+        return m_PlacedObject;
+    }
+}
+
