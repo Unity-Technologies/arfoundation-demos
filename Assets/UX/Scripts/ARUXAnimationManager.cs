@@ -130,7 +130,6 @@ public class ARUXAnimationManager : MonoBehaviour
     {
         m_StartColor = m_AlphaWhite;
         m_TargetColor = m_White;
-        m_VideoPlayer.Play();
     }
 
     void Update()
@@ -189,11 +188,6 @@ public class ARUXAnimationManager : MonoBehaviour
                     m_RenderTexture.DiscardContents();
                     m_RenderTexture.Release();
                     Graphics.Blit(m_Transparent, m_RenderTexture);
-                    /*
-                    m_VideoPlayer.targetTexture.DiscardContents();
-                    m_VideoPlayer.targetTexture.Release();
-                    Graphics.Blit(m_Transparent, m_VideoPlayer.targetTexture);
-                    */
                 }
             }
         }
