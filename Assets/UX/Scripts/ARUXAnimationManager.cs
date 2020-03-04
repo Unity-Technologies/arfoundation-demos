@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering;
 using UnityEngine.UI;
 using UnityEngine.Video;
 
