@@ -62,9 +62,9 @@ With the following [goals](https://github.com/Unity-Technologies/arfoundation-de
 
 The goals are checking the associated `ARTrackableManager` number of trackables count. One thing to note is this is just looking for a trackable to be added, it does not check the tracking state of said trackable.
 
-The script [UIManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs) is used to configure the Instructional Goals, secondary instructional goals and holds references to the different trackable managers.
+The script [`UIManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs) is used to configure the Instructional Goals, secondary instructional goals and holds references to the different trackable managers.
 
 There's a [`m_CoachingOverlayFallback`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L76) used in order to enable the ARKit coaching overlay on supported devices but fall back to Cross Platform Find a Plane when it is not. 
 
-The script [ARUXAnimationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs) holds references to all the videos, controls all the logic for fading the UI in and out, managing the video swapping and swapping the associated text with each video / UI.
+The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs) holds references to all the videos, controls all the logic for fading the UI in and out, managing the video swapping and swapping the associated text with each video / UI.
 
