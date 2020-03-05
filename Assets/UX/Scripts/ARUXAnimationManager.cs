@@ -13,8 +13,12 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Instructional Text</c>
     /// </summary>
-    public TMP_Text instructionText => m_InstructionText;
-    
+    public TMP_Text instructionText
+    {
+        get => m_InstructionText;
+        set => m_InstructionText = value;
+    }
+
     [SerializeField]
     [Tooltip("Move device animation")]
     VideoClip m_FindAPlaneClip;
@@ -22,7 +26,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Move device Clip</c>
     /// </summary>
-    public VideoClip findAPlaneClip => m_FindAPlaneClip;
+    public VideoClip findAPlaneClip
+    {
+        get => m_FindAPlaneClip;
+        set => m_FindAPlaneClip = value;
+    }
 
     [SerializeField]
     [Tooltip("Tap to place animation")]
@@ -31,7 +39,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Tap to place Clip</c>
     /// </summary>
-    public VideoClip tapToPlaceClip => m_TapToPlaceClip;
+    public VideoClip tapToPlaceClip
+    {
+        get => m_TapToPlaceClip;
+        set => m_TapToPlaceClip = value;
+    }
 
     [SerializeField]
     [Tooltip("Find Clip animation")]
@@ -40,7 +52,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Find Image Clip</c>
     /// </summary>
-    public VideoClip findImageClip => m_FindImageClip;
+    public VideoClip findImageClip
+    {
+        get => m_FindImageClip;
+        set => m_FindImageClip = value;
+    }
 
     [SerializeField]
     [Tooltip("Find body animation")]
@@ -49,7 +65,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Find body Clip</c>
     /// </summary>
-    public VideoClip findBodyClip => m_FindBodyClip;
+    public VideoClip findBodyClip
+    {
+        get => m_FindBodyClip;
+        set => m_FindBodyClip = value;
+    }
 
     [SerializeField]
     [Tooltip("Find object animation")]
@@ -58,7 +78,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Find object Clip</c>
     /// </summary>
-    public VideoClip findObjectClip => m_FindObjectClip;
+    public VideoClip findObjectClip
+    {
+        get => m_FindObjectClip;
+        set => m_FindObjectClip = value;
+    }
 
     [SerializeField]
     [Tooltip("Find face animation")]
@@ -67,7 +91,11 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>Find face iamge</c>
     /// </summary>
-    public VideoClip findFaceClip => m_FindFaceClip;
+    public VideoClip findFaceClip
+    {
+        get => m_FindFaceClip;
+        set => m_FindFaceClip = value;
+    }
 
     [SerializeField]
     [Tooltip("ARKit Coaching overlay reference")]
@@ -76,20 +104,32 @@ public class ARUXAnimationManager : MonoBehaviour
     /// <summary>
     /// Get the <c>ARKit coaching overlay</c>
     /// </summary>
-    public ARKitCoachingOverlay coachingOverlay => m_CoachingOverlay;
+    public ARKitCoachingOverlay coachingOverlay
+    {
+        get => m_CoachingOverlay;
+        set => m_CoachingOverlay = value;
+    }
 
     [SerializeField]
     [Tooltip("Video player reference")]
     VideoPlayer m_VideoPlayer;
     
-    public VideoPlayer videoPlayer => m_VideoPlayer;
+    public VideoPlayer videoPlayer
+    {
+        get => m_VideoPlayer;
+        set => m_VideoPlayer = value;
+    }
 
     [SerializeField]
     [Tooltip("Raw image used for videoplayer reference")]
     RawImage m_RawImage;
 
-    public RawImage rawImage => m_RawImage;
-    
+    public RawImage rawImage
+    {
+        get => m_RawImage;
+        set => m_RawImage = value;
+    }
+
     [SerializeField]
     [Tooltip("time the UI takes to fade on")]
     float m_FadeOnDuration = 1.0f;
@@ -121,6 +161,12 @@ public class ARUXAnimationManager : MonoBehaviour
 
     [SerializeField]
     Texture m_Transparent;
+
+    public Texture transparent
+    {
+        get => m_Transparent;
+        set => m_Transparent = value;
+    }
 
     RenderTexture m_RenderTexture;
 

@@ -12,7 +12,11 @@ public class DistanceManager : MonoBehaviour
     /// <summary>
     /// Get the <c>ImageTrackingObjectManger</c>
     /// </summary>
-    public ImageTrackingObjectManager imageTrackingObjectManager => m_ImageTrackingObjectManager;
+    public ImageTrackingObjectManager imageTrackingObjectManager
+    {
+        get => m_ImageTrackingObjectManager;
+        set => m_ImageTrackingObjectManager = value;
+    }
 
     [SerializeField]
     [Tooltip("Prefab to be spawned and showed between numbers based on distance")]
@@ -21,7 +25,11 @@ public class DistanceManager : MonoBehaviour
     /// <summary>
     /// Get the sum prefab
     /// </summary>
-    public GameObject sumPrefab => m_SumPrefab;
+    public GameObject sumPrefab
+    {
+        get => m_SumPrefab;
+        set => m_SumPrefab = value;
+    }
 
     GameObject m_SpawnedSumPrefab;
     GameObject m_OneObject;

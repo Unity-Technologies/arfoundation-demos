@@ -8,6 +8,12 @@ public class NumberManager : MonoBehaviour
     [Tooltip("Number Object in the prefab")]
     GameObject m_NumberObject;
 
+    public GameObject numberObject
+    {
+        get => m_NumberObject;
+        set => m_NumberObject = value;
+    }
+
     AimConstraint m_Constraint;
 
     void OnEnable()

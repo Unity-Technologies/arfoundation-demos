@@ -20,7 +20,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     bool m_StartWithInstructionalUI = true;
 
-    public bool startWithInstructionalUI => m_StartWithInstructionalUI;
+    public bool startWithInstructionalUI
+    {
+         get => m_StartWithInstructionalUI;
+         set => m_StartWithInstructionalUI = value;
+    }
 
     public enum InstructionUI
     {
@@ -37,7 +41,11 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     InstructionUI m_InstructionalUI;
 
-    public InstructionUI instructionalUI => m_InstructionalUI;
+    public InstructionUI instructionalUI
+    {
+        get => m_InstructionalUI;
+        set => m_InstructionalUI = value;
+    }
 
     public enum InstructionGoals
     {
@@ -54,38 +62,61 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     InstructionGoals m_InstructionalGoal;
     
-    public InstructionGoals instructionalGoal => m_InstructionalGoal;
+    public InstructionGoals instructionalGoal
+    {
+        get => m_InstructionalGoal;
+        set => m_InstructionalGoal = value;
+    }
 
     [SerializeField]
     bool m_ShowSecondaryInstructionalUI;
     
-    public bool showSecondaryInstructionalUI => m_ShowSecondaryInstructionalUI;
+    public bool showSecondaryInstructionalUI
+    {
+        get => m_ShowSecondaryInstructionalUI;
+        set => m_ShowSecondaryInstructionalUI = value;
+    }
 
     [SerializeField]
     InstructionUI m_SecondaryInstructionUI = InstructionUI.TapToPlace;
 
-    public InstructionUI secondaryInstructionUI => m_SecondaryInstructionUI;
+    public InstructionUI secondaryInstructionUI
+    {
+        get => m_SecondaryInstructionUI;
+        set => m_SecondaryInstructionUI = value;
+    }
 
     [SerializeField]
     InstructionGoals m_SecondaryGoal = InstructionGoals.PlacedAnObject;
 
-    public InstructionGoals secondaryGoal => m_SecondaryGoal;
+    public InstructionGoals secondaryGoal
+    {
+        get => m_SecondaryGoal;
+        set => m_SecondaryGoal = value;
+    }
 
     [SerializeField]
     [Tooltip("Fallback to cross platform UI if ARKit coaching overlay is not supported")]
     bool m_CoachingOverlayFallback;
 
-    public bool coachingOverlayFallback => m_CoachingOverlayFallback;
+    public bool coachingOverlayFallback
+    {
+        get => m_CoachingOverlayFallback;
+        set => m_CoachingOverlayFallback = value;
+    }
 
     [SerializeField]
     GameObject m_ARSessionOrigin;
 
-    public GameObject arSessionOrigin => m_ARSessionOrigin;
+    public GameObject arSessionOrigin
+    {
+        get => m_ARSessionOrigin;
+        set => m_ARSessionOrigin = value;
+    }
 
     Func<bool> m_GoalReached;
     bool m_SecondaryGoalReached;
-
-
+    
     Queue<UXHandle> m_UXOrderedQueue;
     UXHandle m_CurrentHandle;
     bool m_ProcessingInstructions;
@@ -94,32 +125,56 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     ARPlaneManager m_PlaneManager;
     
-    public ARPlaneManager planeManager => m_PlaneManager;
+    public ARPlaneManager planeManager
+    {
+        get => m_PlaneManager;
+        set => m_PlaneManager = value;
+    }
 
     [SerializeField]
     ARFaceManager m_FaceManager;
-    public ARFaceManager faceManager => m_FaceManager;
+    public ARFaceManager faceManager
+    {
+        get => m_FaceManager;
+        set => m_FaceManager = value;
+    }
 
     [SerializeField]
     ARHumanBodyManager m_BodyManager;
-    public ARHumanBodyManager bodyManager => m_BodyManager;
+    public ARHumanBodyManager bodyManager
+    {
+        get => m_BodyManager;
+        set => m_BodyManager = value;
+    }
 
     [SerializeField]
     ARTrackedImageManager m_ImageManager;
-    public ARTrackedImageManager imageManager => m_ImageManager;
+    public ARTrackedImageManager imageManager
+    {
+        get => m_ImageManager;
+        set => m_ImageManager = value;
+    }
 
     [SerializeField]
     ARTrackedObjectManager m_ObjectManager;
 
-    public ARTrackedObjectManager objectManager => m_ObjectManager;
+    public ARTrackedObjectManager objectManager
+    {
+        get => m_ObjectManager;
+        set => m_ObjectManager = value;
+    }
 
     [SerializeField]
     ARUXAnimationManager m_AnimationManager;
 
-    public ARUXAnimationManager animationManager => m_AnimationManager;
+    public ARUXAnimationManager animationManager
+    {
+        get => m_AnimationManager;
+        set => m_AnimationManager = value;
+    }
 
     bool m_FadedOff = false;
-
+    
     void OnEnable()
     {
         ARUXAnimationManager.onFadeOffComplete += FadeComplete;

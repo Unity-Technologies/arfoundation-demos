@@ -12,7 +12,11 @@ public class ImageTrackingObjectManager : MonoBehaviour
     /// <summary>
     /// Get the <c>ARTrackedImageManager</c>
     /// </summary>
-    public ARTrackedImageManager ImageManager => m_ImageManager;
+    public ARTrackedImageManager ImageManager
+    {
+        get => m_ImageManager;
+        set => m_ImageManager = value;
+    }
 
     [SerializeField]
     [Tooltip("Reference Image Library")]
@@ -21,7 +25,11 @@ public class ImageTrackingObjectManager : MonoBehaviour
     /// <summary>
     /// Get the <c>XRReferenceImageLibrary</c>
     /// </summary>
-    public XRReferenceImageLibrary ImageLibrary => m_ImageLibrary;
+    public XRReferenceImageLibrary ImageLibrary
+    {
+        get => m_ImageLibrary;
+        set => m_ImageLibrary = value;
+    }
 
     [SerializeField]
     [Tooltip("Prefab for tracked 1 image")]
@@ -30,14 +38,22 @@ public class ImageTrackingObjectManager : MonoBehaviour
     /// <summary>
     /// Get the one prefab
     /// </summary>
-    public GameObject onePrefab => m_OnePrefab;
+    public GameObject onePrefab
+    {
+        get => m_OnePrefab;
+        set => m_OnePrefab = value;
+    }
 
     GameObject m_SpawnedOnePrefab;
     
     /// <summary>
     /// get the spawned one prefab
     /// </summary>
-    public GameObject spawnedOnePrefab => m_SpawnedOnePrefab;
+    public GameObject spawnedOnePrefab
+    {
+        get => m_SpawnedOnePrefab;
+        set => m_SpawnedOnePrefab = value;
+    }
 
     [SerializeField]
     [Tooltip("Prefab for tracked 2 image")]
@@ -46,14 +62,22 @@ public class ImageTrackingObjectManager : MonoBehaviour
     /// <summary>
     /// get the two prefab
     /// </summary>
-    public GameObject twoPrefab => m_TwoPrefab;
+    public GameObject twoPrefab
+    {
+        get => m_TwoPrefab;
+        set => m_TwoPrefab = value;
+    }
 
     GameObject m_SpawnedTwoPrefab;
     
     /// <summary>
     /// get the spawned two prefab
     /// </summary>
-    public GameObject spawnedTwoPrefab => m_SpawnedTwoPrefab;
+    public GameObject spawnedTwoPrefab
+    {
+        get => m_SpawnedTwoPrefab;
+        set => m_SpawnedTwoPrefab = value;
+    }
 
     int m_NumberOfTrackedImages;
     
