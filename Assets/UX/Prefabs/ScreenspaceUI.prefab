@@ -173,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -860}
+  m_AnchoredPosition: {x: 0, y: -870}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5977163236686653920
@@ -204,8 +204,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tap to Place AR
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8be4c7adeede35943b3f5a913bc88b39, type: 2}
-  m_sharedMaterial: {fileID: 7325005169834071286, guid: 8be4c7adeede35943b3f5a913bc88b39,
+  m_fontAsset: {fileID: 11400000, guid: 801223ab657744a85b0e2b5ac5c1a041, type: 2}
+  m_sharedMaterial: {fileID: -7188733246301788310, guid: 801223ab657744a85b0e2b5ac5c1a041,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -231,15 +231,15 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_characterSpacing: 2.25
+  m_characterSpacing: 3
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -160, y: 0, z: -160, w: 3.350525}
+  m_margin: {x: -200, y: 0, z: -200, w: 3.350525}
   m_textInfo:
     textComponent: {fileID: 5977163236686653921}
     characterCount: 15
@@ -365,8 +365,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.42000002}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 500}
-  m_SizeDelta: {x: -728, y: -1000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -728, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5977163237856183992
 GameObject:
@@ -538,8 +538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StartWithInstructionalUI: 1
-  m_InstructionalUI: 0
-  m_InstructionalGoal: 0
+  m_InstructionalUI: 4
+  m_InstructionalGoal: 5
   m_ShowSecondaryInstructionalUI: 1
   m_SecondaryInstructionUI: 2
   m_SecondaryGoal: 6
