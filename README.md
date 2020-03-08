@@ -64,7 +64,7 @@ The goals are checking the associated `ARTrackableManager` number of trackables 
 
 The script [`UIManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs) is used to configure the Instructional Goals, secondary instructional goals and holds references to the different trackable managers.
 
-UIManager manages a [queue](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L120) of [`UXHandle`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L6-L16) which allows any instructional UI with any goal to be dynamically added at runtime. To do this you can store a reference to the UIManager and call `AddToQueue()` passing in a UXHandle object. For testing purposes to visualize every UI video I use the following setup.
+UIManager manages a [queue](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L120) of [`UXHandle`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L6-L16) which allows any instructional UI with any goal to be dynamically added at runtime. To do this you can store a reference to the UIManager and call [`AddToQueue()`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L374-L377) passing in a UXHandle object. For testing purposes to visualize every UI video I use the following setup.
 
 ```
 m_UIManager = GetComponent<UIManager>();      
