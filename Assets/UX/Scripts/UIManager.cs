@@ -370,5 +370,10 @@ public class UIManager : MonoBehaviour
     {
         return m_PlacedObject;
     }
+
+    public void AddToQueue(UXHandle uxHandle)
+    {
+        m_UXOrderedQueue.Enqueue(uxHandle);
+    }
 }
 

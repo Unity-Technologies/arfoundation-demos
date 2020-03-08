@@ -59,17 +59,17 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                     if (m_NumberOfPlacedObjects < m_MaxNumberOfObjectsToPlace)
                     {
                         spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-
-                        if (onPlacedObject != null)
-                        {
-                            onPlacedObject();
-                        }
-
+                        
                         m_NumberOfPlacedObjects++;
                     }
                     else
                     {
                         spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                    }
+                    
+                    if (onPlacedObject != null)
+                    {
+                        onPlacedObject();
                     }
                 }
             }
