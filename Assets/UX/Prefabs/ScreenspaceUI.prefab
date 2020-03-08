@@ -538,8 +538,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_StartWithInstructionalUI: 1
-  m_InstructionalUI: 4
-  m_InstructionalGoal: 5
+  m_InstructionalUI: 0
+  m_InstructionalGoal: 0
   m_ShowSecondaryInstructionalUI: 1
   m_SecondaryInstructionUI: 2
   m_SecondaryGoal: 6
