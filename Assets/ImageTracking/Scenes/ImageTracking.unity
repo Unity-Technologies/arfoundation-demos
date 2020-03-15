@@ -51,7 +51,7 @@ LightmapSettings:
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
-    m_EnableBakedLightmaps: 1
+    m_EnableBakedLightmaps: 0
     m_EnableRealtimeLightmaps: 0
   m_LightmapEditorSettings:
     serializedVersion: 12
@@ -366,9 +366,9 @@ Light:
     m_Resolution: 3
     m_CustomResolution: -1
     m_Strength: 0.706
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_Bias: 0
+    m_NormalBias: 0
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -587,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ImageTrackingObjectManager: {fileID: 1875185602}
-  m_SumPrefab: {fileID: 753304636775905759, guid: a1051bd7dc3b148fab3e3dea8232ebde,
+  m_SumPrefab: {fileID: 5865803188502891285, guid: a1051bd7dc3b148fab3e3dea8232ebde,
     type: 3}
 --- !u!1 &2146458540
 GameObject:
@@ -687,6 +687,26 @@ PrefabInstance:
       propertyPath: m_InstructionalGoal
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_ShowSecondaryInstructionalUI
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_SecondaryInstructionUI
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_SecondaryGoal
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_ImageManager
+      value: 
+      objectReference: {fileID: 1335839540}
     - target: {fileID: 5977163238016480459, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_LocalPosition.x

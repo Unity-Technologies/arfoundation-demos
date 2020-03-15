@@ -240,6 +240,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowTapToPlace()
     {
         m_VideoPlayer.clip = m_TapToPlaceClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_TapToPlaceText;
         m_FadeOn = true;
     }
@@ -247,6 +248,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowFindImage()
     {
         m_VideoPlayer.clip = m_FindImageClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_FindClipText;
         m_FadeOn = true;
     }
@@ -254,6 +256,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowFindBody()
     {
         m_VideoPlayer.clip = m_FindBodyClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_FindABodyText;
         m_FadeOn = true;
         
@@ -262,6 +265,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowFindObject()
     {
         m_VideoPlayer.clip = m_FindObjectClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_FindObjectText;
         m_FadeOn = true;
     }
@@ -269,6 +273,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowFindFace()
     {
         m_VideoPlayer.clip = m_FindFaceClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_FindAFaceText;
         m_FadeOn = true;
     }
@@ -276,6 +281,7 @@ public class ARUXAnimationManager : MonoBehaviour
     public void ShowCrossPlatformFindAPlane()
     {
         m_VideoPlayer.clip = m_FindAPlaneClip;
+        m_VideoPlayer.Play();
         m_InstructionText.text = k_MoveDeviceText;
         m_FadeOn = true;
     }
@@ -287,6 +293,7 @@ public class ARUXAnimationManager : MonoBehaviour
             if (m_CoachingOverlay.supported)
             {
                 m_CoachingOverlay.ActivateCoaching(true);
+                m_VideoPlayer.Stop();
                 m_UsingARKitCoaching = true;
             }
             else
@@ -315,6 +322,10 @@ public class ARUXAnimationManager : MonoBehaviour
             m_CoachingOverlay.DisableCoaching(false);
             m_UsingARKitCoaching = false;
             m_InstructionText.color = m_AlphaWhite;
+            if (onFadeOffComplete != null)
+            {
+                onFadeOffComplete();
+            }
             m_FadeOff = true;
         }
         

@@ -90,7 +90,7 @@ VideoPlayer:
   m_RenderMode: 2
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 0.5
+  m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
@@ -98,7 +98,7 @@ VideoPlayer:
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_SkipOnDrop: 1
   m_Looping: 1
   m_WaitForFirstFrame: 1
@@ -231,15 +231,15 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 48
+  m_fontSizeBase: 48
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_textAlignment: 514
-  m_characterSpacing: 3
+  m_characterSpacing: 2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -514,11 +514,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_InstructionText: {fileID: 5977163236686653921}
   m_FindAPlaneClip: {fileID: 32900000, guid: 38ecff9554fce4bb2ab7fdb7a18e813b, type: 3}
-  m_TapToPlaceClip: {fileID: 0}
+  m_TapToPlaceClip: {fileID: 32900000, guid: f4f1a546efb674ffb8679f1e2ca2231b, type: 3}
   m_FindImageClip: {fileID: 32900000, guid: 570372f93b4d148f8818cbc12972293e, type: 3}
   m_FindBodyClip: {fileID: 32900000, guid: df21904a707ae4095848eb16198d1065, type: 3}
   m_FindObjectClip: {fileID: 32900000, guid: db6db79b1a5224930bbc537202ed025a, type: 3}
-  m_FindFaceClip: {fileID: 32900000, guid: 04b5e84eb65d64d408c3b6d4db828256, type: 3}
+  m_FindFaceClip: {fileID: 32900000, guid: 69a592f563a0e4e19840016715c484f9, type: 3}
   m_CoachingOverlay: {fileID: 0}
   m_VideoPlayer: {fileID: 1641376890}
   m_RawImage: {fileID: 1641376891}
@@ -541,7 +541,7 @@ MonoBehaviour:
   m_InstructionalUI: 0
   m_InstructionalGoal: 0
   m_ShowSecondaryInstructionalUI: 1
-  m_SecondaryInstructionUI: 2
+  m_SecondaryInstructionUI: 6
   m_SecondaryGoal: 6
   m_CoachingOverlayFallback: 0
   m_ARSessionOrigin: {fileID: 0}
