@@ -81,3 +81,5 @@ There's a [`m_CoachingOverlayFallback`](https://github.com/Unity-Technologies/ar
 
 The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs) holds references to all the videos, controls all the logic for fading the UI in and out, managing the video swapping and swapping the associated text with each video / UI.
 
+The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
+
