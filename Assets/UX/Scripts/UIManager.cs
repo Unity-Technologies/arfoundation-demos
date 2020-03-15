@@ -368,6 +368,12 @@ public class UIManager : MonoBehaviour
 
     bool PlacedObject()
     {
+        // reset flag to be used multiple times
+        if (m_PlacedObject)
+        {
+            m_PlacedObject = false;
+            return true;
+        }
         return m_PlacedObject;
     }
 
