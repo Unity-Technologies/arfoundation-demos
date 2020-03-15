@@ -26,9 +26,11 @@ The project contains two unique images
 [one.png](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/TrackedImages/one.png)
 [two.png](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/TrackedImages/two.png) which can be printed out or displayed on digital devices. The images are 2048x2048 pixels with a real world size of 0.2159 x 0.2159 meters.
 
+The Prefabs for each number are prefab variants derived from [`OnePrefab.prefab`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Art/One/OnePrefab.prefab). They use a small quad that uses the [`MobileARShadow.shader`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Shaders/MobileARShadow.shader) in order to accurately show a shadow of the 3D number.
+
 The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs) checks the distances between the tracked images and displays an additional 3D model between them when they reach a [certain proximity.](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs#L32)
 
-the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a contraint (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
+the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a [`contraint`](https://docs.unity3d.com/Manual/Constraints.html) (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
 
 ## UX
 
