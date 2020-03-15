@@ -7,6 +7,7 @@ using UnityEngine.XR.ARFoundation;
 public class DisableTrackedVisuals : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Disables spawned feature points and the ARPointCloudManager")]
     bool m_DisableFeaturePoints;
 
     public bool disableFeaturePoints
@@ -16,6 +17,7 @@ public class DisableTrackedVisuals : MonoBehaviour
     }
 
     [SerializeField]
+    [Tooltip("Disables spawned planes and ARPlaneManager")]
     bool m_DisablePlaneRendering;
 
     public bool disablePlaneRendering
