@@ -638,6 +638,16 @@ PrefabInstance:
       propertyPath: m_CoachingOverlay
       value: 
       objectReference: {fileID: 427002221}
+    - target: {fileID: 5977163238016480456, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_FadeOffDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5977163238016480456, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_FadeOnDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_ARSessionOrigin

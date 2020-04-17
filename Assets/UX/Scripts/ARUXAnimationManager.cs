@@ -190,7 +190,6 @@ public class ARUXAnimationManager : MonoBehaviour
                 m_StartColor = m_AlphaWhite;
                 m_TargetColor = m_White;
                 m_TweenDuration = m_FadeOnDuration;
-
                 m_FadeOff = false;
             }
         
@@ -332,7 +331,7 @@ public class ARUXAnimationManager : MonoBehaviour
         if (m_VideoPlayer.clip != null)
         {
             // handle exiting fade out early if currently fading out another Clip
-            if (m_Tweening)
+            if (m_Tweening || m_FadeOn)
             {
                 // stop tween immediately
                 m_TweenTime = 1.0f;

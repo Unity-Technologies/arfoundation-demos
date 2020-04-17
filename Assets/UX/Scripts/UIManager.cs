@@ -222,8 +222,8 @@ public class UIManager : MonoBehaviour
                 // if goal reached, fade off
                 if (!m_FadedOff)
                 {
-                    m_AnimationManager.FadeOffCurrentUI();
                     m_FadedOff = true;
+                    m_AnimationManager.FadeOffCurrentUI();
                 }
             }
         }
