@@ -1,5 +1,8 @@
+# This repo is intended to provide more advanced demos for AR Foundation outside of the [Samples Repo](https://github.com/Unity-Technologies/arfoundation-samples/).
+For questions and issues related to AR Foundation please post on the AR Foundation Sample [issues](https://github.com/Unity-Technologies/arfoundation-samples/issues) and **NOT** in this repo. You can also post on the [AR Foundation Forums](https://forum.unity.com/forums/handheld-ar.159/)
+
 # arfoundation-demos
-AR Foundation demo projects
+AR Foundation demo projects.
 
 Demo projects that use [*AR Foundation 3.0*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html) and demonstrate more advanced functionality around certain features
 
@@ -16,7 +19,7 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 The `master` branch is compatible with Unity 2019.3 
 
 
-## Image Tracking
+## Image Tracking — also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
 
 A sample app showing off how to use Image Tracking to track multiple unique images and spawn unique prefabs for each image.
 
@@ -26,11 +29,16 @@ The project contains two unique images
 [one.png](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/TrackedImages/one.png)
 [two.png](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/TrackedImages/two.png) which can be printed out or displayed on digital devices. The images are 2048x2048 pixels with a real world size of 0.2159 x 0.2159 meters.
 
-The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs) checks the distances between the tracked images and displays an additional 3D model between them when they reach a [certain proximity.](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs#L32)
+The Prefabs for each number are prefab variants derived from [`OnePrefab.prefab`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Art/One/OnePrefab.prefab). They use a small quad that uses the [`MobileARShadow.shader`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Shaders/MobileARShadow.shader) in order to accurately show a shadow of the 3D number.
 
-the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a contraint (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
+The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs) checks the distances between the tracked images and displays an additional 3D model between them when they reach a [certain proximity.](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs#L40)
 
-## UX
+the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a [`contraint`](https://docs.unity3d.com/Manual/Constraints.html) (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
+
+### Missing Prefab in ImageTracking scene.
+If you import the image tracking package or download it from the asset store **without** the Onboarding UX there will be a Missing Prefab in your scene. This prefab is a configured [ScreenSpaceUI prefab](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Prefabs/ScreenspaceUI.prefab) from the Onboarding UX. It is configured with the UI for finding an image with the goal of finding an image.
+
+## UX — also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
 
 A UI / UX framework for providing guidance to the user for a variety of different types of mobile AR apps. 
 
