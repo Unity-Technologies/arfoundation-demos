@@ -264,7 +264,6 @@ GameObject:
   - component: {fileID: 427002220}
   - component: {fileID: 427002219}
   - component: {fileID: 427002222}
-  - component: {fileID: 427002221}
   m_Layer: 0
   m_Name: AR Session
   m_TagString: Untagged
@@ -300,20 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &427002221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427002218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6222637b371420b4586d32ae5c2f0e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Goal: 3
-  m_ActivatesAutomatically: 0
 --- !u!114 &427002222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +429,6 @@ GameObject:
   - component: {fileID: 1335839535}
   - component: {fileID: 1335839534}
   - component: {fileID: 1335839538}
-  - component: {fileID: 1335839539}
   - component: {fileID: 1335839540}
   m_Layer: 0
   m_Name: AR Session Origin
@@ -493,21 +477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1335839539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335839533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 446fc7fee4cf2ad4daa02222a84869c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 6562802905340916462, guid: f87dd2359ba946141af737fcd7366b3a,
-    type: 3}
-  m_MaxNumberOfObjectsToPlace: 1
 --- !u!114 &1335839540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -587,7 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ImageTrackingObjectManager: {fileID: 1875185602}
-  m_SumPrefab: {fileID: 5865803188502891285, guid: a1051bd7dc3b148fab3e3dea8232ebde,
+  m_SumPrefab: {fileID: 7656749359858268736, guid: 45ae871e18cb54353b232c955da9fdca,
     type: 3}
 --- !u!1 &2146458540
 GameObject:
@@ -671,7 +640,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_CoachingOverlay
       value: 
-      objectReference: {fileID: 427002221}
+      objectReference: {fileID: 0}
     - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_ARSessionOrigin
