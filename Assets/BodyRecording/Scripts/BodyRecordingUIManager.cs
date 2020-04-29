@@ -9,14 +9,14 @@ public class BodyRecordingUIManager : MonoBehaviour
     ARHumanBodyManager m_HumanBodyManager;
 
     [SerializeField]
-    GameObject m_BodyRecordingUI;
+    GameObject m_BodyTrackingUI;
 
     [SerializeField]
-    GameObject m_BodyPlacingUI;
+    GameObject m_WorldTrackingUI;
 
     [SerializeField]
     Button m_AnimationPlayButton;
-
+    
     BodyPlayback m_BodyPlayback;
     
     
@@ -42,5 +42,17 @@ public class BodyRecordingUIManager : MonoBehaviour
     {
         m_BodyPlayback = FindObjectOfType<BodyPlayback>();
         m_AnimationPlayButton.onClick.AddListener(m_BodyPlayback.AnimationToggle);
+    }
+
+    public void ShowWorldTrackingUI()
+    {
+        m_BodyTrackingUI.SetActive(false);
+        m_WorldTrackingUI.SetActive(true);
+    }
+
+    public void ShowBodyTrackingUI()
+    {
+        m_WorldTrackingUI.SetActive(false);
+        m_BodyTrackingUI.SetActive(true);
     }
 }
