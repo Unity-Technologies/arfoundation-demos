@@ -12,14 +12,9 @@ public class TrackingManager : MonoBehaviour
         WorldTracking
     }
 
-    public CurrentTrackingState TrackingState;
-
     [SerializeField]
-    ARSession m_Session;
-
-    [SerializeField]
-    ARSessionOrigin m_SessionOrigin;
-
+    CurrentTrackingState m_TrackingState;
+    
     [SerializeField]
     ARPlaneManager m_PlaneManager;
 
@@ -39,8 +34,12 @@ public class TrackingManager : MonoBehaviour
     {
         SwitchTracking(CurrentTrackingState.WorldTracking);
     }
-    
-    
+
+    public void SwitchToBodyTracking()
+    {
+        SwitchTracking(CurrentTrackingState.BodyTracking);
+    }
+
     void SwitchTracking(CurrentTrackingState newTrackingState)
     {
         if (newTrackingState == CurrentTrackingState.BodyTracking)
@@ -56,6 +55,9 @@ public class TrackingManager : MonoBehaviour
             m_PlaceObjectsOnPlane.enabled = false;
 
             m_HumanBodyManager.enabled = true;
+            m_TrackingState = CurrentTrackingState.BodyTracking;
+            
+            //TODO destroy placed object
         }
         else
         {
@@ -65,9 +67,14 @@ public class TrackingManager : MonoBehaviour
             
             // enable subsystems for world tracking
             m_PlaneManager.enabled = true;
+            m_PlaneManager.SetTrackablesActive(true);
+            
             m_PointCloudManager.enabled = true;
+            m_PointCloudManager.SetTrackablesActive(true);
+            
             m_RaycastManager.enabled = true;
             m_PlaceObjectsOnPlane.enabled = true;
+            m_TrackingState = CurrentTrackingState.WorldTracking;
         }
     }
 }

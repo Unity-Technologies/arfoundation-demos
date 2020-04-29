@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using Random = UnityEngine.Random;
 
 public class BodyRuntimeRecorder : MonoBehaviour
 {
-    [SerializeField]
-    Material[] m_Materials;
-
     bool m_IsRecording = false;
     bool m_FirstRotation = false;
     int m_CurrentJoint = 0;
@@ -18,40 +13,35 @@ public class BodyRuntimeRecorder : MonoBehaviour
     
     
     List<Vector3> m_JointPositions;
+
+    public List<Vector3> JointPositions
+    {
+        get => m_JointPositions;
+        set => m_JointPositions = value;
+    }
+    
     List<Quaternion> m_JointRotations;
 
-    public List<Vector3> JointPositions => m_JointPositions;
-    public List<Quaternion> JointRotations => m_JointRotations;
-    
-    
-    public event Action dataRecorded;
+    public List<Quaternion> JointRotations
+    {
+        get => m_JointRotations;
+        set => m_JointRotations = value;
+    }
 
+    public event Action dataRecorded;
 
     [SerializeField]
     ARHumanBodyManager m_HumanBodyManager;
 
-    JointHandler m_ActiveTrackedBodyJoints;
+    public ARHumanBodyManager humanBodyManager
+    {
+        get => m_HumanBodyManager;
+        set => m_HumanBodyManager = value;
+    }
 
+    JointHandler m_ActiveTrackedBodyJoints;
     static int s_TrackedBodyJointCount = 92; // 91 + root parent
     
-    JointHandler m_JointHandler;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     void OnEnable()
     {
         m_HumanBodyManager.humanBodiesChanged += HumanBodyManagerOnhumanBodiesChanged;
@@ -66,13 +56,11 @@ public class BodyRuntimeRecorder : MonoBehaviour
     {
         if (bodyChangeEventArgs.added.Count > 0)
         {
-            m_BodyAnchorPose = bodyChangeEventArgs.added[0].pose;
             m_ActiveTrackedBodyJoints = bodyChangeEventArgs.added[0].transform.GetChild(0).GetComponent<JointHandler>();
         }
 
         if (bodyChangeEventArgs.updated.Count > 0)
         {
-            m_BodyAnchorPose = bodyChangeEventArgs.updated[0].pose;
             if (m_ActiveTrackedBodyJoints == null)
             {
                 m_ActiveTrackedBodyJoints = bodyChangeEventArgs.updated[0].transform.GetChild(0).GetComponent<JointHandler>();
@@ -107,20 +95,6 @@ public class BodyRuntimeRecorder : MonoBehaviour
                     m_JointRotations.Add(m_ActiveTrackedBodyJoints.Joints[i].localRotation);
                 }
             }
-            
-            
-            /*
-            // store anchor pose world position and rotation
-            m_JointPositions.Add(m_BodyAnchorPose.position);
-            m_JointRotations.Add(m_BodyAnchorPose.rotation);
-            
-            // offset by one to start storing local joints 
-            for (int i = 1; i < m_JointHandler.Joints.Count; i++)
-            {
-                m_JointPositions.Add(m_JointHandler.Joints[i].localPosition); 
-                m_JointRotations.Add(m_JointHandler.Joints[i].localRotation);
-            }
-            */
         }
         
         //m_RecordingIndicator.SetActive(m_IsRecording);

@@ -6,28 +6,21 @@ using UnityEngine;
 public class BodyPlayback : MonoBehaviour
 {
     [SerializeField]
-    bool m_InEditor = false;
+    bool m_InEditor;
 
-    public bool inEditor => m_InEditor;
+    public bool inEditor
+    {
+        get => m_InEditor;
+        set => m_InEditor = value;
+    }
 
     [SerializeField]
     bool m_PlayingAnimation = false;
-
-    /*
-    [SerializeField]
-    TranslucentImage m_AnimationImage;
-    */
-    [SerializeField]
-    TMP_Text m_ButtonText;
-
-    const float m_SelectedImageOn = 0.75f;
-    const float m_SelectedImageOff = 0.1f;
-    static readonly Color m_SelectedTextOff = Color.white;
-    static readonly Color m_SelectedTextOn = new Color(0.196f, 0.196f, 0.196f, 1.0f);
-    static readonly float m_TweenTime = 0.1f;
-
+    
     JointHandler m_JointHandler;
     BodyRuntimeRecorder m_BodyRuntimeRecorder;
+    
+    
     int m_JointIndex = 0;
     bool m_PlayingOneShot = false;
 
@@ -112,19 +105,6 @@ public class BodyPlayback : MonoBehaviour
     public void AnimationToggle()
     {
         m_PlayingAnimation = !m_PlayingAnimation;
-
-        /*
-        if (m_PlayingAnimation)
-        {
-            DOTween.To(() => m_AnimationImage.spriteBlending, x => m_AnimationImage.spriteBlending = x, m_SelectedImageOn, m_TweenTime);
-            DOTween.To(() => m_ButtonText.color, x => m_ButtonText.color = x, m_SelectedTextOn, m_TweenTime).OnComplete(()=>m_AnimationImage.SetAllDirty());
-        }
-        else
-        {
-            DOTween.To(() => m_AnimationImage.spriteBlending, x => m_AnimationImage.spriteBlending = x, m_SelectedImageOff, m_TweenTime);
-            DOTween.To(() => m_ButtonText.color, x => m_ButtonText.color = x, m_SelectedTextOff, m_TweenTime).OnComplete(()=>m_AnimationImage.SetAllDirty());
-        }
-        */
     }
 
     Vector3 CalculateAveragePosition(int rootIndex)

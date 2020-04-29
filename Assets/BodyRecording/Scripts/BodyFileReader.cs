@@ -6,6 +6,15 @@ using UnityEngine;
 public class BodyFileReader : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Path to folder that contains the BodyCaptureData.txt, must be in the Project's Asset folder")]
+    string m_CapturesFolderPath = "/Assets/BodyRecording/Captures/";
+
+    [SerializeField]
+    [Tooltip("File name of the captured data")]
+    string m_FileName = "BodyCaptureData";
+    
+    [SerializeField]
+    [Tooltip("postfix for more easily processing multiple captures")]
     string m_PostFilePath;
 
     BodyRuntimeRecorder m_BodyRuntimeRecorder;
@@ -14,12 +23,11 @@ public class BodyFileReader : MonoBehaviour
     
     public List<Vector3> positionValues => m_PositionValues;
     public List<Quaternion> rotationValues => m_RotationValues;
-    static string s_FilePath = "/DanWork/Captures/RecordedTransform";
     
     public void ProcessFile()
     {
         string line;
-        System.IO.StreamReader file = new System.IO.StreamReader(Application.dataPath + s_FilePath+m_PostFilePath+".txt"); //load text file with data
+        System.IO.StreamReader file = new System.IO.StreamReader(Application.dataPath + m_CapturesFolderPath+m_FileName+m_PostFilePath+".txt"); //load text file with data
         while ((line = file.ReadLine()) != null)
         { //while text exists.. repeat
 
@@ -40,6 +48,5 @@ public class BodyFileReader : MonoBehaviour
             m_RotationValues.Add(newROT);
         }
         file.Close();
-        Debug.Log("file processed");
     }
 }
