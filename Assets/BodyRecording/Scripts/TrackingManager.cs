@@ -45,7 +45,17 @@ public class TrackingManager : MonoBehaviour
     {
         if (newTrackingState == CurrentTrackingState.BodyTracking)
         {
+            // clean up tracked stuff
+            m_PlaneManager.SetTrackablesActive(false);
+            m_PlaneManager.enabled = false;
             
+            m_PointCloudManager.SetTrackablesActive(false);
+            m_PointCloudManager.enabled = false;
+
+            m_RaycastManager.enabled = false;
+            m_PlaceObjectsOnPlane.enabled = false;
+
+            m_HumanBodyManager.enabled = true;
         }
         else
         {

@@ -15,7 +15,7 @@ public class BodyFileWriter : MonoBehaviour
 
         if (m_BodyRuntimeRecorder == null)
         {
-            m_BodyRuntimeRecorder = BodyRuntimeRecorder.Instance;
+            //m_BodyRuntimeRecorder = BodyRuntimeRecorder.Instance;
         }
     }
 

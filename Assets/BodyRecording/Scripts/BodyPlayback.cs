@@ -33,15 +33,17 @@ public class BodyPlayback : MonoBehaviour
 
     List<Vector3> m_JointPositions;
     List<Quaternion> m_JointRotations;
+    
     void OnEnable()
     {
         m_JointHandler = GetComponent<JointHandler>();
         m_JointHandler.GetJoints();
 
+        m_BodyRuntimeRecorder = FindObjectOfType<BodyRuntimeRecorder>();
+
         // AR Playback
         if (!m_InEditor)
         {
-            m_BodyRuntimeRecorder = BodyRuntimeRecorder.Instance;
             m_JointPositions = m_BodyRuntimeRecorder.JointPositions;
             m_JointRotations = m_BodyRuntimeRecorder.JointRotations;
         }

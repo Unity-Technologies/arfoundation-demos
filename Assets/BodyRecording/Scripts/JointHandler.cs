@@ -7,14 +7,11 @@ public class JointHandler : MonoBehaviour
 {
 
     [SerializeField]
-    Transform m_Root;
-
-    [SerializeField]
-    Transform m_RootParent;
+    Transform m_SkeletonRoot;
 
     public List<Transform> Joints { get; set; }
 
-    void Start()
+    void OnEnable()
     {
         GetJoints();
     }
@@ -24,7 +21,7 @@ public class JointHandler : MonoBehaviour
         Joints = new List<Transform>();
 
         Queue<Transform> nodes = new Queue<Transform>();
-        nodes.Enqueue(m_Root);
+        nodes.Enqueue(m_SkeletonRoot.parent);
         while (nodes.Count > 0)
         {
             Transform next = nodes.Dequeue();
@@ -35,16 +32,6 @@ public class JointHandler : MonoBehaviour
             
             Joints.Add(next);
         }
-        
-        List<Transform> m_NewJoints = Joints;
-        Joints = new List<Transform>();
-
-        Joints.Add(m_RootParent);
-        for (int i = 0; i < m_NewJoints.Count; i++)
-        {
-            Joints.Add(m_NewJoints[i]);
-        }
-        Debug.Log("Got all joints");
     }
     
 }
