@@ -16,13 +16,16 @@ public class BodyPlayback : MonoBehaviour
 
     [SerializeField]
     bool m_PlayingAnimation = false;
+
+    [SerializeField]
+    bool m_RecordToAnimationClip;
     
     JointHandler m_JointHandler;
     BodyRuntimeRecorder m_BodyRuntimeRecorder;
+    BodyEditorRecorder m_BodyEditorRecorder;
     
     
     int m_JointIndex = 0;
-    bool m_PlayingOneShot = false;
 
     List<Vector3> m_JointPositions;
     List<Quaternion> m_JointRotations;
@@ -43,10 +46,17 @@ public class BodyPlayback : MonoBehaviour
         // Editor processing, file playback
         else
         {
+            m_BodyEditorRecorder = GetComponent<BodyEditorRecorder>();
             BodyFileReader reader = GetComponent<BodyFileReader>();
             reader.ProcessFile();
             m_JointPositions = reader.positionValues;
             m_JointRotations = reader.rotationValues;
+
+            if (m_RecordToAnimationClip)
+            {
+                m_BodyEditorRecorder.RecordToggle();
+                m_PlayingAnimation = true;
+            }
         }
         
         SetBodyStartPose();
@@ -85,10 +95,10 @@ public class BodyPlayback : MonoBehaviour
             if (m_JointIndex == m_JointPositions.Count)
             {
                 m_JointIndex = 0;
-                if (m_InEditor && m_PlayingOneShot)
+                if (m_InEditor && m_RecordToAnimationClip)
                 {
                     m_PlayingAnimation = false;
-                    GetComponent<BodyEditorRecorder>().RecordToggle();
+                    m_BodyEditorRecorder.RecordToggle();
                 }
             }
         }
@@ -118,11 +128,5 @@ public class BodyPlayback : MonoBehaviour
         }
 
         return retVal / numberOfCapturedPositions;
-    }
-
-    public void PlayAnimationOneShot()
-    {
-        m_PlayingAnimation = true;
-        m_PlayingOneShot = true;
     }
 }

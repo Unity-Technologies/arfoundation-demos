@@ -113,11 +113,10 @@ public class BodyRuntimeRecorder : MonoBehaviour
         }
     }
 
-    public bool HasData()
+    public void ForceStopRecording()
     {
-        return m_JointPositions != null && m_JointPositions.Count > 0;
+        m_IsRecording = false;
     }
-    
 }
 
 

@@ -30,6 +30,11 @@ public class TrackingManager : MonoBehaviour
     [SerializeField]
     PlaceObjectsOnPlane m_PlaceObjectsOnPlane;
 
+    [SerializeField]
+    UIManager m_UIManager;
+
+    bool m_FirstWorldTracking = true;
+
     public void SwitchToWorldTracking()
     {
         SwitchTracking(CurrentTrackingState.WorldTracking);
@@ -75,6 +80,20 @@ public class TrackingManager : MonoBehaviour
             m_RaycastManager.enabled = true;
             m_PlaceObjectsOnPlane.enabled = true;
             m_TrackingState = CurrentTrackingState.WorldTracking;
+
+            // show instructional UI is enabling world tracking for the first time
+            if (m_FirstWorldTracking)
+            {
+                // uses m_UIManager 
+                if (m_UIManager)
+                {
+                    m_UIManager.AddToQueue(new UXHandle(UIManager.InstructionUI.CrossPlatformFindAPlane, UIManager.InstructionGoals.FoundAPlane));
+                    m_UIManager.AddToQueue(new UXHandle(UIManager.InstructionUI.TapToPlace, UIManager.InstructionGoals.PlacedAnObject));
+                }
+                
+                
+                m_FirstWorldTracking = false;
+            }
         }
     }
 }

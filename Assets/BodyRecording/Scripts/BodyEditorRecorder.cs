@@ -36,6 +36,7 @@ public class BodyEditorRecorder : MonoBehaviour
         {
             m_Recorder.SaveToClip(m_Clip);
             m_Recorder.ResetRecording();
+            Debug.Log("Animation Capture Complete");
         }
     }
 #endif
@@ -43,11 +44,5 @@ public class BodyEditorRecorder : MonoBehaviour
     public void RecordToggle()
     {
         m_Record = !m_Record;
-    }
-
-    public void RecordClip()
-    {
-        m_Record = true;
-        m_BodyPlayback.PlayAnimationOneShot();
     }
 }
