@@ -62,7 +62,11 @@ public class TrackingManager : MonoBehaviour
             m_HumanBodyManager.enabled = true;
             m_TrackingState = CurrentTrackingState.BodyTracking;
             
-            //TODO destroy placed object
+            // destroy object that was placed in the scene
+            if (FindObjectOfType<JointHandler>())
+            {
+                Destroy(FindObjectOfType<JointHandler>().gameObject);
+            }
         }
         else
         {
@@ -90,8 +94,6 @@ public class TrackingManager : MonoBehaviour
                     m_UIManager.AddToQueue(new UXHandle(UIManager.InstructionUI.CrossPlatformFindAPlane, UIManager.InstructionGoals.FoundAPlane));
                     m_UIManager.AddToQueue(new UXHandle(UIManager.InstructionUI.TapToPlace, UIManager.InstructionGoals.PlacedAnObject));
                 }
-                
-                
                 m_FirstWorldTracking = false;
             }
         }

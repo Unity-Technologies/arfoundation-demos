@@ -44,6 +44,12 @@ public class PlaceObjectsOnPlane : MonoBehaviour
         m_RaycastManager = GetComponent<ARRaycastManager>();
     }
 
+    void OnDisable()
+    {
+        // reset objects when component is disabled
+        m_NumberOfPlacedObjects = 0;
+    }
+
     void Update()
     {
         if (Input.touchCount > 0)
