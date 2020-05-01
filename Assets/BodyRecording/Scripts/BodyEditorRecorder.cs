@@ -6,12 +6,18 @@ using UnityEditor.Animations;
 public class BodyEditorRecorder : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Unity animation clip that will be OVERWRITTEN and written to if 'Record to Animation clip' is true in Body Playback component")]
     AnimationClip m_Clip;
+
+    public AnimationClip clip
+    {
+        get => m_Clip;
+        set => m_Clip = value;
+    }
+
     bool m_Record = false;
     BodyPlayback m_BodyPlayback;
     
-    
-
 #if UNITY_EDITOR
     GameObjectRecorder m_Recorder;
 

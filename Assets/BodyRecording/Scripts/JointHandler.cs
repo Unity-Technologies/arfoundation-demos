@@ -5,10 +5,16 @@ using UnityEngine;
 
 public class JointHandler : MonoBehaviour
 {
-
     [SerializeField]
+    [Tooltip("Root joint at root of rig skeleton, should be named Root_1")]
     Transform m_SkeletonRoot;
 
+    public Transform skeletonRoot
+    {
+        get => m_SkeletonRoot;
+        set => m_SkeletonRoot = value;
+    }
+    
     public List<Transform> Joints { get; set; }
 
     void OnEnable()

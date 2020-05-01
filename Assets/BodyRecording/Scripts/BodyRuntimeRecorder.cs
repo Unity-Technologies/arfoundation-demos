@@ -6,12 +6,7 @@ using UnityEngine.XR.ARFoundation;
 public class BodyRuntimeRecorder : MonoBehaviour
 {
     bool m_IsRecording = false;
-    bool m_FirstRotation = false;
-    int m_CurrentJoint = 0;
-    Pose m_BodyAnchorPose;
-    Quaternion m_AlightmentRotation;
-    
-    
+
     List<Vector3> m_JointPositions;
 
     public List<Vector3> JointPositions
@@ -31,8 +26,9 @@ public class BodyRuntimeRecorder : MonoBehaviour
     public event Action dataRecorded;
 
     [SerializeField]
+    [Tooltip("Human body manager reference")]
     ARHumanBodyManager m_HumanBodyManager;
-
+    
     public ARHumanBodyManager humanBodyManager
     {
         get => m_HumanBodyManager;
@@ -40,8 +36,8 @@ public class BodyRuntimeRecorder : MonoBehaviour
     }
 
     JointHandler m_ActiveTrackedBodyJoints;
-    static int s_TrackedBodyJointCount = 92; // 91 + root parent
-    
+    const int k_TrackedBodyJointCount = 92; // 91 + root parent
+
     void OnEnable()
     {
         m_HumanBodyManager.humanBodiesChanged += HumanBodyManagerOnhumanBodiesChanged;
@@ -80,7 +76,7 @@ public class BodyRuntimeRecorder : MonoBehaviour
     {
         if (m_IsRecording)
         {
-            for (int i = 0; i < s_TrackedBodyJointCount; i++)
+            for (int i = 0; i < k_TrackedBodyJointCount; i++)
             {
                 if (i == 0)
                 {

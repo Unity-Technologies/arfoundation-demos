@@ -8,14 +8,32 @@ public class BodyFileReader : MonoBehaviour
     [SerializeField]
     [Tooltip("Path to folder that contains the BodyCaptureData.txt, must be in the Project's Asset folder")]
     string m_CapturesFolderPath = "/Assets/BodyRecording/Captures/";
+    
+    public string capturesFolderPath
+    {
+        get => m_CapturesFolderPath;
+        set => m_CapturesFolderPath = value;
+    }
 
     [SerializeField]
     [Tooltip("File name of the captured data")]
     string m_FileName = "BodyCaptureData";
     
+    public string fileName
+    {
+        get => m_FileName;
+        set => m_FileName = value;
+    }
+
     [SerializeField]
     [Tooltip("postfix for more easily processing multiple captures")]
     string m_PostFilePath;
+
+    public string postFilePath
+    {
+        get => m_PostFilePath;
+        set => m_PostFilePath = value;
+    }
 
     BodyRuntimeRecorder m_BodyRuntimeRecorder;
     List<Vector3> m_PositionValues = new List<Vector3>();

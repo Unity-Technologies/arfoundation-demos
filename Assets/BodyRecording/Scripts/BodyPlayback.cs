@@ -6,6 +6,7 @@ using UnityEngine;
 public class BodyPlayback : MonoBehaviour
 {
     [SerializeField]
+    [Tooltip("Is this playback happening in AR or In the Editor")]
     bool m_InEditor;
 
     public bool inEditor
@@ -15,16 +16,29 @@ public class BodyPlayback : MonoBehaviour
     }
 
     [SerializeField]
+    [Tooltip("True if the animation is currently playing")]
     bool m_PlayingAnimation = false;
+    
+    public bool playingAnimation
+    {
+        get => m_PlayingAnimation;
+        set => m_PlayingAnimation = value;
+    }
 
     [SerializeField]
+    [Tooltip("True if you want to save the captured animation to a Unity animation clip")]
     bool m_RecordToAnimationClip;
+
+    public bool recordToAnimationClip
+    {
+        get => m_RecordToAnimationClip;
+        set => m_RecordToAnimationClip = value;
+    }
     
     JointHandler m_JointHandler;
     BodyRuntimeRecorder m_BodyRuntimeRecorder;
     BodyEditorRecorder m_BodyEditorRecorder;
-    
-    
+
     int m_JointIndex = 0;
 
     List<Vector3> m_JointPositions;

@@ -13,26 +13,75 @@ public class TrackingManager : MonoBehaviour
     }
 
     [SerializeField]
+    [Tooltip("Current tracking state")]
     CurrentTrackingState m_TrackingState;
+
+    public CurrentTrackingState trackingState
+    {
+        get => m_TrackingState;
+        set => m_TrackingState = value;
+    }
     
     [SerializeField]
+    [Tooltip("Plane manager reference")]
     ARPlaneManager m_PlaneManager;
+    
+    public ARPlaneManager planeManager
+    {
+        get => m_PlaneManager;
+        set => m_PlaneManager = value;
+    }
 
     [SerializeField]
+    [Tooltip("PointCloud manager reference")]
     ARPointCloudManager m_PointCloudManager;
+    
+    public ARPointCloudManager pointCloudManager
+    {
+        get => m_PointCloudManager;
+        set => m_PointCloudManager = value;
+    }
 
     [SerializeField]
+    [Tooltip("Raycast manager reference")]
     ARRaycastManager m_RaycastManager;
+    
+    public ARRaycastManager raycastManager
+    {
+        get => m_RaycastManager;
+        set => m_RaycastManager = value;
+    }
 
     [SerializeField]
+    [Tooltip("Human body manager reference")]
     ARHumanBodyManager m_HumanBodyManager;
+    
+    public ARHumanBodyManager humanBodyManager
+    {
+        get => m_HumanBodyManager;
+        set => m_HumanBodyManager = value;
+    }
 
     [SerializeField]
+    [Tooltip("Place objects on plane reference")]
     PlaceObjectsOnPlane m_PlaceObjectsOnPlane;
+
+    public PlaceObjectsOnPlane placeObjectsOnPlane
+    {
+        get => m_PlaceObjectsOnPlane;
+        set => m_PlaceObjectsOnPlane = value;
+    }
 
     /*
     [SerializeField]
+    [Tooltip("UI manager reference")]
     UIManager m_UIManager;
+    
+    public UIManager uiManager
+    {
+        get => m_UIManger;
+        set => m_UIManger = value;
+    }
     
     bool m_FirstWorldTracking = true;
     */
@@ -86,6 +135,8 @@ public class TrackingManager : MonoBehaviour
             m_RaycastManager.enabled = true;
             m_PlaceObjectsOnPlane.enabled = true;
             m_TrackingState = CurrentTrackingState.WorldTracking;
+            
+            Debug.Log("thing");
 
             // show instructional UI is enabling world tracking for the first time
             /*
