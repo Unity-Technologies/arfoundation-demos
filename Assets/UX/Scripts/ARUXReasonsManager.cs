@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
@@ -85,11 +88,17 @@ public class ARUXReasonsManager : MonoBehaviour
         set => m_NoneSprite = value;
     }
 
+    [SerializeField]
+    LocalizationManager m_LocalizationManager;
+
+    [SerializeField]
+    bool m_LocalizeText = true;
+
     NotTrackingReason m_CurrentReason;
     bool m_SessionTracking;
 
-    const string k_InitRelocalText = "Initializing augmented reality";
-    const string k_MotionText = "Try moving at a slower pace";
+    const string k_InitRelocalText = "Initializing augmented reality.";
+    const string k_MotionText = "Try moving at a slower pace.";
     const string k_LightText = "It’s too dark. Try going to a more well lit area.";
     const string k_FeaturesText = "Look for more textures or details in the area.";
     const string k_UnsupportedText = "AR content is not supported.";
@@ -145,27 +154,69 @@ public class ARUXReasonsManager : MonoBehaviour
         {
             case NotTrackingReason.Initializing:
             case NotTrackingReason.Relocalizing:
-                m_ReasonDisplayText.text = k_InitRelocalText;
+                if (m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedInit;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_InitRelocalText;
+                }
                 m_ReasonIcon.sprite = m_InitRelocalSprite;
                 break;
             case NotTrackingReason.ExcessiveMotion:
-                m_ReasonDisplayText.text = k_MotionText;
+                if (m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedMotion;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_MotionText;
+                }
                 m_ReasonIcon.sprite = m_MotionSprite;
                 break;
             case NotTrackingReason.InsufficientLight:
-                m_ReasonDisplayText.text = k_LightText;
+                if(m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedLight;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_LightText;
+                }
                 m_ReasonIcon.sprite = m_LightSprite;
                 break;
             case NotTrackingReason.InsufficientFeatures:
-                m_ReasonDisplayText.text = k_FeaturesText;
+                if (m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedFeatures;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_FeaturesText;
+                }
                 m_ReasonIcon.sprite = m_FeaturesSprite;
                 break;
             case NotTrackingReason.Unsupported:
-                m_ReasonDisplayText.text = k_UnsupportedText;
+                if (m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedUnsupported;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_UnsupportedText;
+                }
                 m_ReasonIcon.sprite = m_UnsupportedSprite;
                 break;
             case NotTrackingReason.None:
-                m_ReasonDisplayText.text = k_NoneText;
+                if (m_LocalizeText)
+                {
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedNone;
+                }
+                else
+                {
+                    m_ReasonDisplayText.text = k_NoneText;
+                }
                 m_ReasonIcon.sprite = m_NoneSprite;
                 break;
         }
