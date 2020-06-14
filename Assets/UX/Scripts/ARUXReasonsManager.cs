@@ -8,6 +8,15 @@ using UnityEngine.XR.ARSubsystems;
 public class ARUXReasonsManager : MonoBehaviour
 {
     [SerializeField]
+    bool m_ShowNotTrackingReasons = true;
+    
+    public bool showNotTrackingReasons
+    {
+        get => m_ShowNotTrackingReasons;
+        set => m_ShowNotTrackingReasons = value;
+    }
+
+    [SerializeField]
     TMP_Text m_ReasonDisplayText;
 
     public TMP_Text reasonDisplayText
