@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
@@ -14,16 +15,76 @@ public class ARUXReasonsManager : MonoBehaviour
         get => m_ReasonDisplayText;
         set => m_ReasonDisplayText = value;
     }
-    
+
+    [SerializeField]
+    GameObject m_ReasonParent;
+
+    [SerializeField]
+    Image m_ReasonIcon;
+
+    [SerializeField]
+    Sprite m_InitRelocalSprite;
+
+    public Sprite initRelocalSprite
+    {
+        get => m_InitRelocalSprite;
+        set => m_InitRelocalSprite = value;
+    }
+
+    [SerializeField]
+    Sprite m_MotionSprite;
+
+    public Sprite motionSprite
+    {
+        get => m_MotionSprite;
+        set => m_MotionSprite = value;
+    }
+
+    [SerializeField]
+    Sprite m_LightSprite;
+
+    public Sprite lightSprite
+    {
+        get => m_LightSprite;
+        set => m_LightSprite = value;
+    }
+
+    [SerializeField]
+    Sprite m_FeaturesSprite;
+
+    public Sprite featuresSprite
+    {
+        get => m_FeaturesSprite;
+        set => m_FeaturesSprite = value;
+    }
+
+    [SerializeField]
+    Sprite m_UnsupportedSprite;
+
+    public Sprite unsupportedSprite
+    {
+        get => m_UnsupportedSprite;
+        set => m_UnsupportedSprite = value;
+    }
+
+    [SerializeField]
+    Sprite m_NoneSprite;
+
+    public Sprite noneSprite
+    {
+        get => m_NoneSprite;
+        set => m_NoneSprite = value;
+    }
+
     NotTrackingReason m_CurrentReason;
     bool m_SessionTracking;
 
-    const string k_InitRelocalText = "Session Initializing";
-    const string k_MotionText = "Move the device slower";
-    const string k_LightText = "Move to a brighter area";
-    const string k_Features = "Not enough features";
-    const string k_Unsupported = "AR is not supported on this device";
-    const string k_None = "Error, not tracking";
+    const string k_InitRelocalText = "Initializing augmented reality";
+    const string k_MotionText = "Try moving at a slower pace";
+    const string k_LightText = "It’s too dark. Try going to a more well lit area.";
+    const string k_FeaturesText = "Look for more textures or details in the area.";
+    const string k_UnsupportedText = "AR content is not supported.";
+    const string k_NoneText = "Wait for tracking to begin.";
     
     void OnEnable()
     {
@@ -41,7 +102,7 @@ public class ARUXReasonsManager : MonoBehaviour
         {
             if (m_ReasonDisplayText.gameObject.activeSelf)
             {
-                m_ReasonDisplayText.gameObject.SetActive(false);
+                m_ReasonParent.SetActive(false);
             }
         }
     }
@@ -53,38 +114,40 @@ public class ARUXReasonsManager : MonoBehaviour
 
     void ShowReason()
     {
-        m_ReasonDisplayText.gameObject.SetActive(true);
-        m_ReasonDisplayText.text = ReasonString();
+        m_ReasonParent.SetActive(true);
+        SetReason();
     }
 
-    string ReasonString()
+    void SetReason()
     {
-        string retVal = String.Empty;
-
         switch (m_CurrentReason)
         {
             case NotTrackingReason.Initializing:
             case NotTrackingReason.Relocalizing:
-                retVal = k_InitRelocalText; 
+                m_ReasonDisplayText.text = k_InitRelocalText;
+                m_ReasonIcon.sprite = m_InitRelocalSprite;
                 break;
             case NotTrackingReason.ExcessiveMotion:
-                retVal = k_MotionText;
+                m_ReasonDisplayText.text = k_MotionText;
+                m_ReasonIcon.sprite = m_MotionSprite;
                 break;
             case NotTrackingReason.InsufficientLight:
-                retVal = k_LightText;
+                m_ReasonDisplayText.text = k_LightText;
+                m_ReasonIcon.sprite = m_LightSprite;
                 break;
             case NotTrackingReason.InsufficientFeatures:
-                retVal = k_Features;
+                m_ReasonDisplayText.text = k_FeaturesText;
+                m_ReasonIcon.sprite = m_FeaturesSprite;
                 break;
             case NotTrackingReason.Unsupported:
-                retVal = k_Unsupported;
+                m_ReasonDisplayText.text = k_UnsupportedText;
+                m_ReasonIcon.sprite = m_UnsupportedSprite;
                 break;
             case NotTrackingReason.None:
-                retVal = k_None;
+                m_ReasonDisplayText.text = k_NoneText;
+                m_ReasonIcon.sprite = m_NoneSprite;
                 break;
         }
-
-        return retVal;
     }
     
     
