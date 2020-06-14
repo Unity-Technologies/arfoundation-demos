@@ -98,20 +98,32 @@ public class ARUXReasonsManager : MonoBehaviour
     void OnEnable()
     {
         ARSession.stateChanged += ARSessionOnstateChanged;
+        if (!m_ShowNotTrackingReasons)
+        {
+            m_ReasonParent.SetActive(false);
+        }
+    }
+
+    void OnDisable()
+    {
+        ARSession.stateChanged -= ARSessionOnstateChanged;
     }
 
     void Update()
     {
-        if (!m_SessionTracking)
+        if (m_ShowNotTrackingReasons)
         {
-            m_CurrentReason = ARSession.notTrackingReason;
-            ShowReason();
-        }
-        else
-        {
-            if (m_ReasonDisplayText.gameObject.activeSelf)
+            if (!m_SessionTracking)
             {
-                m_ReasonParent.SetActive(false);
+                m_CurrentReason = ARSession.notTrackingReason;
+                ShowReason();
+            }
+            else
+            {
+                if (m_ReasonDisplayText.gameObject.activeSelf)
+                {
+                    m_ReasonParent.SetActive(false);
+                }
             }
         }
     }
