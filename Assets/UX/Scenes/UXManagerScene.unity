@@ -695,6 +695,11 @@ PrefabInstance:
       propertyPath: m_LocalizeText
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: CurrentLocalizedLanguage
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5977163238016480453, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_Name
