@@ -89,6 +89,24 @@ public class LocalizationManager : MonoBehaviour
     }
 
     [SerializeField]
+    TMP_FontAsset m_TamilFont;
+
+    public TMP_FontAsset tamilFont
+    {
+        get => m_TamilFont;
+        set => m_TamilFont = value;
+    }
+
+    [SerializeField]
+    TMP_FontAsset m_HindiFont;
+    
+    public TMP_FontAsset hindiFont
+    {
+        get => m_HindiFont;
+        set => m_HindiFont = value;
+    }
+
+    [SerializeField]
     TMP_Text m_InstructionText;
 
     public TMP_Text instructionText
@@ -105,6 +123,8 @@ public class LocalizationManager : MonoBehaviour
         get => m_ReasonText;
         set => m_ReasonText = value;
     }
+
+    const int k_MaxAutoSizeSC = 70;
 
     IEnumerator Start()
     {
@@ -213,12 +233,21 @@ public class LocalizationManager : MonoBehaviour
         {
             case SupportedLanguages.ChineseSimplified:
                 m_FontToSet = m_SimplifiedChineseFont;
+                // custom size adjustment for legibility
+                m_InstructionText.fontSizeMax = k_MaxAutoSizeSC;
+                m_ReasonText.fontSizeMax = k_MaxAutoSizeSC;
                 break;
             case SupportedLanguages.Japanese:
                 m_FontToSet = m_JapaneseFont;
                 break;
             case SupportedLanguages.Korean:
                 m_FontToSet = m_KoreanFont;
+                break;
+            case SupportedLanguages.Tamil:
+                m_FontToSet = m_TamilFont;
+                break;
+            case SupportedLanguages.Hindi:
+                m_FontToSet = m_HindiFont;
                 break;
         }
 

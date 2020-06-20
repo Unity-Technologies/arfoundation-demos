@@ -715,6 +715,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 249903488, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 249903488, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
+      propertyPath: m_fontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 249903488, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5977163236686653921, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_lineSpacingMax
@@ -728,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: CurrentLocalizedLanguage
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
@@ -744,19 +756,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_JapaneseFont
       value: 
-      objectReference: {fileID: 11400000, guid: cdb088147c9ed4bb8ab98a33b8db1621,
+      objectReference: {fileID: 11400000, guid: 64338df9efb4345d0a24597a8d3233ba,
         type: 2}
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_KoreanFont
       value: 
-      objectReference: {fileID: 11400000, guid: 4897fa2674fae4b8cbaf5f5d0da2caaf,
+      objectReference: {fileID: 11400000, guid: 829cdce4ed81e4e639f139d85fa8443c,
         type: 2}
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_SimplifiedChineseFont
       value: 
-      objectReference: {fileID: 11400000, guid: c0eea587536634f07b5b907b5c6ee1a8,
+      objectReference: {fileID: 11400000, guid: 64af28ea8713946898d211a2c9632b53,
+        type: 2}
+    - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_TamilFont
+      value: 
+      objectReference: {fileID: 11400000, guid: eed9993769ff94f66aa69e85244c86c9,
+        type: 2}
+    - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_HindiFont
+      value: 
+      objectReference: {fileID: 11400000, guid: bc5b90a90e9fe4263aa14c32d1ee9382,
         type: 2}
     - target: {fileID: 5977163238016480453, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
