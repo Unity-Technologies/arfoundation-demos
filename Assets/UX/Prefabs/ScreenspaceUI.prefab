@@ -96,9 +96,9 @@ MonoBehaviour:
   m_fontSize: 48
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 48
   m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 2
@@ -565,7 +565,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -870}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 680, y: 140}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5977163236686653920
 CanvasRenderer:
@@ -626,9 +626,9 @@ MonoBehaviour:
   m_fontSize: 48
   m_fontSizeBase: 48
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 48
   m_fontStyle: 0
   m_textAlignment: 514
   m_characterSpacing: 2
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -661,7 +661,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -200, y: 0, z: -200, w: 3.350525}
+  m_margin: {x: -0.9393158, y: 0, z: 0.74786377, w: 3.350525}
   m_textInfo:
     textComponent: {fileID: 5977163236686653921}
     characterCount: 15
@@ -986,7 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6f51f6bfbde451a92c25e3a2a6792b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLocalizedLanguage: 10
+  CurrentLocalizedLanguage: 1
   localizedInit: 
   localizedMotion: 
   localizedLight: 
