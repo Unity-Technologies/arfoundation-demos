@@ -740,7 +740,7 @@ PrefabInstance:
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: CurrentLocalizedLanguage
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
