@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -60,6 +61,51 @@ public class LocalizationManager : MonoBehaviour
 
     public bool localizationComplete => m_LocalizationComplete;
 
+    [SerializeField]
+    TMP_FontAsset m_SimplifiedChineseFont;
+
+    public TMP_FontAsset simplifiedChineseFont
+    {
+        get => m_SimplifiedChineseFont;
+        set => m_SimplifiedChineseFont = value;
+    }
+
+    [SerializeField]
+    TMP_FontAsset m_JapaneseFont;
+
+    public TMP_FontAsset japaneseFont
+    {
+        get => m_JapaneseFont;
+        set => m_JapaneseFont = value;
+    }
+
+    [SerializeField]
+    TMP_FontAsset m_KoreanFont;
+    
+    public TMP_FontAsset koreanFont
+    {
+        get => m_KoreanFont;
+        set => m_KoreanFont = value;
+    }
+
+    [SerializeField]
+    TMP_Text m_InstructionText;
+
+    public TMP_Text instructionText
+    {
+        get => m_InstructionText;
+        set => m_InstructionText = value;
+    }
+
+    [SerializeField]
+    TMP_Text m_ReasonText;
+
+    public TMP_Text reasonText
+    {
+        get => m_ReasonText;
+        set => m_ReasonText = value;
+    }
+
     IEnumerator Start()
     {
         yield return LocalizationSettings.InitializationOperation;
@@ -68,6 +114,8 @@ public class LocalizationManager : MonoBehaviour
         LocalizationSettings.AvailableLocales.Locales.Sort();
 
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)CurrentLocalizedLanguage];
+
+        SwapFonts(CurrentLocalizedLanguage);
 
         // get all values at start, dynamic localization (changing language at runtime) not supported with this structure
         var m_Init = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(k_ReasonTable, k_InitializeKey);
@@ -155,5 +203,29 @@ public class LocalizationManager : MonoBehaviour
         }
 
         m_LocalizationComplete = true;
+    }
+
+    void SwapFonts(SupportedLanguages selectedLanguage)
+    {
+        TMP_FontAsset m_FontToSet = null;
+        // only swap fonts for Simplified Chinese, Japanese and Korean
+        switch (selectedLanguage)
+        {
+            case SupportedLanguages.ChineseSimplified:
+                m_FontToSet = m_SimplifiedChineseFont;
+                break;
+            case SupportedLanguages.Japanese:
+                m_FontToSet = m_JapaneseFont;
+                break;
+            case SupportedLanguages.Korean:
+                m_FontToSet = m_KoreanFont;
+                break;
+        }
+
+        if (m_FontToSet != null)
+        {
+            m_InstructionText.font = m_FontToSet;
+            m_ReasonText.font = m_FontToSet;
+        }
     }
 }
