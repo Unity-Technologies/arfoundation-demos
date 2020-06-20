@@ -10,36 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: UX_it
+  m_Name: UX_ko
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: it
+    m_Code: ko
   m_SharedData: {fileID: 11400000, guid: b07fe4fd9d1db464db74a7ceb07dc23e, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
   - m_Id: 3
-    m_Localized: Trova un Corpo da Tracciare
+    m_Localized: "\uCD94\uC801\uD560 \uC2E0\uCCB4\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 4
-    m_Localized: Trova una Faccia da Tracciare
+    m_Localized: "\uCD94\uC801\uD560 \uC5BC\uAD74\uC744 \uCC3E\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: Trova un'Immagine da Tracciare
+    m_Localized: "\uCD94\uC801\uD560 \uC774\uBBF8\uC9C0\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 6
-    m_Localized: Trova un Oggetto da Tracciare
+    m_Localized: "\uCD94\uC801\uD560 \uC624\uBE0C\uC81D\uD2B8\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
     m_Metadata:
       m_Items: []
   - m_Id: 1
-    m_Localized: Muovi il Device Lentamente
+    m_Localized: "\uB514\uBC14\uC774\uC2A4\uB97C \uCC9C\uCC9C\uD788 \uC6C0\uC9C1\uC774\uC138\uC694."
     m_Metadata:
       m_Items: []
   - m_Id: 2
-    m_Localized: Fai Tap per Piazzare la AR
+    m_Localized: "\uD0ED\uC744 \uD558\uBA74 AR\uC744 \uC704\uCE58\uC2DC\uD0B5\uB2C8\uB2E4"
     m_Metadata:
       m_Items: []
   references:

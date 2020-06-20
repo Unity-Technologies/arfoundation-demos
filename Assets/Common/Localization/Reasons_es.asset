@@ -19,27 +19,27 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1
-    m_Localized: Inicializando realidad aumentada.
+    m_Localized: Realidad Aumentada inicializando.
     m_Metadata:
       m_Items: []
   - m_Id: 4
-    m_Localized: "Busque m\xE1s texturas o detalles en el \xE1rea."
+    m_Localized: "Busca m\xE1s detalles o texturas en el \xE1rea."
     m_Metadata:
       m_Items: []
   - m_Id: 2
-    m_Localized: "Intenta moverte a un ritmo m\xE1s lento."
+    m_Localized: "Intenta moverte m\xE1s despacio."
     m_Metadata:
       m_Items: []
   - m_Id: 3
-    m_Localized: "Est\xE1 muy oscuro. Intenta ir a un \xE1rea m\xE1s bien iluminada."
+    m_Localized: Hay muy poca luz. Intenta moverte a un lugar mejor iluminado.
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: El contenido de AR no es compatible.
+    m_Localized: Contenido AR no soportado.
     m_Metadata:
       m_Items: []
   - m_Id: 6
-    m_Localized: Espere a que comience el seguimiento.
+    m_Localized: Esperando a que inicie el rastreo.
     m_Metadata:
       m_Items: []
   references:

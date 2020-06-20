@@ -692,25 +692,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
-      propertyPath: m_ShowNotTrackingReasons
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
-      propertyPath: m_Initlocal.m_TableReference.m_TableCollectionName
-      value: GUID:e73347035ac044e20aec7d2527943a66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
-      propertyPath: m_Initlocal.m_TableEntryReference.m_KeyId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
       propertyPath: m_LocalizeText
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
-      propertyPath: m_LocalizationManager
-      value: 
-      objectReference: {fileID: 5977163237366113879}
     - target: {fileID: 5977163238016480453, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_Name
@@ -721,6 +705,11 @@ PrefabInstance:
       propertyPath: m_CoachingOverlay
       value: 
       objectReference: {fileID: 427002221}
+    - target: {fileID: 5977163238016480456, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
+        type: 3}
+      propertyPath: m_LocalizeText
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_ARSessionOrigin
@@ -788,84 +777,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
---- !u!1 &5977163237366113875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1208936382, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 5977163237366113874}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5977163237366113876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977163237366113875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:e73347035ac044e20aec7d2527943a66
-    m_TableEntryReference:
-      m_KeyId: 2
-      m_Key: 
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5977163237366113877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977163237366113875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: GUID:e73347035ac044e20aec7d2527943a66
-    m_TableEntryReference:
-      m_KeyId: 1
-      m_Key: 
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!1 &5977163237366113878 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5977163238016480453, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 5977163237366113874}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5977163237366113879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5977163237366113878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c6f51f6bfbde451a92c25e3a2a6792b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentLocalizedLanguage: 4
-  localizedInit: 
-  localizedMotion: 
-  localizedLight: 
-  localizedFeatures: 
-  localizedUnsupported: 
-  localizedNone: 
-  localizedMoveDevice: 
-  localizedTapToPlace: 
-  localizedBody: 
-  localizedFace: 
-  localizedImage: 
-  localizedObject: 

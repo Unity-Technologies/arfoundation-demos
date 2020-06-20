@@ -11,11 +11,19 @@ public class LocalizationManager : MonoBehaviour
 {
     public enum SupportedLanguages
     {
+        ChineseSimplified,
         English,
         French,
-        Italian,
         German,
-        Spanish
+        Hindi,
+        Italian,
+        Japanese,
+        Korean,
+        Portuguese,
+        Russian,
+        Spanish,
+        Tamil,
+        Telugu
     }
 
     public SupportedLanguages CurrentLocalizedLanguage;
@@ -48,12 +56,17 @@ public class LocalizationManager : MonoBehaviour
     public string localizedImage;
     public string localizedObject;
 
+    bool m_LocalizationComplete = false;
+
+    public bool localizationComplete => m_LocalizationComplete;
+
     IEnumerator Start()
     {
         yield return LocalizationSettings.InitializationOperation;
 
         // sort list of available languages to match the enum ordering
         LocalizationSettings.AvailableLocales.Locales.Sort();
+
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)CurrentLocalizedLanguage];
 
         // get all values at start, dynamic localization (changing language at runtime) not supported with this structure
@@ -140,5 +153,7 @@ public class LocalizationManager : MonoBehaviour
         {
             localizedObject = m_Object.Result;
         }
+
+        m_LocalizationComplete = true;
     }
 }

@@ -211,7 +211,7 @@ public class ARUXReasonsManager : MonoBehaviour
             case NotTrackingReason.None:
                 if (m_LocalizeText)
                 {
-                    m_ReasonDisplayText.text = m_LocalizationManager.localizedNone;
+                    m_ReasonDisplayText.text = m_LocalizationManager.localizedLight;
                 }
                 else
                 {

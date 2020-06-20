@@ -19,7 +19,27 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 1
-    m_Localized: 
+    m_Localized: "D\xE9placez l'appareil lentement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "Trouvez un corps \xE0 suivre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "Trouvez un visage \xE0 suivre\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "Trouvez un visage \xE0 suivre\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "Trouvez un objet \xE0 suivre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Appuyez pour placer la RA
     m_Metadata:
       m_Items: []
   references:

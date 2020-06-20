@@ -175,6 +175,9 @@ public class UIManager : MonoBehaviour
 
     bool m_FadedOff = false;
     
+    [SerializeField]
+    LocalizationManager m_LocalizationManager;
+
     void OnEnable()
     {
         ARUXAnimationManager.onFadeOffComplete += FadeComplete;
@@ -202,6 +205,11 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (!m_LocalizationManager.localizationComplete)
+        {
+            return;
+        }
+        
         if (m_UXOrderedQueue.Count > 0 && !m_ProcessingInstructions)
         {
             // pop off

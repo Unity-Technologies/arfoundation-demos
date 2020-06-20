@@ -74,6 +74,14 @@ MonoBehaviour:
     - Locale-de
     - Locale-it
     - Locale-es
+    - Locale-zh
+    - Locale-hi
+    - Locale-ja
+    - Locale-ko
+    - Locale-pt
+    - Locale-ru
+    - Locale-ta-IN
+    - Locale-te-IN
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 7d1de17fd7ca94d56b28a0a43ec9a08d, type: 2}

@@ -12,32 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
   m_Name: Reasons Shared Data
   m_EditorClassIdentifier: 
-  m_NextAvailableId: 7
+  m_NextAvailableId: 8
   m_TableCollectionName: Reasons
   m_TableCollectionNameGuidString: e73347035ac044e20aec7d2527943a66
   m_Entries:
-  - m_Id: 1
-    m_Key: INIT
+  - m_Id: 4
+    m_Key: FEATURES
     m_Metadata:
       m_Items: []
-  - m_Id: 2
-    m_Key: MOTION
+  - m_Id: 1
+    m_Key: INIT
     m_Metadata:
       m_Items: []
   - m_Id: 3
     m_Key: LIGHT
     m_Metadata:
       m_Items: []
-  - m_Id: 4
-    m_Key: FEATURES
-    m_Metadata:
-      m_Items: []
-  - m_Id: 5
-    m_Key: UNSUPPORTED
+  - m_Id: 2
+    m_Key: MOTION
     m_Metadata:
       m_Items: []
   - m_Id: 6
     m_Key: NONE
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Key: UNSUPPORTED
     m_Metadata:
       m_Items: []
   m_Metadata:
