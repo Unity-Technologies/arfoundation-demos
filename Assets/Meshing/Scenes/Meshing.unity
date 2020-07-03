@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 121553691}
   - component: {fileID: 121553694}
   - component: {fileID: 121553696}
+  - component: {fileID: 121553695}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -198,6 +199,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RaycastPrefab: {fileID: 0}
+--- !u!114 &121553695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 121553690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a025b51106444e18fb408fde19ac53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AutomaticPlacement: 1
+  m_EnvironmentTextureFilterMode: 2
+  m_EnvironmentTextureHDR: 1
+  m_DebugPrefab: {fileID: 0}
 --- !u!114 &121553696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,12 +222,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 121553690}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 555f03f41dfb74e12b65a4ac793f5b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProbeManager: {fileID: 0}
+  m_ProbeManager: {fileID: 121553695}
   m_Camera: {fileID: 1823173797}
 --- !u!1 &438185557
 GameObject:
