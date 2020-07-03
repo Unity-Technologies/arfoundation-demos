@@ -19,16 +19,16 @@ public class MeshClassificationManager : MonoBehaviour
 
     [SerializeField]
     ARRaycastManager m_RaycastManager;
-    
+
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
     RaycastHit m_Hit;
 
     [SerializeField]
-    ARMeshManager m_MeshManager;
+    public ARMeshManager m_MeshManager;
 
     [SerializeField]
-    Camera m_MainCamera;
+    public Camera m_MainCamera;
 
     Vector2 m_ScreenCenter;
 
@@ -36,22 +36,17 @@ public class MeshClassificationManager : MonoBehaviour
 
     TrackableId m_CurrentTrackableID;
 
-    List<MeshFilter> m_AddedSubmeshes = new List<MeshFilter>();
-    List<MeshFilter> m_UpdatedSubmeshes = new List<MeshFilter>();
-    List<MeshFilter> m_RemovedSubmeshes = new List<MeshFilter>();
     XRMeshSubsystem m_MeshSubsystem;
 
-    Dictionary<TrackableId, NativeArray<ARMeshClassification>> m_MeshDictionary;
-    
+    readonly Dictionary<TrackableId, NativeArray<ARMeshClassification>> m_MeshDictionary = new Dictionary<TrackableId, NativeArray<ARMeshClassification>>();
+
 
     void OnEnable()
     {
         m_ScreenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         m_MeshSubsystem = m_MeshManager.subsystem;
         m_MeshSubsystem.SetClassificationEnabled(true);
-        
-        m_MeshDictionary = new Dictionary<TrackableId, NativeArray<ARMeshClassification>>();
-        
+
         m_MeshManager.meshesChanged += MeshManagerOnmeshesChanged;
     }
 
@@ -68,34 +63,46 @@ public class MeshClassificationManager : MonoBehaviour
             //m_DebugTextTwo.text = GetClassificationName(m_CurrentClassification);
         }
     }
-    
+
     void MeshManagerOnmeshesChanged(ARMeshesChangedEventArgs obj)
     {
-        m_AddedSubmeshes = obj.added; 
-        m_UpdatedSubmeshes = obj.updated;
-        m_RemovedSubmeshes = obj.removed;
-
-        foreach (MeshFilter mesh in m_AddedSubmeshes)
+        foreach (MeshFilter mesh in obj.added)
         {
-            m_CurrentTrackableID = ExtractTrackableId(mesh.name);
-            m_MeshDictionary.Add(m_CurrentTrackableID, m_MeshSubsystem.GetFaceClassifications(m_CurrentTrackableID, Allocator.Persistent));
+            TrackableId trackableId = ExtractTrackableId(mesh.name);
+            m_MeshDictionary.Add(trackableId, m_MeshSubsystem.GetFaceClassifications(trackableId, Allocator.Persistent));
         }
 
-        foreach (MeshFilter mesh in m_UpdatedSubmeshes)
+        foreach (MeshFilter mesh in obj.updated)
         {
-            m_CurrentTrackableID = ExtractTrackableId(mesh.name);
-            m_MeshDictionary[m_CurrentTrackableID] = m_MeshSubsystem.GetFaceClassifications(m_CurrentTrackableID, Allocator.Persistent);
+            TrackableId trackableId = ExtractTrackableId(mesh.name);
+
+            // Must dispose of the memory allocated for the previous native array in the entry, before setting a new one.
+            if (m_MeshDictionary[trackableId].IsCreated)
+            {
+                m_MeshDictionary[trackableId].Dispose();
+            }
+
+            m_MeshDictionary[trackableId] = m_MeshSubsystem.GetFaceClassifications(trackableId, Allocator.Persistent);
         }
 
-        foreach (MeshFilter mesh in m_RemovedSubmeshes)
+        foreach (MeshFilter mesh in obj.removed)
         {
-            m_CurrentTrackableID = ExtractTrackableId(mesh.name);
-            m_MeshDictionary.Remove(m_CurrentTrackableID);
+            TrackableId trackableId = ExtractTrackableId(mesh.name);
+
+            // Must dispose of the memory allocated for the native array, before deleting the entry in the dictionary.
+            if (m_MeshDictionary[trackableId].IsCreated)
+            {
+                m_MeshDictionary[trackableId].Dispose();
+            }
+
+            m_MeshDictionary.Remove(trackableId);
         }
     }
 
     void SetCurrentClassification(TrackableId meshID, int triangleIndex)
     {
+        Debug.Assert(m_MeshDictionary.ContainsKey(meshID), $"Mesh ID [{meshID}] does not exist in the dictionary");
+        Debug.Assert(triangleIndex < m_MeshDictionary[meshID].Length, $"Mesh ID [{meshID}] does have a triangle classification with index {triangleIndex}");
         m_CurrentClassification = m_MeshDictionary[meshID][triangleIndex];
     }
 
@@ -131,7 +138,7 @@ public class MeshClassificationManager : MonoBehaviour
         }
         return retVal;
     }
-    
+
     TrackableId ExtractTrackableId(string meshFilterName)
     {
         string[] nameSplit = meshFilterName.Split(' ');
