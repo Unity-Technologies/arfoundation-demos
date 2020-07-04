@@ -175,6 +175,15 @@ public class UIManager : MonoBehaviour
 
     bool m_FadedOff = false;
     
+    [SerializeField]
+    LocalizationManager m_LocalizationManager;
+
+    public LocalizationManager localizationManager
+    {
+        get => m_LocalizationManager;
+        set => m_LocalizationManager = value;
+    }
+
     void OnEnable()
     {
         ARUXAnimationManager.onFadeOffComplete += FadeComplete;
@@ -202,6 +211,11 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+        if (!m_LocalizationManager.localizationComplete)
+        {
+            return;
+        }
+        
         if (m_UXOrderedQueue.Count > 0 && !m_ProcessingInstructions)
         {
             // pop off
@@ -252,6 +266,7 @@ public class UIManager : MonoBehaviour
     
     Func<bool> GetGoal(InstructionGoals goal)
     {
+        Debug.Log($"getting goal{goal.ToString()}");
         switch (goal)
         {
             case InstructionGoals.FoundAPlane:
@@ -380,6 +395,11 @@ public class UIManager : MonoBehaviour
     public void AddToQueue(UXHandle uxHandle)
     {
         m_UXOrderedQueue.Enqueue(uxHandle);
+    }
+
+    public void TestFlipPlacementBool()
+    {
+        m_PlacedObject = true;
     }
 }
 

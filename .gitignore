@@ -10,8 +10,14 @@
 /[Ll]ogs/
 /[Mm]emoryCaptures/
 
+# Testing scripts and Scenes
+/Assets/UX/Scenes/Test/
+Assets/UX/Scenes/Test.meta
+/Assets/UX/Scripts/Test/
+Assets/UX/Scripts/Test.meta
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+#!/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 /[Aa]ssets/AssetStoreTools*
