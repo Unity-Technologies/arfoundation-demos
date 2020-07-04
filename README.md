@@ -93,3 +93,7 @@ The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arf
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
 
 ![img](https://user-images.githubusercontent.com/2120584/86506395-e3e4a780-bd83-11ea-811d-cae7fbc7e25f.gif)
+
+### Tracking Reasons
+When the [session](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/manual/session-subsystem.html) (device) is not tracking or has lost tracking there are a variety of different [reasons](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/api/UnityEngine.XR.ARSubsystems.NotTrackingReason.html) why. It can be helpful to show these reasons to users so they better understand the experience or what may be hindering it.
+
