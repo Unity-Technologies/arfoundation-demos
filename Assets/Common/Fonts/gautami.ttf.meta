@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 39312e1b543994002a23bac8c4841254
+guid: f6ce4df0a249548de81765d5d3ff3b17
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Hind Guntur
+  fontName: Gautami
   fontNames:
-  - Hind Guntur
+  - Gautami
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

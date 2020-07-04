@@ -172,6 +172,12 @@ public class ARUXAnimationManager : MonoBehaviour
     
     [SerializeField]
     LocalizationManager m_LocalizationManager;
+    
+    public LocalizationManager localizationManager
+    {
+        get => m_LocalizationManager;
+        set => m_LocalizationManager = value;
+    }
 
     [SerializeField]
     bool m_LocalizeText = true;

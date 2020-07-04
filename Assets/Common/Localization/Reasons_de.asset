@@ -17,6 +17,30 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: e73347035ac044e20aec7d2527943a66, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 4
+    m_Localized: Schauen Sie sich nach mehr Strukturen oder Details um.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1
+    m_Localized: "Initialisiere Erweiterte Realit\xE4t (AR)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Es ist zu dunkel hier. Versuchen Sie es in einem helleren Bereich.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Versuchen Sie sich etwas langsamer zu bewegen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Warten Sie, bis die Verortung beginnt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "Dieser AR Inhalt wird nicht unterst\xFCtzt."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

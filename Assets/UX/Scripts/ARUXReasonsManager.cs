@@ -30,9 +30,21 @@ public class ARUXReasonsManager : MonoBehaviour
 
     [SerializeField]
     GameObject m_ReasonParent;
+    
+    public GameObject reasonParent
+    {
+        get => m_ReasonParent;
+        set => m_ReasonParent = value;
+    }
 
     [SerializeField]
     Image m_ReasonIcon;
+    
+    public Image reasonIcon
+    {
+        get => m_ReasonIcon;
+        set => m_ReasonIcon = value;
+    }
 
     [SerializeField]
     Sprite m_InitRelocalSprite;
@@ -90,9 +102,21 @@ public class ARUXReasonsManager : MonoBehaviour
 
     [SerializeField]
     LocalizationManager m_LocalizationManager;
+    
+    public LocalizationManager localizationManager
+    {
+        get => m_LocalizationManager;
+        set => m_LocalizationManager = value;
+    }
 
     [SerializeField]
     bool m_LocalizeText = true;
+
+    public bool localizeText
+    {
+        get => m_LocalizeText;
+        set => m_LocalizeText = value;
+    }
 
     NotTrackingReason m_CurrentReason;
     bool m_SessionTracking;
@@ -221,6 +245,12 @@ public class ARUXReasonsManager : MonoBehaviour
                 break;
         }
     }
-    
+
+    public void TestForceShowReason(NotTrackingReason reason)
+    {
+        m_CurrentReason = reason;
+        m_ReasonParent.SetActive(true);
+        SetReason();
+    }
     
 }
