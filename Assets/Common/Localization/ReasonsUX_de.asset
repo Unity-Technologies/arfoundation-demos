@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_de
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: de
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Schauen Sie sich nach mehr Strukturen oder Details um.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "Initialisiere Erweiterte Realit\xE4t (AR)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: Es ist zu dunkel hier. Versuchen Sie es in einem helleren Bereich.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Versuchen Sie sich etwas langsamer zu bewegen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Warten Sie, bis die Verortung beginnt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "Dieser AR Inhalt wird nicht unterst\xFCtzt."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "Finde einen K\xF6rper zum Folgen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Finde ein Gesicht zum Folgen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Finde ein Bild zum Folgen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Finde ein Objekt zum Folgen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "Bewegen Sie das Ger\xE4t langsam"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Tippen Sie, um AR zu platzieren
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

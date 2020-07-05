@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_it
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "Cerca pi\xF9 pattern o dettagli nell'area in cui ti trovi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "Inizializzando la realt\xE0 aumentata."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "\xC8 troppo buio. Prova a spostarti in un'area pi\xF9 illuminata."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "Prova a muoverti pi\xF9 lentamente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: In attesa che inizi il tracking.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: I contenuti AR non sono supportati.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Trova un Corpo da Tracciare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Trova una Faccia da Tracciare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Trova un'Immagine da Tracciare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Trova un Oggetto da Tracciare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Muovi il Device Lentamente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Fai Tap per Piazzare la AR
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

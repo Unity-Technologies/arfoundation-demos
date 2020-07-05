@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "Recherchez plus de textures ou de d\xE9tails dans la zone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "Initialisation de la r\xE9alit\xE9 augment\xE9e."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "C'est trop sombre. Essayez d'aller dans un endroit mieux \xE9clair\xE9."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "Essayez de vous d\xE9placer plus lentement."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Attendez que le suivi commence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: Le contenu RA n'est pas pris en charge.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "Trouvez un corps \xE0 suivre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: "Trouvez un visage \xE0 suivre\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: "Trouvez une image \xE0 suivre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: "Trouvez un objet \xE0 suivre"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "D\xE9placez l'appareil lentement"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Appuyez pour placer la RA
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
