@@ -22,9 +22,7 @@ public class LocalizationManager : MonoBehaviour
         Korean,
         Portuguese,
         Russian,
-        Spanish,
-        Tamil,
-        Telugu
+        Spanish
     }
 
     public SupportedLanguages CurrentLocalizedLanguage;
@@ -88,30 +86,12 @@ public class LocalizationManager : MonoBehaviour
     }
 
     [SerializeField]
-    TMP_FontAsset m_TamilFont;
-
-    public TMP_FontAsset tamilFont
-    {
-        get => m_TamilFont;
-        set => m_TamilFont = value;
-    }
-
-    [SerializeField]
     TMP_FontAsset m_HindiFont;
     
     public TMP_FontAsset hindiFont
     {
         get => m_HindiFont;
         set => m_HindiFont = value;
-    }
-
-    [SerializeField]
-    TMP_FontAsset m_TeluguFont;
-
-    public TMP_FontAsset teluguFont
-    {
-        get => m_TeluguFont;
-        set => m_TeluguFont = value;
     }
 
     [SerializeField]
@@ -175,6 +155,7 @@ public class LocalizationManager : MonoBehaviour
         {
             case SupportedLanguages.ChineseSimplified:
                 m_FontToSet = m_SimplifiedChineseFont;
+
                 // custom size adjustment for legibility
                 m_InstructionText.fontSizeMax = k_MaxAutoSizeSC;
                 m_ReasonText.fontSizeMax = k_MaxAutoSizeSC;
@@ -185,14 +166,8 @@ public class LocalizationManager : MonoBehaviour
             case SupportedLanguages.Korean:
                 m_FontToSet = m_KoreanFont;
                 break;
-            case SupportedLanguages.Tamil:
-                m_FontToSet = m_TamilFont;
-                break;
             case SupportedLanguages.Hindi:
                 m_FontToSet = m_HindiFont;
-                break;
-            case SupportedLanguages.Telugu:
-                m_FontToSet = m_TeluguFont;
                 break;
         }
 
