@@ -20,10 +20,10 @@ public class PlacementReticle : MonoBehaviour
     CenterScreenHelper m_CenterScreen;
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
-
+    
     TrackableType m_RaycastMask;
 
-    void OnEnable()
+    void Start()
     {
         m_CenterScreen = CenterScreenHelper.Instance;
         if (m_SnapToMesh)
@@ -41,18 +41,11 @@ public class PlacementReticle : MonoBehaviour
 
     void Update()
     {
-        if (m_RaycastManager)
+        if (m_RaycastManager.Raycast(m_CenterScreen.GetCenterScreen(), s_Hits, m_RaycastMask))
         {
-            if (m_RaycastManager.Raycast(m_CenterScreen.GetCenterScreen(), s_Hits, m_RaycastMask))
-            {
-                Pose hitPose = s_Hits[0].pose;
-                m_SpawnedReticle.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
-                m_SpawnedReticle.SetActive(true);
-            }
-            else
-            {
-                m_SpawnedReticle.SetActive(false);
-            }
+            Pose hitPose = s_Hits[0].pose;
+            m_SpawnedReticle.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+            m_SpawnedReticle.SetActive(true);
         }
     }
 

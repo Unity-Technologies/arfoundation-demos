@@ -14,14 +14,6 @@ public class MeshClassificationManager : MonoBehaviour
     [SerializeField]
     TMP_Text m_DebugText;
 
-    [SerializeField]
-    TMP_Text m_DebugTextTwo;
-
-    [SerializeField]
-    ARRaycastManager m_RaycastManager;
-
-    static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
-
     RaycastHit m_Hit;
 
     [SerializeField]
@@ -33,6 +25,8 @@ public class MeshClassificationManager : MonoBehaviour
     Vector2 m_ScreenCenter;
 
     ARMeshClassification m_CurrentClassification;
+
+    public ARMeshClassification currentClassification => m_CurrentClassification;
 
     TrackableId m_CurrentTrackableID;
 
@@ -60,7 +54,7 @@ public class MeshClassificationManager : MonoBehaviour
         if (Physics.Raycast(m_MainCamera.ScreenPointToRay(m_ScreenCenter), out m_Hit))
         {
             SetCurrentClassification(ExtractTrackableId(m_Hit.transform.name), m_Hit.triangleIndex);
-            //m_DebugTextTwo.text = GetClassificationName(m_CurrentClassification);
+            m_DebugText.text = GetClassificationName(m_CurrentClassification);
         }
     }
 
