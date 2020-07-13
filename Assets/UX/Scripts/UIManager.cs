@@ -266,7 +266,6 @@ public class UIManager : MonoBehaviour
     
     Func<bool> GetGoal(InstructionGoals goal)
     {
-        Debug.Log($"getting goal{goal.ToString()}");
         switch (goal)
         {
             case InstructionGoals.FoundAPlane:

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -23,15 +22,12 @@ public class LocalizationManager : MonoBehaviour
         Korean,
         Portuguese,
         Russian,
-        Spanish,
-        Tamil,
-        Telugu
+        Spanish
     }
 
     public SupportedLanguages CurrentLocalizedLanguage;
 
-    const string k_ReasonTable = "Reasons";
-    const string k_UXTable = "UX";
+    const string k_ReasonUxTable = "ReasonsUX";
     const string k_InitializeKey = "INIT";
     const string k_MotionKey = "MOTION";
     const string k_LightKey = "LIGHT";
@@ -59,9 +55,8 @@ public class LocalizationManager : MonoBehaviour
     public string localizedObject;
     
     bool m_ReasonsComplete = false;
-    bool m_UXComplete = false;
 
-    public bool localizationComplete => m_ReasonsComplete && m_UXComplete;
+    public bool localizationComplete => m_ReasonsComplete;
 
     [SerializeField]
     TMP_FontAsset m_SimplifiedChineseFont;
@@ -91,30 +86,12 @@ public class LocalizationManager : MonoBehaviour
     }
 
     [SerializeField]
-    TMP_FontAsset m_TamilFont;
-
-    public TMP_FontAsset tamilFont
-    {
-        get => m_TamilFont;
-        set => m_TamilFont = value;
-    }
-
-    [SerializeField]
     TMP_FontAsset m_HindiFont;
     
     public TMP_FontAsset hindiFont
     {
         get => m_HindiFont;
         set => m_HindiFont = value;
-    }
-
-    [SerializeField]
-    TMP_FontAsset m_TeluguFont;
-
-    public TMP_FontAsset teluguFont
-    {
-        get => m_TeluguFont;
-        set => m_TeluguFont = value;
     }
 
     [SerializeField]
@@ -140,32 +117,15 @@ public class LocalizationManager : MonoBehaviour
     IEnumerator Start()
     {
         yield return LocalizationSettings.InitializationOperation;
-        
+
         LocalizationSettings.AvailableLocales.Locales.Sort();
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)CurrentLocalizedLanguage];
         SwapFonts(CurrentLocalizedLanguage);
         
-        LocalizationSettings.StringDatabase.GetTableAsync(k_ReasonTable).Completed += OnCompletedReasons;
-        LocalizationSettings.StringDatabase.GetTableAsync(k_UXTable).Completed += OnCompletedUX;
+        LocalizationSettings.StringDatabase.GetTableAsync(k_ReasonUxTable).Completed += OnCompletedReasonsUX;
     }
 
-    void OnCompletedUX(AsyncOperationHandle<StringTable> obj)
-    {
-        if (obj.Status == AsyncOperationStatus.Succeeded)
-        {
-            var uxTable = obj.Result;
-            localizedMoveDevice = uxTable.GetEntry(k_MoveDeviceKey).GetLocalizedString();
-            localizedTapToPlace = uxTable.GetEntry(k_TapToPlaceKey).GetLocalizedString();
-            localizedBody = uxTable.GetEntry(k_BodyKey).GetLocalizedString();
-            localizedFace = uxTable.GetEntry(k_FaceKey).GetLocalizedString();
-            localizedImage = uxTable.GetEntry(k_ImageKey).GetLocalizedString();
-            localizedObject = uxTable.GetEntry(k_ObjectKey).GetLocalizedString();
-
-            m_UXComplete = true;
-        }
-    }
-
-    void OnCompletedReasons(AsyncOperationHandle<StringTable> obj)
+    void OnCompletedReasonsUX(AsyncOperationHandle<StringTable> obj)
     {
         if (obj.Status == AsyncOperationStatus.Succeeded)
         {
@@ -176,6 +136,12 @@ public class LocalizationManager : MonoBehaviour
             localizedFeatures = reasonsTable.GetEntry(k_FeaturesKey).GetLocalizedString();
             localizedUnsupported = reasonsTable.GetEntry(k_UnsupportedKey).GetLocalizedString();
             localizedNone = reasonsTable.GetEntry(k_NoneKey).GetLocalizedString();
+            localizedMoveDevice = reasonsTable.GetEntry(k_MoveDeviceKey).GetLocalizedString();
+            localizedTapToPlace = reasonsTable.GetEntry(k_TapToPlaceKey).GetLocalizedString();
+            localizedBody = reasonsTable.GetEntry(k_BodyKey).GetLocalizedString();
+            localizedFace = reasonsTable.GetEntry(k_FaceKey).GetLocalizedString();
+            localizedImage = reasonsTable.GetEntry(k_ImageKey).GetLocalizedString();
+            localizedObject = reasonsTable.GetEntry(k_ObjectKey).GetLocalizedString();
 
             m_ReasonsComplete = true;
         }
@@ -189,6 +155,7 @@ public class LocalizationManager : MonoBehaviour
         {
             case SupportedLanguages.ChineseSimplified:
                 m_FontToSet = m_SimplifiedChineseFont;
+
                 // custom size adjustment for legibility
                 m_InstructionText.fontSizeMax = k_MaxAutoSizeSC;
                 m_ReasonText.fontSizeMax = k_MaxAutoSizeSC;
@@ -199,14 +166,8 @@ public class LocalizationManager : MonoBehaviour
             case SupportedLanguages.Korean:
                 m_FontToSet = m_KoreanFont;
                 break;
-            case SupportedLanguages.Tamil:
-                m_FontToSet = m_TamilFont;
-                break;
             case SupportedLanguages.Hindi:
                 m_FontToSet = m_HindiFont;
-                break;
-            case SupportedLanguages.Telugu:
-                m_FontToSet = m_TeluguFont;
                 break;
         }
 
