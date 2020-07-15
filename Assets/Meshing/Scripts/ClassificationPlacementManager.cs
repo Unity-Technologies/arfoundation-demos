@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARKit;
@@ -39,6 +40,11 @@ public class ClassificationPlacementManager : MonoBehaviour
     Transform m_ARCameraTransform;
 
     bool m_ShowingSelectionUI;
+    GameObject m_SpawnedObject;
+
+    const float k_TweenTime = 0.4f;
+    
+    Ease m_TweenEase = Ease.OutQuart;
 
     void Update()
     {
@@ -80,22 +86,31 @@ public class ClassificationPlacementManager : MonoBehaviour
 
     public void PlaceFloorObject(int indexToPlace)
     {
-        GameObject m_SpawnedObject = Instantiate(m_FloorPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject = Instantiate(m_FloorPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject.transform.localScale = Vector3.zero;
         // look at device but stay 'flat'
         m_SpawnedObject.transform.LookAt(m_ARCameraTransform, Vector3.up);
         m_SpawnedObject.transform.rotation = Quaternion.Euler(0, m_SpawnedObject.transform.eulerAngles.y, 0);
+
+        m_SpawnedObject.transform.DOScale(Vector3.one, k_TweenTime).SetEase(m_TweenEase);
     }
 
     public void PlaceWallObject(int indexToPlace)
     {
-        Instantiate(m_WallPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject = Instantiate(m_WallPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject.transform.localScale = Vector3.zero;
+        
+        m_SpawnedObject.transform.DOScale(Vector3.one, k_TweenTime).SetEase(m_TweenEase);
     }
 
     public void PlaceTableObject(int indexToPlace)
     {
-        GameObject m_SpawnedObject = Instantiate(m_TablePrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject = Instantiate(m_TablePrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        m_SpawnedObject.transform.localScale = Vector3.zero;
         // look at device but stay 'flat'
         m_SpawnedObject.transform.LookAt(m_ARCameraTransform, Vector3.up);
         m_SpawnedObject.transform.rotation = Quaternion.Euler(0, m_SpawnedObject.transform.eulerAngles.y, 0);
+        
+        m_SpawnedObject.transform.DOScale(Vector3.one, k_TweenTime).SetEase(m_TweenEase);
     }
 }
