@@ -99,8 +99,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
 
         readonly List<Material> m_SharedPrefabMats = new List<Material>();
 
-        const float k_StartAlpha = 0.3f;
-        bool m_ShowingMeshes = true;
+        const float k_ShowAlpha = 0.3f;
+        bool m_ShowingMeshes = false;
 
         /// <summary>
         /// On awake, set up the mesh filter delegates.
@@ -357,7 +357,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 }
                 else
                 {
-                    mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, k_StartAlpha);
+                    mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, k_ShowAlpha);
                 }
             }
             m_ShowingMeshes = !m_ShowingMeshes;

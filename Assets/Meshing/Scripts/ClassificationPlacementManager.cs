@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.XR.ARKit;
+using UnityEngine.XR.ARSubsystems;
 
 public class ClassificationPlacementManager : MonoBehaviour
 {
@@ -34,78 +35,67 @@ public class ClassificationPlacementManager : MonoBehaviour
     [SerializeField]
     GameObject m_TableUI;
 
+    [SerializeField]
+    Transform m_ARCameraTransform;
+
     bool m_ShowingSelectionUI;
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (m_ClassificationManager.currentClassification == ARMeshClassification.Table ||
+            m_ClassificationManager.currentClassification == ARMeshClassification.Floor ||
+            m_ClassificationManager.currentClassification == ARMeshClassification.Wall)
         {
-            m_Touch = Input.GetTouch(0);
 
-            // touched UI, return early
-            if (IsTouchOverUIObject(m_Touch))
+            switch (m_ClassificationManager.currentClassification)
             {
-                return;
-            }
-
-            
-            // valid surfaces for objects
-            if (m_ClassificationManager.currentClassification == ARMeshClassification.Floor)
-            {
+                case ARMeshClassification.Floor:
                 m_FloorUI.SetActive(true);
-                m_ShowingSelectionUI = true;
-            }
-
-            else if (m_ClassificationManager.currentClassification == ARMeshClassification.Wall)
-            {
-                m_WallUI.SetActive(true);
-                m_ShowingSelectionUI = true;
-            }
-            
-            else if(m_ClassificationManager.currentClassification == ARMeshClassification.Table)
-            {
-                m_TableUI.SetActive(true);    
-                m_ShowingSelectionUI = true;
-
-            }
-            else
-            {
-                m_FloorUI.SetActive(false);
                 m_WallUI.SetActive(false);
                 m_TableUI.SetActive(false);
-                m_ShowingSelectionUI = false;
+                break;
+                
+                case ARMeshClassification.Wall:
+                m_WallUI.SetActive(true);
+                m_FloorUI.SetActive(false);
+                m_TableUI.SetActive(false);
+                break;
+                
+                case ARMeshClassification.Table: 
+                m_TableUI.SetActive(true);
+                m_FloorUI.SetActive(false);
+                m_WallUI.SetActive(false);
+                break;
             }
+            
+        }
+        else
+        {
+            m_FloorUI.SetActive(false);
+            m_WallUI.SetActive(false);
+            m_TableUI.SetActive(false);
+            
         }
     }
 
     public void PlaceFloorObject(int indexToPlace)
     {
-        Instantiate(m_FloorPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
-        m_FloorUI.SetActive(false);
-        m_ShowingSelectionUI = false;
+        GameObject m_SpawnedObject = Instantiate(m_FloorPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        // look at device but stay 'flat'
+        m_SpawnedObject.transform.LookAt(m_ARCameraTransform, Vector3.up);
+        m_SpawnedObject.transform.rotation = Quaternion.Euler(0, m_SpawnedObject.transform.eulerAngles.y, 0);
     }
 
     public void PlaceWallObject(int indexToPlace)
     {
         Instantiate(m_WallPrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
-        m_WallUI.SetActive(false);
-        m_ShowingSelectionUI = false;
-    }
-    
-    public void PlaceTableObject(int indexToPlace)
-    {
-        Instantiate(m_TablePrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
-        m_TableUI.SetActive(false);
-        m_ShowingSelectionUI = false;
     }
 
-    bool IsTouchOverUIObject(Touch touch)
-    {   
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = touch.position;
-        m_OverUIResults.Clear();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, m_OverUIResults);
-        return m_OverUIResults.Count > 0;
+    public void PlaceTableObject(int indexToPlace)
+    {
+        GameObject m_SpawnedObject = Instantiate(m_TablePrefabs[indexToPlace], m_Reticle.GetReticlePosition().position, m_Reticle.GetReticlePosition().rotation);
+        // look at device but stay 'flat'
+        m_SpawnedObject.transform.LookAt(m_ARCameraTransform, Vector3.up);
+        m_SpawnedObject.transform.rotation = Quaternion.Euler(0, m_SpawnedObject.transform.eulerAngles.y, 0);
     }
-    
 }
