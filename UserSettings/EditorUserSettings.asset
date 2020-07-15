@@ -5,6 +5,9 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    UnityEditor.ShaderGraph.FloatingWindowsLayout2:
+      value: 181344140043005e1a220d3b1f364b524c0c5a27130c293326201334cee5322ca0bd30e8eb293a707b0fd0180b3d0a36fc0d3d04e649500d1002ee0b5dbd1d2c27c00ad113cb1e10e41f1addc80993b9849887b98bbfb48d8e8af8a7ada3b9adb9b3a8c482a7eec9b0a0f0a5aecee8c2c7d9b2d08e9c9989ea9e93de81e0dbc9dc94dfcd9b9f9a818dddf2c3f2dce5bdd1fbf0c5c0ebcaf8cecdcde039ebf7323e363aeda1a5fac2bfb56c8079728b896073aa786e859a98cbc864ce99b1b5804191909541b79f9d75dc178a735a652f23585771655b6465556e58514d2f7b67373321366a76481e2b3d244b474172674347264e2e7a1601746f0243326d7f5b43531d5b5242585b252427300b3760797b765b76655525141a142a1870ba2c76fb736eb5b666a76ba1acf540aa566da7b8a7e517404a0b111e1df801f2d2110ecbc201face001a5e43f98d04a644b54f82a4b9a794f2a8b1a5be8da0a18fa0a3a7f4a8f6aff9aaaaf9aee1b3
+      flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650
       flags: 0
@@ -15,5 +18,7 @@ EditorUserSettings:
   m_SemanticMergeMode: 2
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
-  m_VCOverlayIcons: 1
+  m_VCProjectOverlayIcons: 1
+  m_VCHierarchyOverlayIcons: 1
+  m_VCOtherOverlayIcons: 1
   m_VCAllowAsyncUpdate: 0
