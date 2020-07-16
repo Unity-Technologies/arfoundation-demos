@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_ko
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: ko
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "\uD14D\uC2A4\uCCD0\uB098 \uC815\uBCF4\uAC00 \uBD80\uC871\uD569\uB2C8\uB2E4.
+      \uB2E4\uB978 \uACF3\uC744 \uBC14\uB77C\uBCF4\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "\uC99D\uAC15 \uD604\uC2E4\uC744 \uCD08\uAE30\uD654\uC911\uC785\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "\uB108\uBB34 \uC5B4\uB461\uC2B5\uB2C8\uB2E4. \uBC1D\uC740 \uC601\uC5ED\uC5D0\uC11C
+      \uC2DC\uB3C4\uD574\uBCF4\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "\uCC9C\uCC9C\uD788 \uC6C0\uC9C1\uC5EC\uBCF4\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "\uCD94\uC801\uC744 \uC2DC\uC791\uD558\uAE30\uC704\uD574 \uAE30\uB2E4\uB9BD\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "AR \uCEE8\uD150\uCE20\uAC00 \uC9C0\uC6D0\uB418\uC9C0 \uC54A\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "\uCD94\uC801\uD560 \uC2E0\uCCB4\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: "\uCD94\uC801\uD560 \uC5BC\uAD74\uC744 \uCC3E\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: "\uCD94\uC801\uD560 \uC774\uBBF8\uC9C0\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: "\uCD94\uC801\uD560 \uC624\uBE0C\uC81D\uD2B8\uB97C \uCC3E\uC2B5\uB2C8\uB2E4."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "\uB514\uBC14\uC774\uC2A4\uB97C \uCC9C\uCC9C\uD788 \uC6C0\uC9C1\uC774\uC138\uC694."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: "\uD0ED\uC744 \uD558\uBA74 AR\uC744 \uC704\uCE58\uC2DC\uD0B5\uB2C8\uB2E4"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

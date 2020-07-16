@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_zh
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: zh
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "\u8BF7\u626B\u63CF\u73AF\u5883\u4E2D\u66F4\u591A\u7EC6\u8282"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "\u6B63\u5728\u521D\u59CB\u5316 AR"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "\u5F53\u524D\u73AF\u5883\u6BD4\u8F83\u6697\uFF0C\u8BF7\u5230\u5149\u7EBF\u5145\u8DB3\u7684\u533A\u57DF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "\u8BF7\u4EE5\u8F83\u6162\u901F\u5EA6\u79FB\u52A8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "\u8FFD\u8E2A\u4E2D\uFF0C\u8BF7\u7B49\u5F85"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "\u4E0D\u652F\u6301 AR \u5185\u5BB9"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "\u67E5\u627E\u8981\u8FFD\u8E2A\u7684\u8EAB\u4F53"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: "\u67E5\u627E\u8981\u8FFD\u8E2A\u7684\u9762\u90E8"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: "\u67E5\u627E\u8981\u8FFD\u8E2A\u7684\u56FE\u50CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: "\u67E5\u627E\u8981\u8FFD\u8E2A\u7684\u5BF9\u8C61"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "\u8BF7\u7F13\u6162\u79FB\u52A8\u8BBE\u5907"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: "\u70B9\u51FB\u653E\u7F6E AR \u5185\u5BB9"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

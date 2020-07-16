@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: Look for more textures or details in the area.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: Initializing augmented reality.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "It\u2019s too dark. Try going to a more well lit area."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: Try moving at a slower pace.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: Wait for tracking to begin.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: AR content is not supported.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: Find a Body to Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: Find a Face to Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: Find an Image to Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: Find an Object to Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: Move Device Slowly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Tap to Place AR
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
