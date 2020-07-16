@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 1335839539}
   - component: {fileID: 1335839540}
   - component: {fileID: 1335839541}
+  - component: {fileID: 1335839542}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -593,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446fc7fee4cf2ad4daa02222a84869c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 5663396095965327974, guid: 7589b43d0e7c342cca75766fd26fce89,
+  m_PlacedPrefab: {fileID: 6644777280766349587, guid: 4f35a1b73b8ec4d359bfb30868d552e4,
     type: 3}
   m_MaxNumberOfObjectsToPlace: 1
 --- !u!114 &1335839540
@@ -624,10 +625,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a025b51106444e18fb408fde19ac53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AutomaticPlacement: 1
+  m_AutomaticPlacement: 0
   m_EnvironmentTextureFilterMode: 2
   m_EnvironmentTextureHDR: 1
   m_DebugPrefab: {fileID: 0}
+--- !u!114 &1335839542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335839533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 863a70230e6b84d53bf526189f949eef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ProbeManager: {fileID: 1335839541}
+  m_RaycastManager: {fileID: 1335839538}
 --- !u!1 &2146458540
 GameObject:
   m_ObjectHideFlags: 0
