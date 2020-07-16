@@ -673,8 +673,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SnapToMesh: 1
   m_RaycastManager: {fileID: 121553694}
-  m_ReticlePrefab: {fileID: 4719008685006507426, guid: a19e33b2ec2be43ae8ce399b3c3a5351,
+  m_ReticlePrefab: {fileID: 3770400540450882647, guid: a19e33b2ec2be43ae8ce399b3c3a5351,
     type: 3}
+  m_DistanceScale: 1
+  m_CameraTransform: {fileID: 1823173801}
 --- !u!114 &121553696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4570,7 +4572,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_textAlignment: 513
   m_characterSpacing: 0
   m_wordSpacing: 0
