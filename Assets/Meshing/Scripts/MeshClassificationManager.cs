@@ -12,28 +12,41 @@ using UnityEngine.XR.ARSubsystems;
 public class MeshClassificationManager : MonoBehaviour
 {
     [SerializeField]
-    TMP_Text m_DebugText;
+    TMP_Text m_CurrentClassificationLabel;
 
-    RaycastHit m_Hit;
+    public TMP_Text currentClassificationLabel
+    {
+        get => m_CurrentClassificationLabel;
+        set => m_CurrentClassificationLabel = value;
+    }
 
     [SerializeField]
-    public ARMeshManager m_MeshManager;
+    ARMeshManager m_MeshManager;
+
+    public ARMeshManager meshManager
+    {
+        get => m_MeshManager;
+        set => m_MeshManager = value;
+    }
 
     [SerializeField]
     public Camera m_MainCamera;
 
+    public Camera mainCamera
+    {
+        get => m_MainCamera;
+        set => m_MainCamera = value;
+    }
+    
     Vector2 m_ScreenCenter;
-
+    RaycastHit m_Hit;
+    TrackableId m_CurrentTrackableID;
+    XRMeshSubsystem m_MeshSubsystem;
     ARMeshClassification m_CurrentClassification;
 
     public ARMeshClassification currentClassification => m_CurrentClassification;
-
-    TrackableId m_CurrentTrackableID;
-
-    XRMeshSubsystem m_MeshSubsystem;
-
+    
     readonly Dictionary<TrackableId, NativeArray<ARMeshClassification>> m_MeshDictionary = new Dictionary<TrackableId, NativeArray<ARMeshClassification>>();
-
 
     void OnEnable()
     {
@@ -54,7 +67,7 @@ public class MeshClassificationManager : MonoBehaviour
         if (Physics.Raycast(m_MainCamera.ScreenPointToRay(m_ScreenCenter), out m_Hit))
         {
             SetCurrentClassification(ExtractTrackableId(m_Hit.transform.name), m_Hit.triangleIndex);
-            m_DebugText.text = GetClassificationName(m_CurrentClassification);
+            m_CurrentClassificationLabel.text = GetClassificationName(m_CurrentClassification);
         }
     }
 

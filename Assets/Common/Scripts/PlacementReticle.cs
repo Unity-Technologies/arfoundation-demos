@@ -10,18 +10,35 @@ public class PlacementReticle : MonoBehaviour
     [SerializeField]
     bool m_SnapToMesh;
 
+    public bool snapToMesh
+    {
+        get => m_SnapToMesh;
+        set => m_SnapToMesh = value;
+    }
+
     [SerializeField]
     ARRaycastManager m_RaycastManager;
+    
+    public ARRaycastManager raycastManager
+    {
+        get => m_RaycastManager;
+        set => m_RaycastManager = value;
+    }
 
     [SerializeField]
     GameObject m_ReticlePrefab;
 
+    public GameObject reticlePrefab
+    {
+        get => m_ReticlePrefab;
+        set => m_ReticlePrefab = value;
+    }
+
     GameObject m_SpawnedReticle;
     CenterScreenHelper m_CenterScreen;
+    TrackableType m_RaycastMask;
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
-    
-    TrackableType m_RaycastMask;
 
     void Start()
     {
@@ -56,9 +73,7 @@ public class PlacementReticle : MonoBehaviour
         {
             return null;
         }
-        else
-        {
-            return m_SpawnedReticle.transform;
-        }
+        
+        return m_SpawnedReticle.transform;
     }
 }

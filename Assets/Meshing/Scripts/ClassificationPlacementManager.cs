@@ -11,40 +11,90 @@ public class ClassificationPlacementManager : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> m_FloorPrefabs;
+    
+    public List<GameObject> floorPrefabs
+    {
+        get => m_FloorPrefabs;
+        set => m_FloorPrefabs = value;
+    }
 
     [SerializeField]
     List<GameObject> m_TablePrefabs;
 
+    public List<GameObject> tablePrefabs
+    {
+        get => m_TablePrefabs;
+        set => m_TablePrefabs = value;
+    }
+
     [SerializeField]
     List<GameObject> m_WallPrefabs;
+    
+    public List<GameObject> wallPrefabs
+    {
+        get => m_WallPrefabs;
+        set => m_WallPrefabs = value;
+    }
 
     [SerializeField]
     MeshClassificationManager m_ClassificationManager;
+    
+    public MeshClassificationManager classificationManager
+    {
+        get => m_ClassificationManager;
+        set => m_ClassificationManager = value;
+    }
 
     [SerializeField]
     PlacementReticle m_Reticle;
 
-    Touch m_Touch;
-    List<RaycastResult> m_OverUIResults = new List<RaycastResult>();
+    public PlacementReticle reticle
+    {
+        get => m_Reticle;
+        set => m_Reticle = value;
+    }
 
     [SerializeField]
     GameObject m_FloorUI;
+    
+    public GameObject floorUI
+    {
+        get => m_FloorUI;
+        set => m_FloorUI = value;
+    }
 
     [SerializeField]
     GameObject m_WallUI;
+    
+    public GameObject wallUI
+    {
+        get => m_WallUI;
+        set => m_WallUI = value;
+    }
 
     [SerializeField]
     GameObject m_TableUI;
 
+    public GameObject tableUI
+    {
+        get => m_TableUI;
+        set => m_TableUI = value;
+    }
+
     [SerializeField]
     Transform m_ARCameraTransform;
 
+    public Transform arCameraTransform
+    {
+        get => m_ARCameraTransform;
+        set => m_ARCameraTransform = value;
+    }
+
     bool m_ShowingSelectionUI;
     GameObject m_SpawnedObject;
+    Ease m_TweenEase = Ease.OutQuart;
 
     const float k_TweenTime = 0.4f;
-    
-    Ease m_TweenEase = Ease.OutQuart;
 
     void Update()
     {
@@ -73,14 +123,12 @@ public class ClassificationPlacementManager : MonoBehaviour
                 m_WallUI.SetActive(false);
                 break;
             }
-            
         }
         else
         {
             m_FloorUI.SetActive(false);
             m_WallUI.SetActive(false);
             m_TableUI.SetActive(false);
-            
         }
     }
 

@@ -362,7 +362,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
             }
             m_ShowingMeshes = !m_ShowingMeshes;
         }
-    #endif // UNITY_IOS && !UNITY_EDITOR
+    #endif // UNITY_IOS
     }
     
    
