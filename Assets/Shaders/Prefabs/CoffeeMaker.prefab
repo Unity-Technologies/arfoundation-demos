@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4615356651801026071}
   - component: {fileID: 8735961357072220994}
   - component: {fileID: 7510185247092086175}
-  - component: {fileID: 6124378026721806168}
+  - component: {fileID: 3265037196709068215}
   m_Layer: 0
   m_Name: Coffeepot
   m_TagString: Untagged
@@ -57,13 +57,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6124378026721806169}
-  m_LocalRotation: {x: 0.000000020791129, y: -0.308294, z: -0.000000006737979, w: 0.9512912}
-  m_LocalPosition: {x: 0.07649669, y: 0.028976621, z: 0.041489568}
+  m_LocalRotation: {x: 0, y: -0.86602545, z: 0, w: 0.49999994}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8571596870699564249}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -35.913, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -120, z: 0}
 --- !u!33 &8735961357072220994
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -113,7 +113,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6124378026721806168
+--- !u!114 &3265037196709068215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6124378026721806169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ffde1aea1c86643956cb210801977e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2674532a6164d45ea892cd68f950483e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CameraManager: {fileID: 0}

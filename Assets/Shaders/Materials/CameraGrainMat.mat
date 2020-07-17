@@ -91,7 +91,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_6334ABB5: 10
-    - Vector1_6B7D910E: 1
+    - Vector1_6B7D910E: 0.3
     - Vector1_7840F96A: 0.285
     - _AlphaClip: 0
     - _Blend: 0
@@ -103,9 +103,9 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GrainInfluence: 0
+    - _GrainInfluence: 0.23
     - _Metallic: 0
-    - _NoiseIntensity: 0.441
+    - _NoiseIntensity: 0.4
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
