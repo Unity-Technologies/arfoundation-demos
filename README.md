@@ -97,3 +97,48 @@ The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfou
 ### Tracking Reasons
 When the [session](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/manual/session-subsystem.html) (device) is not tracking or has lost tracking there are a variety of different [reasons](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/api/UnityEngine.XR.ARSubsystems.NotTrackingReason.html) why. It can be helpful to show these reasons to users so they better understand the experience or what may be hindering it.
 
+Both [ARKit](https://developer.apple.com/documentation/arkit/arcamera/trackingstate/reason) and [ARCore](https://developers.google.com/ar/reference/java/arcore/reference/com/google/ar/core/TrackingFailureReason) have slightly different reasons but in AR Foundation these are surfaced through the same shared API.
+
+The [ARUXReasonsManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs) handles the visualization of the states and subscribes to the state change on the ARSession. The reasons are set and the display text and icon are changed in the [SetReaons()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L175-L247) method. Here I treat both Initializing and Relocalizing the same and for english display `Initializing augmented reality.` 
+
+## Localization
+
+### If you want to use localization make sure to read the required addressables building documentation at the end of this section.
+
+The Instructional UI and the Reasons have localization support through the [Unity localization package](https://docs.unity3d.com/Packages/com.unity.localization@0.7/manual/). It's enabled for the the instructional UI in AR UX Animation Manager with the [m_LocalizeText](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs#L183) bool and with reasons in the AR UX Reasons Manager with the [m_LocalizeText](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L113) bool.
+
+Localization currently supports the following languages
+- English
+- French
+- German
+- Italian
+- Spanish
+- Portuguese
+- Russian
+- Simplified Chinese
+- Korean
+- Japanese
+- Hindi
+
+> Tamil and Telugu translations are available but due to font rendering complexities are not enabled currently
+
+The localizations are supported through a [CSV](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Localization/AR%20Foundation%20Demos%20-%20Localization%20-%20Sheet.csv) that is imported into the project and parsed into the proper localization table via [StringImporter.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Scripts/Editor/StringImporter.cs).
+
+### If you would like to help out, have a suggestion for a better translation or want to add additional languges please reach out and comment on this publicly available [Sheet](https://docs.google.com/spreadsheets/d/1xxHfDvdQI2SE6JFhy24Z4JZMs4bn8uIaMBbRfW6OlOU/edit?usp=sharing) 
+
+In the scene Localization is driven by the script [LocalizationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs) which has a [SupportedLanguages enum](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L13-L26) for each supported language. The current implementation only supports selecting and setting a language at **compile time** and **NOT** at runtime. This is because the selected language from the enum is [set](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L122) in the Start() method of [LocalizationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs).  
+
+After the language is set the localized fields are retrieved from the tables based on specific keys for each value and then referenced in the AR UX Animation Manager and AR UX Reasons Manager.
+
+Many languages require unique fonts in order to properly render the characters for these languages the font's are swapped at runtime along with language specific settings in [SwapFonts()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L150-L179)
+
+### Packing Asset bundles for building localization support
+The Localization package uses [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.12/manual/index.html) to organize and pack the translated strings. There are some additional steps required to properly build these for your application. If you're localizing the text for the instructions or the reasons you will need to do these steps.
+
+1. Open the Addressables Groups window (Window / Asset Management / Addressables / Groups)
+![img](https://user-images.githubusercontent.com/2120584/87748240-35405e00-c7aa-11ea-970b-8b0e653ae3b5.png)
+
+2. In the Addressables Groups Window click on the Build Tab / New Build / Default Build Script
+![img](https://user-images.githubusercontent.com/2120584/87748387-9bc57c00-c7aa-11ea-99b5-d83c52e29369.png)
+
+3. You will need to do this for every platform you are building for. (Once for Android and once for iOS).
