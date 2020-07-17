@@ -1,6 +1,8 @@
 # This repo is intended to provide more advanced demos for AR Foundation outside of the [Samples Repo](https://github.com/Unity-Technologies/arfoundation-samples/).
 For questions and issues related to AR Foundation please post on the AR Foundation Sample [issues](https://github.com/Unity-Technologies/arfoundation-samples/issues) and **NOT** in this repo. You can also post on the [AR Foundation Forums](https://forum.unity.com/forums/handheld-ar.159/)
   
+  
+
 
 # arfoundation-demos
 AR Foundation demo projects.
@@ -72,6 +74,8 @@ The [instructional UI](https://github.com/Unity-Technologies/arfoundation-demos/
 - Tap to Place
 - None
 
+  
+
 
 All of the instructional UI (except the ARKit coaching overlay) is an included .webm video encoded with VP8 codec in order to support transparency. 
 
@@ -84,6 +88,8 @@ With the following [goals](https://github.com/Unity-Technologies/arfoundation-de
 - Found an Object
 - Placed an Object
 - None
+
+  
 
 
 The goals are checking the associated `ARTrackableManager` number of trackables count. One thing to note is this is just looking for a trackable to be added, it does not check the tracking state of said trackable.
@@ -110,7 +116,7 @@ The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arf
 
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
 
-
+  
 
 
 ### Tracking Reasons
@@ -123,6 +129,7 @@ Both [ARKit](https://developer.apple.com/documentation/arkit/arcamera/trackingst
 The [ARUXReasonsManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs) handles the visualization of the states and subscribes to the state change on the ARSession. The reasons are set and the display text and icon are changed in the [SetReaons()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L175-L247) method. Here I treat both Initializing and Relocalizing the same and for english display `Initializing augmented reality.` 
 
 
+  
 
 
 ## Localization
