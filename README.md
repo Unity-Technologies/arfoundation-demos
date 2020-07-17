@@ -1,5 +1,6 @@
 # This repo is intended to provide more advanced demos for AR Foundation outside of the [Samples Repo](https://github.com/Unity-Technologies/arfoundation-samples/).
 For questions and issues related to AR Foundation please post on the AR Foundation Sample [issues](https://github.com/Unity-Technologies/arfoundation-samples/issues) and **NOT** in this repo. You can also post on the [AR Foundation Forums](https://forum.unity.com/forums/handheld-ar.159/)
+  
 
 # arfoundation-demos
 AR Foundation demo projects.
@@ -18,11 +19,11 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 
 The `master` branch is compatible with Unity 2019.3 
 
-
-
+  
 
 ## Image Tracking — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
 ![img](https://user-images.githubusercontent.com/2120584/86505962-759de600-bd7f-11ea-80c5-b494cdd96427.png)
+  
 A sample app showing off how to use Image Tracking to track multiple unique images and spawn unique prefabs for each image.
 
 The script [`ImageTrackingObjectManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/ImageTrackingObjectManager.cs). handles storing prefabs and updating them based on found images. It links into the `ARTrackedImageManager.trackedImagesChanged` callback to spawn prefabs for each tracked image, update their position, show a visual on the prefab depending on it's tracked state and destroy it if removed.
@@ -36,14 +37,14 @@ The Prefabs for each number are prefab variants derived from [`OnePrefab.prefab`
 The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs) checks the distances between the tracked images and displays an additional 3D model between them when they reach a [certain proximity.](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/DistanceManager.cs#L40)
 
 the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a [`contraint`](https://docs.unity3d.com/Manual/Constraints.html) (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
-
+  
 
 ![img](https://user-images.githubusercontent.com/2120584/86506046-52276b00-bd80-11ea-83de-77ceb634ac8c.gif)
 ### Missing Prefab in ImageTracking scene.
 If you import the image tracking package or download it from the asset store **without** the Onboarding UX there will be a Missing Prefab in your scene. This prefab is a configured [ScreenSpaceUI prefab](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Prefabs/ScreenspaceUI.prefab) from the Onboarding UX. It is configured with the UI for finding an image with the goal of finding an image.
 
 
-
+  
 ## UX — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
 
 ![img](https://user-images.githubusercontent.com/2120584/87749152-b8fb4a00-c7ac-11ea-807c-0e04325f69da.png)
