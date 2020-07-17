@@ -12,13 +12,15 @@ EditorBuildSettings:
     path: Assets/UX/Scenes/UXManagerScene.unity
     guid: 5d9539f4c7ee5c74c85a038c90cb6e1b
   m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6390cd816397648a5b1cc5fc4723e0ba,
+      type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: aa5435beafbd54df081a4bc6c3fb48d1,
+      type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: fd30cf7030bd342e1b45a869462e0ee0,
       type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 6f7fbab671a5848ddae17e25cb330888,
       type: 2}
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 548641ba2e111fb4bb0267a9742ca02c,
-      type: 2}
-    com.unity.xr.arkit.PlayerSettings: {fileID: 11400000, guid: aa5435beafbd54df081a4bc6c3fb48d1,
       type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5c86decb01f9d6b46a50ce486fba0042,
       type: 2}
