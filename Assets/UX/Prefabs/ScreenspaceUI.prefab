@@ -874,7 +874,7 @@ MonoBehaviour:
   m_FadeOffDuration: 1
   m_Transparent: {fileID: 2800000, guid: 6b52c83794be64e65bf826666f5a7f7d, type: 3}
   m_LocalizationManager: {fileID: 5977163237366113879}
-  m_LocalizeText: 1
+  m_LocalizeText: 0
 --- !u!114 &5977163238016480458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -927,7 +927,7 @@ MonoBehaviour:
     type: 3}
   m_NoneSprite: {fileID: 21300000, guid: 29fc805acb69f4d7b84b4b57f58676b7, type: 3}
   m_LocalizationManager: {fileID: 5977163237366113879}
-  m_LocalizeText: 1
+  m_LocalizeText: 0
 --- !u!114 &5977163237366113879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -957,8 +957,6 @@ MonoBehaviour:
     type: 2}
   m_JapaneseFont: {fileID: 11400000, guid: 64338df9efb4345d0a24597a8d3233ba, type: 2}
   m_KoreanFont: {fileID: 11400000, guid: 829cdce4ed81e4e639f139d85fa8443c, type: 2}
-  m_TamilFont: {fileID: 11400000, guid: eed9993769ff94f66aa69e85244c86c9, type: 2}
   m_HindiFont: {fileID: 11400000, guid: bc5b90a90e9fe4263aa14c32d1ee9382, type: 2}
-  m_TeluguFont: {fileID: 11400000, guid: e32827a384bbd404fa8a1024307758da, type: 2}
   m_InstructionText: {fileID: 5977163236686653921}
   m_ReasonText: {fileID: 249903488}

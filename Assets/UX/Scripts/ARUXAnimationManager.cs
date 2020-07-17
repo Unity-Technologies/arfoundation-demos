@@ -182,6 +182,12 @@ public class ARUXAnimationManager : MonoBehaviour
     [SerializeField]
     bool m_LocalizeText = true;
 
+    public bool localizeText
+    {
+        get => m_LocalizeText;
+        set => m_LocalizeText = value;
+    }
+
     void Start()
     {
         m_StartColor = m_AlphaWhite;
