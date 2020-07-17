@@ -19,7 +19,7 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 The `master` branch is compatible with Unity 2019.3 
 
 
-## Image Tracking — also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
+## Image Tracking — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
 ![img](https://user-images.githubusercontent.com/2120584/86505962-759de600-bd7f-11ea-80c5-b494cdd96427.png)
 A sample app showing off how to use Image Tracking to track multiple unique images and spawn unique prefabs for each image.
 
@@ -39,13 +39,16 @@ the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundati
 ### Missing Prefab in ImageTracking scene.
 If you import the image tracking package or download it from the asset store **without** the Onboarding UX there will be a Missing Prefab in your scene. This prefab is a configured [ScreenSpaceUI prefab](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Prefabs/ScreenspaceUI.prefab) from the Onboarding UX. It is configured with the UI for finding an image with the goal of finding an image.
 
-## UX — also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
+## UX — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
+
 ![img](https://user-images.githubusercontent.com/2120584/87749152-b8fb4a00-c7ac-11ea-807c-0e04325f69da.png)
+
 A UI / UX framework for providing guidance to the user for a variety of different types of mobile AR apps. 
 
 The framework adopts the idea of having instructional UI shown with an instructional goal in mind. One common use of this is UI instructing the user to move their device around with the goal of the user to find a plane. Once the goal is reached the UI fades out. There is also a secondary instruction UI and an API that allows developers to add any number of additional UI and goals that will go into a queue and be processed one at a time.
 
 A common two step UI / Goal is to instruct the user to find a plane. Once a plane is found you can instruct the user to tap in order to place an object. Once an object is placed fade out the UI.
+
 ![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
 The [instructional UI](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L25-L35) consist of the following animations / videos
@@ -93,6 +96,7 @@ The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arf
 
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
 
+
 ### Tracking Reasons
 ![img](https://user-images.githubusercontent.com/2120584/87749234-fb248b80-c7ac-11ea-9cba-99032ee3bc0d.png)
 
@@ -101,6 +105,7 @@ When the [session](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4
 Both [ARKit](https://developer.apple.com/documentation/arkit/arcamera/trackingstate/reason) and [ARCore](https://developers.google.com/ar/reference/java/arcore/reference/com/google/ar/core/TrackingFailureReason) have slightly different reasons but in AR Foundation these are surfaced through the same shared API.
 
 The [ARUXReasonsManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs) handles the visualization of the states and subscribes to the state change on the ARSession. The reasons are set and the display text and icon are changed in the [SetReaons()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L175-L247) method. Here I treat both Initializing and Relocalizing the same and for english display `Initializing augmented reality.` 
+
 
 ## Localization
 
@@ -135,13 +140,16 @@ After the language is set the localized fields are retrieved from the tables bas
 
 Many languages require unique fonts in order to properly render the characters for these languages the font's are swapped at runtime along with language specific settings in [SwapFonts()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L150-L179)
 
+
 ### Packing Asset bundles for building localization support
 The Localization package uses [Addressables](https://docs.unity3d.com/Packages/com.unity.addressables@1.12/manual/index.html) to organize and pack the translated strings. There are some additional steps required to properly build these for your application. If you're localizing the text for the instructions or the reasons you will need to do these steps.
 
 1. Open the Addressables Groups window (Window / Asset Management / Addressables / Groups)
+
 ![img](https://user-images.githubusercontent.com/2120584/87748240-35405e00-c7aa-11ea-970b-8b0e653ae3b5.png)
 
 2. In the Addressables Groups Window click on the Build Tab / New Build / Default Build Script
+
 ![img](https://user-images.githubusercontent.com/2120584/87748387-9bc57c00-c7aa-11ea-99b5-d83c52e29369.png)
 
 3. You will need to do this for every platform you are building for. (Once for Android and once for iOS).
