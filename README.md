@@ -1,6 +1,6 @@
 # This repo is intended to provide more advanced demos for AR Foundation outside of the [Samples Repo](https://github.com/Unity-Technologies/arfoundation-samples/).
 For questions and issues related to AR Foundation please post on the AR Foundation Sample [issues](https://github.com/Unity-Technologies/arfoundation-samples/issues) and **NOT** in this repo. You can also post on the [AR Foundation Forums](https://forum.unity.com/forums/handheld-ar.159/)
-  
+
   
 
 
@@ -157,6 +157,10 @@ Localization currently supports the following languages
 
 The localizations are supported through a [CSV](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Localization/AR%20Foundation%20Demos%20-%20Localization%20-%20Sheet.csv) that is imported into the project and parsed into the proper localization table via [StringImporter.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Scripts/Editor/StringImporter.cs).
 
+
+  
+
+
 ### If you would like to help out, have a suggestion for a better translation or want to add additional languges please reach out and comment on this publicly available [Sheet](https://docs.google.com/spreadsheets/d/1xxHfDvdQI2SE6JFhy24Z4JZMs4bn8uIaMBbRfW6OlOU/edit?usp=sharing) 
 
 In the scene Localization is driven by the script [LocalizationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs) which has a [SupportedLanguages enum](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L13-L26) for each supported language. The current implementation only supports selecting and setting a language at **compile time** and **NOT** at runtime. This is because the selected language from the enum is [set](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L122) in the Start() method of [LocalizationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs).  
@@ -166,6 +170,7 @@ After the language is set the localized fields are retrieved from the tables bas
 Many languages require unique fonts in order to properly render the characters for these languages the font's are swapped at runtime along with language specific settings in [SwapFonts()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L150-L179)
 
 
+  
 
 
 ### Packing Asset bundles for building localization support
@@ -180,3 +185,7 @@ The Localization package uses [Addressables](https://docs.unity3d.com/Packages/c
 ![img](https://user-images.githubusercontent.com/2120584/87748387-9bc57c00-c7aa-11ea-99b5-d83c52e29369.png)
 
 3. You will need to do this for every platform you are building for. (Once for Android and once for iOS).
+
+
+  
+
