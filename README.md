@@ -19,6 +19,8 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 The `master` branch is compatible with Unity 2019.3 
 
 
+
+
 ## Image Tracking — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
 ![img](https://user-images.githubusercontent.com/2120584/86505962-759de600-bd7f-11ea-80c5-b494cdd96427.png)
 A sample app showing off how to use Image Tracking to track multiple unique images and spawn unique prefabs for each image.
@@ -35,9 +37,12 @@ The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfounda
 
 the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a [`contraint`](https://docs.unity3d.com/Manual/Constraints.html) (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
 
+
 ![img](https://user-images.githubusercontent.com/2120584/86506046-52276b00-bd80-11ea-83de-77ceb634ac8c.gif)
 ### Missing Prefab in ImageTracking scene.
 If you import the image tracking package or download it from the asset store **without** the Onboarding UX there will be a Missing Prefab in your scene. This prefab is a configured [ScreenSpaceUI prefab](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Prefabs/ScreenspaceUI.prefab) from the Onboarding UX. It is configured with the UI for finding an image with the goal of finding an image.
+
+
 
 ## UX — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
 
@@ -48,6 +53,7 @@ A UI / UX framework for providing guidance to the user for a variety of differen
 The framework adopts the idea of having instructional UI shown with an instructional goal in mind. One common use of this is UI instructing the user to move their device around with the goal of the user to find a plane. Once the goal is reached the UI fades out. There is also a secondary instruction UI and an API that allows developers to add any number of additional UI and goals that will go into a queue and be processed one at a time.
 
 A common two step UI / Goal is to instruct the user to find a plane. Once a plane is found you can instruct the user to tap in order to place an object. Once an object is placed fade out the UI.
+
 
 ![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
@@ -61,6 +67,7 @@ The [instructional UI](https://github.com/Unity-Technologies/arfoundation-demos/
 - Tap to Place
 - None
 
+
 All of the instructional UI (except the ARKit coaching overlay) is an included .webm video encoded with VP8 codec in order to support transparency. 
 
 With the following [goals](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L42-L52) to fade out UI
@@ -72,6 +79,7 @@ With the following [goals](https://github.com/Unity-Technologies/arfoundation-de
 - Found an Object
 - Placed an Object
 - None
+
 
 The goals are checking the associated `ARTrackableManager` number of trackables count. One thing to note is this is just looking for a trackable to be added, it does not check the tracking state of said trackable.
 
@@ -90,11 +98,14 @@ m_UIManager.AddToQueue(new UXHandle(UIManager.InstructionUI.ARKitCoachingOverlay
 ```
 
 
+
 There's a [`m_CoachingOverlayFallback`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L76) used in order to enable the ARKit coaching overlay on supported devices but fall back to Cross Platform Find a Plane when it is not. 
 
 The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs) holds references to all the videos, controls all the logic for fading the UI in and out, managing the video swapping and swapping the associated text with each video / UI.
 
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
+
+
 
 
 ### Tracking Reasons
@@ -105,6 +116,8 @@ When the [session](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4
 Both [ARKit](https://developer.apple.com/documentation/arkit/arcamera/trackingstate/reason) and [ARCore](https://developers.google.com/ar/reference/java/arcore/reference/com/google/ar/core/TrackingFailureReason) have slightly different reasons but in AR Foundation these are surfaced through the same shared API.
 
 The [ARUXReasonsManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs) handles the visualization of the states and subscribes to the state change on the ARSession. The reasons are set and the display text and icon are changed in the [SetReaons()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L175-L247) method. Here I treat both Initializing and Relocalizing the same and for english display `Initializing augmented reality.` 
+
+
 
 
 ## Localization
@@ -139,6 +152,8 @@ In the scene Localization is driven by the script [LocalizationManager.cs](https
 After the language is set the localized fields are retrieved from the tables based on specific keys for each value and then referenced in the AR UX Animation Manager and AR UX Reasons Manager.
 
 Many languages require unique fonts in order to properly render the characters for these languages the font's are swapped at runtime along with language specific settings in [SwapFonts()](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/LocalizationManager.cs#L150-L179)
+
+
 
 
 ### Packing Asset bundles for building localization support
