@@ -46,6 +46,7 @@ A UI / UX framework for providing guidance to the user for a variety of differen
 The framework adopts the idea of having instructional UI shown with an instructional goal in mind. One common use of this is UI instructing the user to move their device around with the goal of the user to find a plane. Once the goal is reached the UI fades out. There is also a secondary instruction UI and an API that allows developers to add any number of additional UI and goals that will go into a queue and be processed one at a time.
 
 A common two step UI / Goal is to instruct the user to find a plane. Once a plane is found you can instruct the user to tap in order to place an object. Once an object is placed fade out the UI.
+![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
 The [instructional UI](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/UIManager.cs#L25-L35) consist of the following animations / videos
 - Cross Platform Find a plane
@@ -91,8 +92,6 @@ There's a [`m_CoachingOverlayFallback`](https://github.com/Unity-Technologies/ar
 The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs) holds references to all the videos, controls all the logic for fading the UI in and out, managing the video swapping and swapping the associated text with each video / UI.
 
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
-
-![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
 ### Tracking Reasons
 ![img](https://user-images.githubusercontent.com/2120584/87749234-fb248b80-c7ac-11ea-9cba-99032ee3bc0d.png)
