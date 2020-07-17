@@ -40,7 +40,7 @@ the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundati
 If you import the image tracking package or download it from the asset store **without** the Onboarding UX there will be a Missing Prefab in your scene. This prefab is a configured [ScreenSpaceUI prefab](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Prefabs/ScreenspaceUI.prefab) from the Onboarding UX. It is configured with the UI for finding an image with the goal of finding an image.
 
 ## UX — also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
-![img](https://user-images.githubusercontent.com/2120584/86506259-a03d6e00-bd82-11ea-8e3c-42eebdf8041c.png)
+![img](https://user-images.githubusercontent.com/2120584/87749152-b8fb4a00-c7ac-11ea-807c-0e04325f69da.png)
 A UI / UX framework for providing guidance to the user for a variety of different types of mobile AR apps. 
 
 The framework adopts the idea of having instructional UI shown with an instructional goal in mind. One common use of this is UI instructing the user to move their device around with the goal of the user to find a plane. Once the goal is reached the UI fades out. There is also a secondary instruction UI and an API that allows developers to add any number of additional UI and goals that will go into a queue and be processed one at a time.
@@ -92,9 +92,11 @@ The script [`ARUXAnimationManager.cs`](https://github.com/Unity-Technologies/arf
 
 The script [`DisableTrackedVisuals`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/DisableTrackedVisuals.cs) holds a reference to the ARPlaneManger and ARPointCloudManager to allow for disabling both the spawned objects from the managers and the managers themselves, preventing further plane tracking or feature point (point clouds) tracking.
 
-![img](https://user-images.githubusercontent.com/2120584/86506395-e3e4a780-bd83-11ea-811d-cae7fbc7e25f.gif)
+![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
 ### Tracking Reasons
+![img](https://user-images.githubusercontent.com/2120584/87749234-fb248b80-c7ac-11ea-9cba-99032ee3bc0d.png)
+
 When the [session](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/manual/session-subsystem.html) (device) is not tracking or has lost tracking there are a variety of different [reasons](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.0/api/UnityEngine.XR.ARSubsystems.NotTrackingReason.html) why. It can be helpful to show these reasons to users so they better understand the experience or what may be hindering it.
 
 Both [ARKit](https://developer.apple.com/documentation/arkit/arcamera/trackingstate/reason) and [ARCore](https://developers.google.com/ar/reference/java/arcore/reference/com/google/ar/core/TrackingFailureReason) have slightly different reasons but in AR Foundation these are surfaced through the same shared API.
@@ -104,6 +106,8 @@ The [ARUXReasonsManager.cs](https://github.com/Unity-Technologies/arfoundation-d
 ## Localization
 
 ### If you want to use localization make sure to read the required addressables building documentation at the end of this section.
+
+![img](https://user-images.githubusercontent.com/2120584/87749265-17282d00-c7ad-11ea-952a-e1e055091eab.png)
 
 The Instructional UI and the Reasons have localization support through the [Unity localization package](https://docs.unity3d.com/Packages/com.unity.localization@0.7/manual/). It's enabled for the the instructional UI in AR UX Animation Manager with the [m_LocalizeText](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXAnimationManager.cs#L183) bool and with reasons in the AR UX Reasons Manager with the [m_LocalizeText](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/UX/Scripts/ARUXReasonsManager.cs#L113) bool.
 
