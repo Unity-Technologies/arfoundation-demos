@@ -24,6 +24,7 @@ The `master` branch is compatible with Unity 2019.3
 ## Image Tracking — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
 ![img](https://user-images.githubusercontent.com/2120584/86505962-759de600-bd7f-11ea-80c5-b494cdd96427.png)
   
+
 A sample app showing off how to use Image Tracking to track multiple unique images and spawn unique prefabs for each image.
 
 The script [`ImageTrackingObjectManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/ImageTrackingObjectManager.cs). handles storing prefabs and updating them based on found images. It links into the `ARTrackedImageManager.trackedImagesChanged` callback to spawn prefabs for each tracked image, update their position, show a visual on the prefab depending on it's tracked state and destroy it if removed.
@@ -38,6 +39,8 @@ The script [`DistanceManager.cs`](https://github.com/Unity-Technologies/arfounda
 
 the script [`NumberManager.cs`](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/ImageTracking/Scripts/NumberManager.cs) handles setting up a [`contraint`](https://docs.unity3d.com/Manual/Constraints.html) (in this case used to billboard the model) on the 3D number objects and provides a function to enable and disabling the rendering of the 3D model. 
   
+  
+
 
 ![img](https://user-images.githubusercontent.com/2120584/86506046-52276b00-bd80-11ea-83de-77ceb634ac8c.gif)
 ### Missing Prefab in ImageTracking scene.
@@ -55,6 +58,7 @@ The framework adopts the idea of having instructional UI shown with an instructi
 
 A common two step UI / Goal is to instruct the user to find a plane. Once a plane is found you can instruct the user to tap in order to place an object. Once an object is placed fade out the UI.
 
+  
 
 ![img](https://user-images.githubusercontent.com/2120584/87749208-e2b47100-c7ac-11ea-93ef-5955e2a541b1.png)
 
