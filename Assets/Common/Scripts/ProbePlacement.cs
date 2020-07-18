@@ -7,8 +7,20 @@ public class ProbePlacement : MonoBehaviour
     [SerializeField]
     AREnvironmentProbeManager m_ProbeManager;
 
+    public AREnvironmentProbeManager probeManager
+    {
+        get => m_ProbeManager;
+        set => m_ProbeManager = value;
+    }
+
     [SerializeField]
     ARRaycastManager m_RaycastManager;
+
+    public ARRaycastManager raycastManager
+    {
+        get => m_RaycastManager;
+        set => m_RaycastManager = value;
+    }
 
     List<ARRaycastHit> k_Hits = new List<ARRaycastHit>();
 
