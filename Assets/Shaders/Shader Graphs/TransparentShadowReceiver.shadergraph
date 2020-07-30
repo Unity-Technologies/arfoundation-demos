@@ -134,7 +134,7 @@
             "m_Guid": ""
         }
     },
-    "m_Path": "Shader Graphs",
+    "m_Path": "AR/Shader Graphs",
     "m_ConcretePrecision": 0,
     "m_ActiveOutputNodeGuidSerialized": "a92a86ef-72f8-4598-b0fb-95d70cbdf72a"
 }
