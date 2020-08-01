@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 4687476865244239166}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 8658607402519927358}
   m_RootOrder: 1
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4687476865614961472}
   - component: {fileID: 86004217}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: CubeBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c5dab7bddf0844d98912d77186431ec3, type: 2}
+  - {fileID: 2100000, guid: 2c7de8a9c67944660be273e8035fdd37, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 4687476866195158243}
   - component: {fileID: 86004216}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: SphereOrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d305eecc053fa46b38f68f03cc1ba34c, type: 2}
+  - {fileID: 2100000, guid: 948b5c2f58e29498eb19339333fc1648, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -334,7 +334,7 @@ GameObject:
   - component: {fileID: 4687476866484261448}
   - component: {fileID: 86004215}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: CubeRed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,7 +443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1748037316647009009}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: ShapeRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,8 +457,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6107677822635207496}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.18, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.626, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4687476865614961477}
   - {fileID: 4687476866195158240}
