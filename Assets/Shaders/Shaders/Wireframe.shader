@@ -4,11 +4,12 @@ Shader "AR/Wireframe"
 {
     Properties
     {
-        _WireThickness("Wire Thickness", Range(0, 800)) = 100
-        _WireColor("Wire Color", Color) = (1.0,1.0.0,1.0.0,1.0)
-        _DistanceToEdgeThreshold("Distance to Edge", float) = 1.0
+        _WireThickness("Thickness", Range(0, 20)) = 1
+        _DistanceToEdgeThreshold("Smoothing", Range(0,2)) = 0.01
+        _WireColor("Color", Color) = (1.0,1.0,1.0,1.0)
     }
-        SubShader
+    
+    SubShader
     {
         Tags
         {
@@ -49,9 +50,9 @@ Shader "AR/Wireframe"
                 float4 dist : TEXCOORD2;
             };
 
-            half4  _WireColor;
             half _WireThickness;
             half _DistanceToEdgeThreshold;
+            half4 _WireColor;
 
             v2g vert(appdata v)
             {
@@ -72,7 +73,7 @@ Shader "AR/Wireframe"
                 float2 edge2 = p1 - p0;
 
                 float area = abs(edge1.x * edge2.y - edge1.y * edge2.x);
-                float wireThickness = _WireThickness;
+                float wireThickness = 20 - _WireThickness;
 
                 g2f o;
                 o.vertex = i[0].vertex;
@@ -94,11 +95,9 @@ Shader "AR/Wireframe"
             half4 frag(g2f i) : SV_Target
             {
 
-                half4 col = half4(0.0,0.0,0.0,0.0);
+                half4 col = _WireColor;// half4(0.0,0.0,0.0,0.0);
 
                 float minDistanceToEdge = min(i.dist[0], min(i.dist[1], i.dist[2])) * i.dist[3];
-
-                col = lerp(_WireColor, col, minDistanceToEdge);
 
                 if (minDistanceToEdge > _DistanceToEdgeThreshold)
                 {
