@@ -15,6 +15,9 @@ public class CameraGrainURP : MonoBehaviour
 
     Renderer m_Renderer;
 
+    const string k_NoiseTextureProperty = "_NoiseTex";
+    const string k_NoiseIntensityProperty = "_NoiseIntensity";
+
     void OnEnable()
     {
         if(m_CameraManager == null)
@@ -35,8 +38,15 @@ public class CameraGrainURP : MonoBehaviour
 #if UNITY_IOS
         if(m_Renderer != null && eventArgs.cameraGrainTexture != null)
         {
-            m_Renderer.material.SetTexture("_NoiseTex", eventArgs.cameraGrainTexture);
-            m_Renderer.material.SetFloat("_NoiseIntensity", eventArgs.noiseIntensity);
+            if (m_Renderer.material.HasProperty(k_NoiseTextureProperty))
+            {
+                m_Renderer.material.SetTexture(k_NoiseTextureProperty, eventArgs.cameraGrainTexture);
+            }
+
+            if (m_Renderer.material.HasProperty(k_NoiseIntensityProperty))
+            {
+                m_Renderer.material.SetFloat(k_NoiseIntensityProperty, eventArgs.noiseIntensity);
+            }
         }
 #endif
     }

@@ -39,6 +39,15 @@ public class PlaceObjectsOnPlane : MonoBehaviour
 
     int m_NumberOfPlacedObjects = 0;
 
+    [SerializeField]
+    bool m_CanReposition = true;
+
+    public bool canReposition
+    {
+        get => m_CanReposition;
+        set => m_CanReposition = value;
+    }
+
     void Awake()
     {
         m_RaycastManager = GetComponent<ARRaycastManager>();
@@ -64,7 +73,10 @@ public class PlaceObjectsOnPlane : MonoBehaviour
                     }
                     else
                     {
-                        spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                        if (m_CanReposition)
+                        {
+                            spawnedObject.transform.SetPositionAndRotation(hitPose.position, hitPose.rotation);
+                        }
                     }
                     
                     if (onPlacedObject != null)
