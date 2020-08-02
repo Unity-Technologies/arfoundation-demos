@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿// Based on: https://catlikecoding.com/unity/tutorials/advanced-rendering/flat-and-wireframe-shading/
+
+using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BarycentricDataBuilder : MonoBehaviour
