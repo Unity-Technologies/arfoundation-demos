@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/UX/Scenes/UXManagerScene.unity
     guid: 5d9539f4c7ee5c74c85a038c90cb6e1b
+  - enabled: 0
+    path: Assets/Shaders/Scenes/MeshVisualization.unity
+    guid: d1eca2418832743c98c5e99f6619dcb7
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6390cd816397648a5b1cc5fc4723e0ba,
       type: 2}

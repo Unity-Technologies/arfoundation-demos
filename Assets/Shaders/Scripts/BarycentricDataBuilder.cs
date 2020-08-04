@@ -2,19 +2,19 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BarycentricDataBuilder : MonoBehaviour
 {
     private Mesh m_Mesh;
 
     void Start()
     {
-        GenerateBarycentricData();
+        //GenerateBarycentricData();
     }
 
-    private void Reset()
+    public void GenerateData(Mesh sharedMesh)
     {
-        GenerateBarycentricData();
+        SplitMesh(sharedMesh);
+        SetVertexColors(sharedMesh);
     }
 
     void GenerateBarycentricData()
@@ -35,7 +35,7 @@ public class BarycentricDataBuilder : MonoBehaviour
             new Color(0, 0, 1),
         };
 
-        Color32[] vertexColors = new Color32[m_Mesh.vertexCount];
+        Color32[] vertexColors = new Color32[mesh.vertexCount];
 
         for (int i = 0; i < vertexColors.Length; i += 3)
         {
@@ -44,7 +44,7 @@ public class BarycentricDataBuilder : MonoBehaviour
             vertexColors[i + 2] = colorCoords[2];
         }
 
-        m_Mesh.colors32 = vertexColors;
+        mesh.colors32 = vertexColors;
     }
 
     void SplitMesh(Mesh mesh)
