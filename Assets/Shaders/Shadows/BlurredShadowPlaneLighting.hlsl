@@ -32,7 +32,7 @@ void MainLightBlurShadow_half(half RandSeed, half FadeTightness, SamplerState Po
 	ShadowAtten = 1;
 	ShadowSamplingData shadowSamplingData = GetMainLightShadowSamplingData();
 	half4 shadowParams = GetMainLightShadowParams();
-	for (int i = 1; i < 41; i++)
+	for (int i = 0; i < 40; i++)
 	{
 		half3 newWorldPos = WorldPos + half3(sin(RandSeed + i), 0, cos(RandSeed + i)) * i * 0.025 * BlurRadius;
 #if SHADOWS_SCREEN
@@ -41,15 +41,21 @@ void MainLightBlurShadow_half(half RandSeed, half FadeTightness, SamplerState Po
 #else
 		half4 shadowCoord = TransformWorldToShadowCoord(newWorldPos);
 #endif
+#ifdef _MAIN_LIGHT_SHADOWS_CASCADE
+		half cascadeIndex = ComputeCascadeIndex(newWorldPos);
+#else
+		half cascadeIndex = 0;
+#endif
+		float shadowScale = pow(_MainLightWorldToShadow[cascadeIndex], 0.6) * 20; // Some "Magic Math" to try to make transitions between cascades smoother
 		//mainLight = GetMainLight(shadowCoord);
 		float shadowMapSample = SampleShadowmapDirect(TEXTURE2D_ARGS(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture), PointClamp, shadowCoord, shadowSamplingData, shadowParams, false);
 
-		float shadowCoordPos = shadowCoord.z;
-		float shadowMapPos = shadowMapSample;
-		float fade = ((shadowMapPos - shadowCoordPos) * FadeTightness);
-		float onedivfade = 1 / min(fade, 0.7);
-		ShadowAtten -= step(shadowCoord.z, shadowMapSample) * 0.0025 * lerp(max((41 - i* onedivfade)*onedivfade,0), i, saturate(fade));// *(1 - saturate(fade / 3));
-		ShadowAtten = saturate(ShadowAtten);
+		float shadowCoordPos = shadowCoord.z / shadowScale;
+		float shadowMapPos = shadowMapSample / shadowScale;
+		float fade = max(0.01, ((shadowMapPos - shadowCoordPos) * FadeTightness));
+		float onedivfade = 1 / saturate(fade);
+		ShadowAtten -= step(shadowCoord.z, shadowMapSample) * 0.025 * clamp((41 - i * onedivfade), 0, onedivfade*2) * max(step(fade * 8, i+1), 0.3);
+		ShadowAtten = BEYOND_SHADOW_FAR(shadowCoord) ? 1.0 : saturate(ShadowAtten);
 	}
 #endif
 }
