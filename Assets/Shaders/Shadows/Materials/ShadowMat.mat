@@ -51,6 +51,7 @@ Material:
     m_Floats:
     - BlurRadius: 0.4
     - FadeTightness: 20
+    - MultiplyStrength: 0.4
     - ShadowStrength: 0.5
     - _AlphaClip: 0
     - _Blend: 0

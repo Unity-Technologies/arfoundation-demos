@@ -1,5 +1,5 @@
 #ifndef SHADERGRAPH_PREVIEW
-real SampleShadowmapDirect(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), SamplerState PointClamp, float4 shadowCoord, ShadowSamplingData samplingData, half4 shadowParams, bool isPerspectiveProjection = true)
+real SampleShadowmapDirect(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), SamplerState PointClamp, float4 shadowCoord, ShadowSamplingData samplingData, bool isPerspectiveProjection = true)
 {
 
 	// Compiler will optimize this branch away as long as isPerspectiveProjection is known at compile time
@@ -7,34 +7,29 @@ real SampleShadowmapDirect(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap),
 		shadowCoord.xyz /= shadowCoord.w;
 
 	real distance;
-	real shadowStrength = shadowParams.x;
 
+	// Instead of getting a value of 0 or 1 depending on a shadowmap comparison, we want to actually sample the shadowmap's values
 	distance = SAMPLE_TEXTURE2D_LOD(ShadowMap, PointClamp, shadowCoord.xy, 0);
 
-	// Shadow coords that fall out of the light frustum volume must always return attenuation 1.0
-	// TODO: We could use branch here to save some perf on some platforms.
-	return BEYOND_SHADOW_FAR(shadowCoord) ? 1.0 : distance;
+	return distance;
 }
 #endif
 
-void MainLightBlurShadow_half(half RandSeed, half FadeTightness, SamplerState PointClamp, half BlurRadius, half3 WorldPos, out half3 Direction, out half3 Color, out half DistanceAtten, out half ShadowAtten)
+void MainLightBlurShadow_half(half rand, half fadeTightness, SamplerState pointClamp, half blurRadius, half3 worldPos, out half shadowAtten)
 {
 #if SHADERGRAPH_PREVIEW
-	Direction = half3(0.5, 0.5, 0);
-	Color = 1;
-	DistanceAtten = 1;
-	ShadowAtten = 1;
+	shadowAtten = 1;
 #else
+	const int NUM_STEPS = 40;
+	float oneDivNumSteps = 1.0 / NUM_STEPS;
 	Light mainLight = GetMainLight();
-	Direction = mainLight.direction;
-	Color = mainLight.color;
-	DistanceAtten = mainLight.distanceAttenuation;
-	ShadowAtten = 1;
+	shadowAtten = 1;
 	ShadowSamplingData shadowSamplingData = GetMainLightShadowSamplingData();
-	half4 shadowParams = GetMainLightShadowParams();
-	for (int i = 0; i < 40; i++)
+	for (int i = 0; i < NUM_STEPS; i++)
 	{
-		half3 newWorldPos = WorldPos + half3(sin(RandSeed + i), 0, cos(RandSeed + i)) * i * 0.025 * BlurRadius;
+		//Instead of sampling the position of the current pixel, sample a point that's a i steps away, in a semi-randomized direction
+		//the starting direction is randomized and then the direction is rotated by "i" radians every iteration
+		half3 newWorldPos = worldPos + half3(sin(rand + i), 0, cos(rand + i)) * i * oneDivNumSteps * blurRadius;
 #if SHADOWS_SCREEN
 		half4 clipPos = TransformWorldToHClip(newWorldPos);
 		half4 shadowCoord = ComputeScreenPos(clipPos);
@@ -46,16 +41,23 @@ void MainLightBlurShadow_half(half RandSeed, half FadeTightness, SamplerState Po
 #else
 		half cascadeIndex = 0;
 #endif
-		float shadowScale = pow(_MainLightWorldToShadow[cascadeIndex], 0.6) * 20; // Some "Magic Math" to try to make transitions between cascades smoother
-		//mainLight = GetMainLight(shadowCoord);
-		float shadowMapSample = SampleShadowmapDirect(TEXTURE2D_ARGS(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture), PointClamp, shadowCoord, shadowSamplingData, shadowParams, false);
+		float shadowScale = pow(_MainLightWorldToShadow[cascadeIndex], 0.7) * 20; // Some "Magic Math" to try to make transitions between cascades smoother
+		float shadowMapSample = SampleShadowmapDirect(TEXTURE2D_ARGS(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture), pointClamp, shadowCoord, shadowSamplingData, false);
 
-		float shadowCoordPos = shadowCoord.z / shadowScale;
+		float shadowCoordPos = shadowCoord.z / shadowScale; //Divide by shadowScale to get transitions more close-ish when using shadow cascades
 		float shadowMapPos = shadowMapSample / shadowScale;
-		float fade = max(0.01, ((shadowMapPos - shadowCoordPos) * FadeTightness));
-		float onedivfade = 1 / saturate(fade);
-		ShadowAtten -= step(shadowCoord.z, shadowMapSample) * 0.025 * clamp((41 - i * onedivfade), 0, onedivfade*2) * max(step(fade * 8, i+1), 0.3);
-		ShadowAtten = BEYOND_SHADOW_FAR(shadowCoord) ? 1.0 : saturate(ShadowAtten);
+		//blurAmount is a value between 0 and 1 expressing how much to blur 
+		float blurAmount = max(0.01, ((shadowMapPos - shadowCoordPos) * fadeTightness));
+		float oneDivBlurAmount = 1 / saturate(blurAmount);
+		//0 or 1 depending on whether a shadow is being cast
+		float isInShadow = step(shadowCoord.z, shadowMapSample); 
+		// reduce the influence of higher iterations (further out samples) if the sampled shadowmap value is close to our position
+		float tightenCloseShadows = clamp((NUM_STEPS - i * oneDivBlurAmount), 0, oneDivBlurAmount * 2); 
+		// reduce the influence of lower iterations (closer in samples) if the sampled shadowmap value is far way from our position
+		float reduceInnerIterations = max(step(saturate(blurAmount) * NUM_STEPS / 4, i + 1), 0.3);
+		shadowAtten -= isInShadow * oneDivNumSteps * tightenCloseShadows * reduceInnerIterations;
+		// If the position is out of shadow distance, just return 1
+		shadowAtten = BEYOND_SHADOW_FAR(shadowCoord) ? 1.0 : saturate(shadowAtten);
 	}
 #endif
 }
