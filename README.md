@@ -22,7 +22,7 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 The `master` branch is compatible with Unity 2019.3 
 
   
-[Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#Mesh Placement)
+[Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#mesh-placement)
 ------------ | ------------- | -------------
 
   
@@ -190,7 +190,7 @@ The Localization package uses [Addressables](https://docs.unity3d.com/Packages/c
 ![img](https://user-images.githubusercontent.com/2120584/87748387-9bc57c00-c7aa-11ea-99b5-d83c52e29369.png)
 
 3. You will need to do this for every platform you are building for. (Once for Android and once for iOS).
-
-
+  
+  
 ## Mesh Placement
 
