@@ -211,11 +211,14 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (!m_LocalizationManager.localizationComplete)
+        if (m_AnimationManager.localizeText)
         {
-            return;
+            if (!m_LocalizationManager.localizationComplete)
+            {
+                return;
+            }
         }
-        
+
         if (m_UXOrderedQueue.Count > 0 && !m_ProcessingInstructions)
         {
             // pop off
