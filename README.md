@@ -240,7 +240,7 @@ A collection of Shaders built for AR and AR use cases
 
 ## ARKit Fog
 ![img](https://user-images.githubusercontent.com/2120584/89489924-66d09780-d760-11ea-8ce8-2b0f04af59db.jpg)
-This effect uses the latest Depth API and is **only** available on LiDAR enabled iOS devices like the iPad Pro.
+This effect uses the latest Depth API and is **only** available on LiDAR enabled iOS devices like the iPad Pro. Currently this is only supported in the built-in render pipeline.
 
 The Fog scene uses an ARKit background shader that incorporates Unity scene fog into the shader used for rendering the ARKit device camera feed to the screen. It is heavily based on the ARKitBackground shader shipped with the ARKit package. 
 >In order to properly use this shader the Custom Material checkbox on the ARCameraBackground component must be checked and a material with this shader assigned.
