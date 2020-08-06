@@ -239,9 +239,12 @@ It was developed by Daniele Giardini - Demigiant and is Copyright (c) 2014. Full
 A collection of Shaders built for AR and AR use cases
 
 ## ARKit Fog
+![img](https://user-images.githubusercontent.com/2120584/89489924-66d09780-d760-11ea-8ce8-2b0f04af59db.jpg)
 This effect uses the latest Depth API and is **only** available on LiDAR enabled iOS devices like the iPad Pro.
 
 The Fog scene uses an ARKit background shader that incorporates Unity scene fog into the shader used for rendering the ARKit device camera feed to the screen. It is heavily based on the ARKitBackground shader shipped with the ARKit package. 
 >In order to properly use this shader the Custom Material checkbox on the ARCameraBackground component must be checked and a material with this shader assigned.
 
 The Fog scene includes AR plane finding and placement scritps to place a virtual object in AR that uses the standard shader. The scene has fog enabled in the [Lighting Settings window](https://docs.unity3d.com/Manual/lighting-window.html). It's set to an end distance of 35 and a UI slider that changes the scene fog between 1-35 is configured in the scene. Manipulating this slider will change the appearance of the density of the fog in the scene.
+
+![img](https://user-images.githubusercontent.com/2120584/89490315-6edd0700-d761-11ea-9965-af86a9bbc296.gif)
