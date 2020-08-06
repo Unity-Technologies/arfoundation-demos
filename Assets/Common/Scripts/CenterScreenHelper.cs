@@ -25,6 +25,7 @@ public class CenterScreenHelper : MonoBehaviour
         {
             Destroy(this);
         }
+        
         m_CurrentOrientation = Screen.orientation;
         m_CurrentWidth = Screen.width;
         m_MidPointWidth = Screen.width / 2;
@@ -39,28 +40,17 @@ public class CenterScreenHelper : MonoBehaviour
         {
             m_CenterScreenVert = new Vector2(m_MidPointWidth, m_MidPointHeight);
             m_CenterScreenHor = new Vector2(m_MidPointHeight, m_MidPointWidth);
-            
         }
     }
 
     public Vector2 GetCenterScreen()
-    {
-        if (m_CurrentOrientation == ScreenOrientation.Landscape)
-        {
-            return m_CenterScreenHor;
-        }
-        else
-        {
-            return m_CenterScreenVert;
-        }
-    }
-
-    void Update()
     {
         if (Screen.width != m_CurrentWidth)
         {
             m_CurrentWidth = Screen.width;
             m_CurrentOrientation = Screen.orientation;
         }
+
+        return m_CurrentOrientation == ScreenOrientation.Landscape ? m_CenterScreenHor : m_CenterScreenVert;
     }
 }

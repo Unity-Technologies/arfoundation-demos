@@ -975,7 +975,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446fc7fee4cf2ad4daa02222a84869c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 6562802905340916462, guid: f87dd2359ba946141af737fcd7366b3a,
+  m_PlacedPrefab: {fileID: 6562802905340916462, guid: ac267a3a72f244ea9b2bd9b1552e4bd6,
     type: 3}
   m_MaxNumberOfObjectsToPlace: 1
 --- !u!114 &1614374573

@@ -61,6 +61,7 @@ public class PlacementReticle : MonoBehaviour
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
     const float k_MinScaleDistance = 0.0f;
     const float k_MaxScaleDistance = 1.0f;
+    const float k_ScaleMod = 1.0f;
     
     void Start()
     {
@@ -90,19 +91,13 @@ public class PlacementReticle : MonoBehaviour
         if (m_DistanceScale)
         {
             m_CurrentDistance = Vector3.Distance(m_SpawnedReticle.transform.position, m_CameraTransform.position);
-            m_CurrentNormalizedDistance = ((Mathf.Abs(m_CurrentDistance - k_MinScaleDistance)) / (k_MaxScaleDistance - k_MinScaleDistance))+1;
+            m_CurrentNormalizedDistance = ((Mathf.Abs(m_CurrentDistance - k_MinScaleDistance)) / (k_MaxScaleDistance - k_MinScaleDistance))+k_ScaleMod;
             m_SpawnedReticle.transform.localScale = new Vector3(m_CurrentNormalizedDistance, m_CurrentNormalizedDistance, m_CurrentNormalizedDistance);
         }
     }
 
     public Transform GetReticlePosition()
     {
-        // if not active ie: not snapping to a plane return null
-        if (!m_SpawnedReticle.activeSelf)
-        {
-            return null;
-        }
-        
         return m_SpawnedReticle.transform;
     }
 }

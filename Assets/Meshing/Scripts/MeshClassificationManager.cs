@@ -38,7 +38,6 @@ public class MeshClassificationManager : MonoBehaviour
         set => m_MainCamera = value;
     }
     
-    Vector2 m_ScreenCenter;
     RaycastHit m_Hit;
     TrackableId m_CurrentTrackableID;
     XRMeshSubsystem m_MeshSubsystem;
@@ -50,7 +49,6 @@ public class MeshClassificationManager : MonoBehaviour
 
     void OnEnable()
     {
-        m_ScreenCenter = new Vector2(Screen.width / 2, Screen.height / 2);
         m_MeshSubsystem = m_MeshManager.subsystem;
         m_MeshSubsystem.SetClassificationEnabled(true);
 
@@ -64,7 +62,7 @@ public class MeshClassificationManager : MonoBehaviour
 
     void Update()
     {
-        if (Physics.Raycast(m_MainCamera.ScreenPointToRay(m_ScreenCenter), out m_Hit))
+        if (Physics.Raycast(m_MainCamera.ScreenPointToRay(CenterScreenHelper.Instance.GetCenterScreen()), out m_Hit))
         {
             SetCurrentClassification(ExtractTrackableId(m_Hit.transform.name), m_Hit.triangleIndex);
             m_CurrentClassificationLabel.text = GetClassificationName(m_CurrentClassification);
