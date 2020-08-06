@@ -22,8 +22,8 @@ ARSubsystems defines an interface, and the platform-specific implementations are
 The `master` branch is compatible with Unity 2019.3 
 
   
-[Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#mesh-placement)
------------- | ------------- | -------------
+[Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#mesh-placement) | [Shaders](#shaders)
+------------ | ------------- | ------------- | ----------------
 
   
 
@@ -232,3 +232,16 @@ To visualize and understand the different classified surfaces we are using a mod
 For this demo it is used to scaling up the placed objects as they appear. 
 
 It was developed by Daniele Giardini - Demigiant and is Copyright (c) 2014. Full License for DOTween available [here](http://dotween.demigiant.com/license.php)
+
+
+# Shaders
+
+A collection of Shaders built for AR and AR use cases
+
+## ARKit Fog
+This effect uses the latest Depth API and is **only** available on LiDAR enabled iOS devices like the iPad Pro.
+
+The Fog scene uses an ARKit background shader that incorporates Unity scene fog into the shader used for rendering the ARKit device camera feed to the screen. It is heavily based on the ARKitBackground shader shipped with the ARKit package. 
+>In order to properly use this shader the Custom Material checkbox on the ARCameraBackground component must be checked and a material with this shader assigned.
+
+The Fog scene includes AR plane finding and placement scritps to place a virtual object in AR that uses the standard shader. The scene has fog enabled in the [Lighting Settings window](https://docs.unity3d.com/Manual/lighting-window.html). It's set to an end distance of 35 and a UI slider that changes the scene fog between 1-35 is configured in the scene. Manipulating this slider will change the appearance of the density of the fog in the scene.
