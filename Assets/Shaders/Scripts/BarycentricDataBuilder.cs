@@ -5,8 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BarycentricDataBuilder : MonoBehaviour
 {
-    private Mesh m_Mesh;
-
     void Start()
     {
         GenerateBarycentricData();
@@ -19,11 +17,9 @@ public class BarycentricDataBuilder : MonoBehaviour
 
     void GenerateBarycentricData()
     {
-        m_Mesh = GetComponent<MeshFilter>().sharedMesh;
+        Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
 
-        SplitMesh(m_Mesh);
-
-        SetVertexColors(m_Mesh);
+        SplitMesh(mesh);
     }
 
     void SetVertexColors(Mesh mesh)
@@ -35,7 +31,7 @@ public class BarycentricDataBuilder : MonoBehaviour
             new Color(0, 0, 1),
         };
 
-        Color32[] vertexColors = new Color32[m_Mesh.vertexCount];
+        Color32[] vertexColors = new Color32[mesh.vertices.Length];
 
         for (int i = 0; i < vertexColors.Length; i += 3)
         {
@@ -44,7 +40,7 @@ public class BarycentricDataBuilder : MonoBehaviour
             vertexColors[i + 2] = colorCoords[2];
         }
 
-        m_Mesh.colors32 = vertexColors;
+        mesh.colors32 = vertexColors;
     }
 
     void SplitMesh(Mesh mesh)
@@ -52,30 +48,33 @@ public class BarycentricDataBuilder : MonoBehaviour
         int[] triangles = mesh.triangles;
         Vector3[] verts = mesh.vertices;
         Vector3[] normals = mesh.normals;
-        //Vector2[] uvs = mesh.uv;
+        Vector2[] uvs = mesh.uv;
 
         Vector3[] newVerts;
         Vector3[] newNormals;
-        //Vector2[] newUvs;
+        Vector2[] newUvs;
 
         int n = triangles.Length;
         newVerts = new Vector3[n];
         newNormals = new Vector3[n];
-        //newUvs = new Vector2[n];
+        newUvs = new Vector2[n];
 
         for (int i = 0; i < n; i++)
         {
             newVerts[i] = verts[triangles[i]];
             newNormals[i] = normals[triangles[i]];
-            //if (uvs.Length > 0)
-            //{
-            //    newUvs[i] = uvs[triangles[i]];
-            //}
+            if (uvs.Length > 0)
+            {
+                newUvs[i] = uvs[triangles[i]];
+            }
             triangles[i] = i;
         }
+
         mesh.vertices = newVerts;
         mesh.normals = newNormals;
-        //mesh.uv = newUvs;
+        mesh.uv = newUvs;
         mesh.triangles = triangles;
+
+        SetVertexColors(mesh);
     }
 }
