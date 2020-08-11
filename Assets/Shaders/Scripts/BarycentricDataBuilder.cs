@@ -2,13 +2,13 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+//[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class BarycentricDataBuilder : MonoBehaviour
 {
-    void Start()
-    {
-        GenerateBarycentricData();
-    }
+    //void Start()
+    //{
+    //    GenerateBarycentricData();
+    //}
 
     private void Reset()
     {
@@ -20,6 +20,15 @@ public class BarycentricDataBuilder : MonoBehaviour
         Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
 
         SplitMesh(mesh);
+
+        SetVertexColors(mesh);
+    }
+
+    public void GenerateData(Mesh mesh)
+    {
+        SplitMesh(mesh);
+
+        SetVertexColors(mesh);
     }
 
     void SetVertexColors(Mesh mesh)
@@ -74,7 +83,5 @@ public class BarycentricDataBuilder : MonoBehaviour
         mesh.normals = newNormals;
         mesh.uv = newUvs;
         mesh.triangles = triangles;
-
-        SetVertexColors(mesh);
     }
 }
