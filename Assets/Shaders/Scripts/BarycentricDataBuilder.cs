@@ -2,14 +2,9 @@
 
 using UnityEngine;
 
-//[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+[RequireComponent(typeof(MeshFilter))]
 public class BarycentricDataBuilder : MonoBehaviour
 {
-    //void Start()
-    //{
-    //    GenerateBarycentricData();
-    //}
-
     private void Reset()
     {
         GenerateBarycentricData();
@@ -20,14 +15,12 @@ public class BarycentricDataBuilder : MonoBehaviour
         Mesh mesh = GetComponent<MeshFilter>().sharedMesh;
 
         SplitMesh(mesh);
-
         SetVertexColors(mesh);
     }
 
     public void GenerateData(Mesh mesh)
     {
         SplitMesh(mesh);
-
         SetVertexColors(mesh);
     }
 
