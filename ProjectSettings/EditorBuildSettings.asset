@@ -4,10 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Shaders/CameraGrain/Scenes/CameraGrain.unity
-    guid: 5c16888cbaac545b8b4292d2211a39d3
+  m_Scenes: []
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0f640456e31a1497aa336938d310040e,
       type: 2}
