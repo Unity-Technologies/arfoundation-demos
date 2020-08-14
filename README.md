@@ -276,13 +276,17 @@ Shadows are important for grounding objects in AR. It helps the user better unde
 Both of these shaders are built to be applied on a single flat surface such as a plane or quad. For heirarchy setup you can see that the prefabs using these shaders have an empty root game object, the plane at the base of the object and the content positioned above that both as children of the root object.
 
 ### Blurred Shadows
+![BlurredShadows](https://user-images.githubusercontent.com/2120584/90286312-73bd4d00-de2a-11ea-9018-493fababe1cc.gif)
 The blurred shadows have two custom node inputs. One for contact shadows created with objects close to the plane using this shader. Another for implementing stocastic blurring to create much softer shadows giving it a blurred edge. It is recommended to use these shadows for dynamic content.
 
 
 ### Hard Shadows
+![ShadowsHardGif](https://user-images.githubusercontent.com/2120584/90285323-846cc380-de28-11ea-8bfc-020983a74086.gif)
 This uses a custom node to consume the lighting data in the scene and apply it to a transparent surface. The shadows of this shader are driven by the graphics and quality settings in the project. These are the level of shadows you can expect out of the box from Unity. It is recommended to use these shadows for static content.
 
 ## Camera Grain - Only compatible in Unity 2020.2+ and ARKit
+![CameraGrainGif](https://user-images.githubusercontent.com/2120584/90285707-3e642f80-de29-11ea-87d6-b247a239fcc6.gif)
+![CameraGrain](https://user-images.githubusercontent.com/2120584/90285713-40c68980-de29-11ea-9f37-516e05ee6df4.png)
 Camera grain is a unique feature to ARKit which produces a tileable metal texture to match the visual characteristics of the current video stream. In Unity this is surfaced as a 3D grain texture through the [ARCameraFrameEventArgs](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARCameraFrameEventArgs.html). For  the shader sample this grain texture is then applied to a custom shader graph that also creates visual noise on the object. This effect in general is very subtle and more visible in darker areas where the grain on the camera feed is also more apparent. 
 
 > Compatibility for 2020.2+ version of Unity is due to how 3D textures are handled and managed
