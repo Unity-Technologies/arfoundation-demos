@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17280708, g: 0.21594499, b: 0.29788813, a: 1}
+  m_IndirectSpecularColor: {r: 0.17280719, g: 0.21594538, b: 0.29788864, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 11
   m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
@@ -98,8 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: cb60e3eb7bff043ae874b566c7c005f1,
-    type: 2}
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -119,8 +118,6 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-    maxJobWorkers: 0
-    preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
@@ -138,7 +135,6 @@ GameObject:
   - component: {fileID: 282840815}
   - component: {fileID: 282840816}
   - component: {fileID: 282840812}
-  - component: {fileID: 282840818}
   - component: {fileID: 282840817}
   m_Layer: 0
   m_Name: AR Camera
@@ -259,25 +255,9 @@ MonoBehaviour:
   m_FocusMode: -1
   m_LightEstimationMode: -1
   m_AutoFocus: 1
-  m_LightEstimation: -1
+  m_LightEstimation: 3
   m_FacingDirection: 1
 --- !u!114 &282840817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282840810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b15f82cc229284894964d2d30806969d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HumanSegmentationStencilMode: 3
-  m_HumanSegmentationDepthMode: 2
-  m_EnvironmentDepthMode: 3
-  m_OcclusionPreferenceMode: 0
---- !u!114 &282840818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -421,7 +401,7 @@ Light:
     m_Type: 2
     m_Resolution: 3
     m_CustomResolution: -1
-    m_Strength: 0.4
+    m_Strength: 1
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -459,7 +439,6 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!4 &1015722067
@@ -505,8 +484,6 @@ GameObject:
   - component: {fileID: 1335839538}
   - component: {fileID: 1335839539}
   - component: {fileID: 1335839540}
-  - component: {fileID: 1335839541}
-  - component: {fileID: 1335839542}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -536,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 1335839533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 282840814}
   m_Father: {fileID: 0}
@@ -568,7 +545,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1760703bbd54c04488a8d10600262ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlanePrefab: {fileID: 4776765576899091622, guid: 635f0c5c56e955042b05a01c20415c3b,
+  m_PlanePrefab: {fileID: 4776765576899091622, guid: 4837ecafbf8234005ba53c5ecf1b86e8,
     type: 3}
   m_DetectionMode: 1
 --- !u!114 &1335839538
@@ -596,7 +573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446fc7fee4cf2ad4daa02222a84869c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_PlacedPrefab: {fileID: 1436265626919189739, guid: 263614dbc5e22484d92f2c2dba2b03e7,
+  m_PlacedPrefab: {fileID: 7679285653639408882, guid: 6c3d430202eb3498aa04adcecf50f311,
     type: 3}
   m_MaxNumberOfObjectsToPlace: 1
 --- !u!114 &1335839540
@@ -612,39 +589,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DisableFeaturePoints: 1
-  m_DisablePlaneRendering: 1
+  m_DisablePlaneRendering: 0
   m_PointCloudManager: {fileID: 1335839536}
   m_PlaneManager: {fileID: 1335839537}
---- !u!114 &1335839541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335839533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a025b51106444e18fb408fde19ac53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AutomaticPlacement: 0
-  m_EnvironmentTextureFilterMode: 2
-  m_EnvironmentTextureHDR: 1
-  m_DebugPrefab: {fileID: 0}
---- !u!114 &1335839542
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335839533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863a70230e6b84d53bf526189f949eef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ProbeManager: {fileID: 1335839541}
-  m_RaycastManager: {fileID: 1335839538}
 --- !u!1 &2146458540
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,21 +665,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1582620437, guid: 29251f2f7c5044cce8e7eb862b4d93ef, type: 3}
-      propertyPath: m_LocalizeText
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
-        type: 3}
-      propertyPath: CurrentLocalizedLanguage
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5977163237366113879, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
-        type: 3}
-      propertyPath: m_TeluguFont
-      value: 
-      objectReference: {fileID: 11400000, guid: cdfdf011109654de7bae50060be033df,
-        type: 2}
     - target: {fileID: 5977163238016480453, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_Name
@@ -743,11 +675,6 @@ PrefabInstance:
       propertyPath: m_CoachingOverlay
       value: 
       objectReference: {fileID: 427002221}
-    - target: {fileID: 5977163238016480456, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
-        type: 3}
-      propertyPath: m_LocalizeText
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5977163238016480458, guid: 29251f2f7c5044cce8e7eb862b4d93ef,
         type: 3}
       propertyPath: m_ARSessionOrigin
