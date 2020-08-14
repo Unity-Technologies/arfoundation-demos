@@ -254,6 +254,9 @@ The Fog scene includes AR plane finding and placement scritps to place a virtual
 ## Disclaimer
 These shaders are configured with [Universal Render Pipeline](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest) and [Shader Graph](https://docs.unity3d.com/Packages/com.unity.shadergraph@latest). They are expected to change or potentially break if either package is updated. Some of the implementations of these shaders are based on current API's and package structures that are not guaranteed to be consistent in future packages.
 
+## Setup
+To enable these shaders you must assign the [Universal Render Pipeline Asset](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Shaders/URP/UniversalRenderPipelineAsset.asset) in Project Graphics settings. This Pipeline asset has been pre-configured to work well with the shadow shaders and the ARFoundationForwardRendererData asset has been configured to properly render with AR Foundation by adding the AR Background Render Feature. 
+
 ## Wireframe shader
 ![MeshViz](https://user-images.githubusercontent.com/2120584/90083549-b7e40c80-dcc7-11ea-8dde-0b41eda98c23.png)
 
@@ -265,3 +268,24 @@ The MeshVisualization scene is configured to apply the barycentric data at runti
 
 
 > This sample enables and disables plane tracking by Toggling the AR Plane Manager component. You can see the optimizations with the mesh along flat surfaces when plane tracking is enabled.
+
+## Shadows
+
+Shadows are important for grounding objects in AR. It helps the user better understand the depth and position of augmented content in the real world. For enabling shadows in the Universal Render Pipeline custom .hlsl files have been written and used in shader graphs as custom nodes. 
+
+Both of these shaders are built to be applied on a single flat surface such as a plane or quad. For heirarchy setup you can see that the prefabs using these shaders have an empty root game object, the plane at the base of the object and the content positioned above that both as children of the root object.
+
+### Blurred Shadows
+The blurred shadows have two custom node inputs. One for contact shadows created with objects close to the plane using this shader. Another for implementing stocastic blurring to create much softer shadows giving it a blurred edge. It is recommended to use these shadows for dynamic content.
+
+
+### Hard Shadows
+This uses a custom node to consume the lighting data in the scene and apply it to a transparent surface. The shadows of this shader are driven by the graphics and quality settings in the project. These are the level of shadows you can expect out of the box from Unity. It is recommended to use these shadows for static content.
+
+## Camera Grain - Only compatible in Unity 2020.2+ and ARKit
+Camera grain is a unique feature to ARKit which produces a tileable metal texture to match the visual characteristics of the current video stream. In Unity this is surfaced as a 3D grain texture through the [ARCameraFrameEventArgs](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARCameraFrameEventArgs.html). For  the shader sample this grain texture is then applied to a custom shader graph that also creates visual noise on the object. This effect in general is very subtle and more visible in darker areas where the grain on the camera feed is also more apparent. 
+
+> Compatibility for 2020.2+ version of Unity is due to how 3D textures are handled and managed relative to native memory architecture in the editor.
+
+This sample also uses a script [ProbePlacement](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Scripts/ProbePlacement.cs) for manually placing environmental probes to further enhance the effect.
+
