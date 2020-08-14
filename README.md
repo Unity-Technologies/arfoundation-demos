@@ -249,6 +249,10 @@ The Fog scene includes AR plane finding and placement scritps to place a virtual
 
 ![img](https://user-images.githubusercontent.com/2120584/89490315-6edd0700-d761-11ea-9965-af86a9bbc296.gif)
 
+# Universal Render Pipeline Shader Graph Shaders
+
+## Disclaimer
+These shaders are configured with [Universal Render Pipeline](https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@latest) and [Shader Graph](https://docs.unity3d.com/Packages/com.unity.shadergraph@latest). They are expected to change or potentially break if either package is updated. Some of the implementations of these shaders are based on current API's and package structures that are not guaranteed to be consistent in future packages.
 
 ## Wireframe shader
 ![MeshViz](https://user-images.githubusercontent.com/2120584/90083549-b7e40c80-dcc7-11ea-8dde-0b41eda98c23.png)
