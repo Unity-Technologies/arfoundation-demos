@@ -285,7 +285,7 @@ This uses a custom node to consume the lighting data in the scene and apply it t
 ## Camera Grain - Only compatible in Unity 2020.2+ and ARKit
 Camera grain is a unique feature to ARKit which produces a tileable metal texture to match the visual characteristics of the current video stream. In Unity this is surfaced as a 3D grain texture through the [ARCameraFrameEventArgs](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARCameraFrameEventArgs.html). For  the shader sample this grain texture is then applied to a custom shader graph that also creates visual noise on the object. This effect in general is very subtle and more visible in darker areas where the grain on the camera feed is also more apparent. 
 
-> Compatibility for 2020.2+ version of Unity is due to how 3D textures are handled and managed relative to native memory architecture in the editor.
+> Compatibility for 2020.2+ version of Unity is due to how 3D textures are handled and managed
 
 This sample also uses a script [ProbePlacement](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Common/Scripts/ProbePlacement.cs) for manually placing environmental probes to further enhance the effect.
 
