@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
+#if UNITY_IOS
 using UnityEngine.XR.ARKit;
+#endif // UNITY_IOS
 using UnityEngine.XR.ARSubsystems;
 
 public class ClassificationPlacementManager : MonoBehaviour
@@ -98,6 +100,7 @@ public class ClassificationPlacementManager : MonoBehaviour
 
     void Update()
     {
+#if UNITY_IOS
         if (m_ClassificationManager.currentClassification == ARMeshClassification.Table ||
             m_ClassificationManager.currentClassification == ARMeshClassification.Floor ||
             m_ClassificationManager.currentClassification == ARMeshClassification.Wall)
@@ -130,6 +133,7 @@ public class ClassificationPlacementManager : MonoBehaviour
             m_WallUI.SetActive(false);
             m_TableUI.SetActive(false);
         }
+#endif
     }
 
     public void PlaceFloorObject(int indexToPlace)

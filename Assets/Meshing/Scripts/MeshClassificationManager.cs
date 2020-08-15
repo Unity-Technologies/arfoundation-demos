@@ -6,7 +6,9 @@ using Unity.Collections;
 using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.ARFoundation;
+#if UNITY_IOS
 using UnityEngine.XR.ARKit;
+#endif // UNITY_IOS
 using UnityEngine.XR.ARSubsystems;
 
 public class MeshClassificationManager : MonoBehaviour
@@ -41,17 +43,19 @@ public class MeshClassificationManager : MonoBehaviour
     RaycastHit m_Hit;
     TrackableId m_CurrentTrackableID;
     XRMeshSubsystem m_MeshSubsystem;
+#if UNITY_IOS
     ARMeshClassification m_CurrentClassification;
 
     public ARMeshClassification currentClassification => m_CurrentClassification;
     
     readonly Dictionary<TrackableId, NativeArray<ARMeshClassification>> m_MeshDictionary = new Dictionary<TrackableId, NativeArray<ARMeshClassification>>();
-
+#endif
     void OnEnable()
     {
         m_MeshSubsystem = m_MeshManager.subsystem;
+#if UNITY_IOS
         m_MeshSubsystem.SetClassificationEnabled(true);
-
+#endif
         m_MeshManager.meshesChanged += MeshManagerOnmeshesChanged;
     }
 
@@ -64,13 +68,16 @@ public class MeshClassificationManager : MonoBehaviour
     {
         if (Physics.Raycast(m_MainCamera.ScreenPointToRay(CenterScreenHelper.Instance.GetCenterScreen()), out m_Hit))
         {
+#if UNITY_IOS
             SetCurrentClassification(ExtractTrackableId(m_Hit.transform.name), m_Hit.triangleIndex);
             m_CurrentClassificationLabel.text = GetClassificationName(m_CurrentClassification);
+#endif
         }
     }
 
     void MeshManagerOnmeshesChanged(ARMeshesChangedEventArgs obj)
     {
+#if UNITY_IOS
         foreach (MeshFilter mesh in obj.added)
         {
             TrackableId trackableId = ExtractTrackableId(mesh.name);
@@ -102,8 +109,10 @@ public class MeshClassificationManager : MonoBehaviour
 
             m_MeshDictionary.Remove(trackableId);
         }
+#endif
     }
-
+    
+#if UNITY_IOS
     void SetCurrentClassification(TrackableId meshID, int triangleIndex)
     {
         Debug.Assert(m_MeshDictionary.ContainsKey(meshID), $"Mesh ID [{meshID}] does not exist in the dictionary");
@@ -143,7 +152,7 @@ public class MeshClassificationManager : MonoBehaviour
         }
         return retVal;
     }
-
+#endif
     TrackableId ExtractTrackableId(string meshFilterName)
     {
         string[] nameSplit = meshFilterName.Split(' ');
