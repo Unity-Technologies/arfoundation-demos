@@ -1,4 +1,4 @@
-#ifndef SHADERGRAPH_PREVIEW
+/*#ifndef SHADERGRAPH_PREVIEW
 real SampleShadowmapDirect(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap), SamplerState PointClamp, float4 shadowCoord, ShadowSamplingData samplingData, bool isPerspectiveProjection = true)
 {
 
@@ -10,10 +10,15 @@ real SampleShadowmapDirect(TEXTURE2D_SHADOW_PARAM(ShadowMap, sampler_ShadowMap),
 
 	// Instead of getting a value of 0 or 1 depending on a shadowmap comparison, we want to actually sample the shadowmap's values
 	distance = SAMPLE_TEXTURE2D_LOD(ShadowMap, PointClamp, shadowCoord.xy, 0);
+	
+	//int smWidth, smHeight;
+	//ShadowMap.GetDimensions(smWidth, smHeight);
+	//shadowCoord = saturate(shadowCoord);
+	//distance = ShadowMap[int2(smWidth * shadowCoord.x, smHeight * shadowCoord.y)];
 
 	return distance;
 }
-#endif
+#endif*/
 
 void MainLightBlurShadow_half(half rand, half fadeTightness, SamplerState pointClamp, half blurRadius, half3 worldPos, out half shadowAtten)
 {
@@ -42,8 +47,13 @@ void MainLightBlurShadow_half(half rand, half fadeTightness, SamplerState pointC
 		half cascadeIndex = 0;
 #endif
 		float shadowScale = pow(_MainLightWorldToShadow[cascadeIndex], 0.7) * 20; // Some "Magic Math" to try to make transitions between cascades smoother
-		float shadowMapSample = SampleShadowmapDirect(TEXTURE2D_ARGS(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture), pointClamp, shadowCoord, shadowSamplingData, false);
+		//float shadowMapSample = SampleShadowmapDirect(TEXTURE2D_ARGS(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture), pointClamp, shadowCoord, shadowSamplingData, false);
+		float shadowMapSample = SAMPLE_TEXTURE2D_LOD(_MainLightShadowmapTexture, pointClamp, shadowCoord.xy, 0);
 
+#if defined(SHADER_API_GLES3) || defined(SHADER_API_GLES) || defined(SHADER_API_GLCORE)
+		shadowMapSample = 1 - shadowMapSample;
+		shadowCoord.z = 1 - shadowCoord.z;
+#endif
 		float shadowCoordPos = shadowCoord.z / shadowScale; //Divide by shadowScale to get transitions more close-ish when using shadow cascades
 		float shadowMapPos = shadowMapSample / shadowScale;
 		//blurAmount is a value between 0 and 1 expressing how much to blur 

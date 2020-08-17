@@ -22,8 +22,13 @@ void PlaneContactShadow_float(float rand, float3 position, float dist, float dep
 		// Get the XY position of the projected position to be checked against the depth texture
 		float4 newPos = mul(UNITY_MATRIX_VP, float4(posStep, 1.0));
 		newPos /= newPos.w;
+#if defined(SHADER_API_GLES3) || defined(SHADER_API_GLES) || defined(SHADER_API_GLCORE)
+		newPos *= float4(0.5, 0.5, 1, 1);
+		newPos += float4(0.5, 0.5, 0, 0);
+#else
 		newPos *= float4(0.5, -0.5, 1, 1);
 		newPos += float4(0.5, 0.5, 0, 0);
+#endif
 		// Prevent the depth texture values from bleeding from one side to the other
 		newPos = clamp(newPos, 0, 0.999);
 		//Get the view space depth value of our projected point
