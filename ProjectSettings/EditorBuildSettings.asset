@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Shaders/PositionBasedRendering.unity
+    guid: 8822fc85570ef47cc9f6768669d07a04
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6390cd816397648a5b1cc5fc4723e0ba,
       type: 2}
