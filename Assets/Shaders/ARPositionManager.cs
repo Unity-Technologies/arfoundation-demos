@@ -18,6 +18,7 @@ public class ARPositionManager : MonoBehaviour
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
     const string k_ShaderPositionProperty = "_ContactPosition";
+    const string k_ShaderContactProperty = "_IsInContact";
 
     void Update()
     {
@@ -31,9 +32,13 @@ public class ARPositionManager : MonoBehaviour
         {
             if (plane.trackableId == m_HitID)
             {
+                plane.transform.GetComponent<MeshRenderer>().material.SetFloat(k_ShaderContactProperty, 1);
                 plane.transform.GetComponent<MeshRenderer>().material.SetVector(k_ShaderPositionProperty, m_HitPose.position);
+            }
+            else
+            {
+                plane.transform.GetComponent<MeshRenderer>().material.SetFloat(k_ShaderContactProperty, 0);
             }
         }
     }
-    
 }
