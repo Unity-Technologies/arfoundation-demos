@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Shaders/Shadows/Scenes/ShadowPlacement.unity
-    guid: d88edf08dec76432fb75bc510222417f
+    path: Assets/UX/Scenes/UXManagerScene.unity
+    guid: 5d9539f4c7ee5c74c85a038c90cb6e1b
+  - enabled: 1
+    path: Assets/ImageTracking/Scenes/ImageTracking.unity
+    guid: 90c9c5e58ea6f4125979d49ff7533aee
+  - enabled: 1
+    path: Assets/Meshing/Scenes/Meshing.unity
+    guid: d5ebb81bb19834855bb7ca490ab73fbf
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0f640456e31a1497aa336938d310040e,
       type: 2}
