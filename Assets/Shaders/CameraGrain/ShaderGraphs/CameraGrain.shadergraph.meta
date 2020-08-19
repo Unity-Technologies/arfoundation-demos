@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Shaders/Shader Graphs/PlaneShadowReceiver.shadergraph.meta
+guid: 3c980f9be262244c1ba125cacbf00ce6
+=======
+guid: 567e270b6044488448e8530b2f8122a2
+>>>>>>> master:Assets/Shaders/CameraGrain/ShaderGraphs/CameraGrain.shadergraph.meta
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}

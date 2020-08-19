@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Shaders/PositionBasedRendering.unity
-    guid: 8822fc85570ef47cc9f6768669d07a04
+    path: Assets/Shaders/Shadows/Scenes/ShadowPlacement.unity
+    guid: d88edf08dec76432fb75bc510222417f
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 6390cd816397648a5b1cc5fc4723e0ba,
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0f640456e31a1497aa336938d310040e,
       type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: aa5435beafbd54df081a4bc6c3fb48d1,
       type: 2}

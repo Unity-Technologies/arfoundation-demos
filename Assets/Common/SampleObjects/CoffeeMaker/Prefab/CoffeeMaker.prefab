@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7435485125706140711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436265626919189739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c759edd2c6d49bda80a810122bc4d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CameraManager: {fileID: 0}
+  m_GrainMaterials:
+  - {fileID: 2100000, guid: 88de941cb1b048947ac5479233a059fb, type: 2}
+  - {fileID: 2100000, guid: a6d5637e71b3862408e1306da5fb4417, type: 2}
+  - {fileID: 2100000, guid: 7e7db70557cc72e46a83c43b6c52d5bb, type: 2}
+  - {fileID: 2100000, guid: 007aa498b3d73ca4e820fedf9019d9b1, type: 2}
+  - {fileID: 2100000, guid: 87319b05aa0490d44b5346326a5e7b26, type: 2}
+  - {fileID: 2100000, guid: a3806f99b8c1eb64c9e6d88ff579546b, type: 2}
+--- !u!1001 &6975881124170982882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+        type: 3}
+      propertyPath: m_Name
+      value: CoffeeMaker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b0238fb14b0e3834e9e0694092a0dbd4, type: 3}
+--- !u!1 &1436265626919189739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b0238fb14b0e3834e9e0694092a0dbd4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6975881124170982882}
+  m_PrefabAsset: {fileID: 0}
