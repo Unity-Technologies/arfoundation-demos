@@ -116,13 +116,29 @@ public class LocalizationManager : MonoBehaviour
 
     IEnumerator Start()
     {
-        yield return LocalizationSettings.InitializationOperation;
+        bool m_LocalizeAnimation = false;
+        bool m_LocalizeReasons = false;
 
-        LocalizationSettings.AvailableLocales.Locales.Sort();
-        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)CurrentLocalizedLanguage];
-        SwapFonts(CurrentLocalizedLanguage);
-        
-        LocalizationSettings.StringDatabase.GetTableAsync(k_ReasonUxTable).Completed += OnCompletedReasonsUX;
+        if (TryGetComponent(out ARUXAnimationManager m_AnimationManager))
+        {
+            m_LocalizeAnimation = m_AnimationManager.localizeText;
+        }
+
+        if (TryGetComponent(out ARUXReasonsManager m_ReasonsManager))
+        {
+            m_LocalizeReasons = m_ReasonsManager.localizeText;
+        }
+
+        if (m_LocalizeAnimation || m_LocalizeReasons)
+        {
+            yield return LocalizationSettings.InitializationOperation;
+
+            LocalizationSettings.AvailableLocales.Locales.Sort();
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[(int)CurrentLocalizedLanguage];
+            SwapFonts(CurrentLocalizedLanguage);
+
+            LocalizationSettings.StringDatabase.GetTableAsync(k_ReasonUxTable).Completed += OnCompletedReasonsUX;
+        }
     }
 
     void OnCompletedReasonsUX(AsyncOperationHandle<StringTable> obj)
