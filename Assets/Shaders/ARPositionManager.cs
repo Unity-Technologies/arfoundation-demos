@@ -33,6 +33,11 @@ public class ARPositionManager : MonoBehaviour
         m_SpawnedObject = Instantiate(m_ObjectPrefab);
         m_DelayedPosition = new Vector3(0,0,0);
     }
+
+    public void SpawnPlaceableObject()
+    {
+        
+    }
     
     void Update()
     {
