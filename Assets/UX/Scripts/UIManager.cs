@@ -250,20 +250,30 @@ public class UIManager : MonoBehaviour
     {
         if (m_ARSessionOrigin)
         {
-            if (m_ARSessionOrigin.GetComponent<ARPlaneManager>())
-                m_PlaneManager = m_ARSessionOrigin.GetComponent<ARPlaneManager>();
+            if (m_ARSessionOrigin.TryGetComponent(out ARPlaneManager arPlaneManager))
+            {
+                m_PlaneManager = arPlaneManager;
+            }
 
-            if (m_ARSessionOrigin.GetComponent<ARFaceManager>())
-                m_FaceManager = m_ARSessionOrigin.GetComponent<ARFaceManager>();
+            if (m_ARSessionOrigin.TryGetComponent(out ARFaceManager arFaceManager))
+            {
+                m_FaceManager = arFaceManager;
+            }
 
-            if (m_ARSessionOrigin.GetComponent<ARHumanBodyManager>())
-                m_BodyManager = m_ARSessionOrigin.GetComponent<ARHumanBodyManager>();
+            if (m_ARSessionOrigin.TryGetComponent(out ARHumanBodyManager arHumanBodyManager))
+            {
+                m_BodyManager = arHumanBodyManager;
+            }
 
-            if (m_ARSessionOrigin.GetComponent<ARTrackedImageManager>())
-                m_ImageManager = m_ARSessionOrigin.GetComponent<ARTrackedImageManager>();
+            if (m_ARSessionOrigin.TryGetComponent(out ARTrackedImageManager arTrackedImageManager))
+            {
+                m_ImageManager = arTrackedImageManager;
+            }
 
-            if (m_ARSessionOrigin.GetComponent<ARTrackedObjectManager>())
-                m_ObjectManager = m_ARSessionOrigin.GetComponent<ARTrackedObjectManager>();
+            if (m_ARSessionOrigin.TryGetComponent(out ARTrackedObjectManager arTrackedObjectManager))
+            {
+                m_ObjectManager = arTrackedObjectManager;
+            }
         }
     }
     
@@ -348,36 +358,18 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    bool PlanesFound()
-    {
-        return m_PlaneManager?.trackables.count > 0;
-    }
+    bool PlanesFound() => m_PlaneManager && m_PlaneManager.trackables.count > 0;
 
-    bool MultiplePlanesFound()
-    { 
-        return m_PlaneManager?.trackables.count > 1;
-    }
+    bool MultiplePlanesFound() => m_PlaneManager && m_PlaneManager.trackables.count > 1;
 
-    bool FaceFound()
-    {
-        return m_FaceManager?.trackables.count > 0;
-    }
+    bool FaceFound() => m_FaceManager && m_FaceManager.trackables.count > 0;
 
-    bool BodyFound()
-    {
-        return m_BodyManager?.trackables.count > 0;
-    }
+    bool BodyFound() => m_BodyManager && m_BodyManager.trackables.count > 0;
 
-    bool ImageFound()
-    {
-        return m_ImageManager?.trackables.count > 0;
-    }
+    bool ImageFound() => m_ImageManager && m_ImageManager.trackables.count > 0;
 
-    bool ObjectFound()
-    {
-        return m_ObjectManager?.trackables.count > 0;
-    }
-
+    bool ObjectFound() => m_ObjectManager && m_ObjectManager.trackables.count > 0;
+    
     void FadeComplete()
     {
         m_ProcessingInstructions = false;
