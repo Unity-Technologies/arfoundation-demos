@@ -21,13 +21,13 @@ public class ContactPosition : MonoBehaviour
     {
         m_TargetMaterial.SetVector(m_PropertyHash, transform.position);   
 
-        if(Input.GetKey(KeyCode.A))
-        {
-            m_TargetMaterial.SetFloat("_IsInContact", 1.0f);
-        }
-        else
-        {
-            m_TargetMaterial.SetFloat("_IsInContact", 0);
-        }
+        //if(Input.GetKey(KeyCode.A))
+        //{
+        //    m_TargetMaterial.SetFloat("_IsInContact", 1.0f);
+        //}
+        //else
+        //{
+        //    m_TargetMaterial.SetFloat("_IsInContact", 0);
+        //}
     }
 }

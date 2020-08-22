@@ -23,7 +23,7 @@ Material:
   m_Name: PositionBased
   m_Shader: {fileID: -6465566751694194690, guid: 5339d23c4585cf8439edd87ecaf4759c,
     type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: BOOLEAN_9E2AC6BA_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -66,7 +66,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_62687469: 0.3
+    - BOOLEAN_9E2AC6BA: 1
+    - Vector1_62687469: 2.5
+    - Vector1_6C17F5C0: 2.5
+    - Vector1_77EC2961: 0.25
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -77,7 +80,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _IsInContact: 0.97
+    - _IsInContact: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
@@ -94,6 +97,6 @@ Material:
     - Vector3_E80427D: {r: 0.85, g: 0, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ContactPosition: {r: 0, g: 0, b: 0, a: 0}
+    - _ContactPosition: {r: 0.039, g: 0, b: 0.046, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
