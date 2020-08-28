@@ -24,9 +24,13 @@ void MainLightBlurShadow_half(half rand, half fadeTightness, SamplerState pointC
 #else
 		half cascadeIndex = 0;
 #endif
+#if !defined(MAIN_LIGHT_CALCULATE_SHADOWS)
+		float shadowMapSample = 1.0;
+#else
 		float shadowMapSample = SAMPLE_TEXTURE2D_SHADOW(_MainLightShadowmapTexture, sampler_MainLightShadowmapTexture, shadowCoord.xyz);
+#endif		
 		//0 or 1 depending on whether a shadow is being cast
-		float isInShadow = step(shadowMapSample, shadowCoord.z);
+		float isInShadow = 1 - shadowMapSample;
 
 		shadowAtten -= isInShadow * oneDivNumSteps;
 		// If the position is out of shadow distance, just return 1
