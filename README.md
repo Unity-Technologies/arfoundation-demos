@@ -157,6 +157,7 @@ Localization currently supports the following languages
 - Korean
 - Japanese
 - Hindi
+- Dutch
 
 > Tamil and Telugu translations are available but due to font rendering complexities are not enabled currently
 
