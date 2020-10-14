@@ -98,6 +98,15 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: b153c3d2b3fb6db49b6b22b3e488acd8
+    m_Address: ReasonsUX_nl
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-nl
+    m_mainAssetType: UnityEngine.Localization.Tables.StringTable, Unity.Localization,
+      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: b28fc5e6207d848e7a76edc85677ec3d
     m_Address: ReasonsUX_ko
     m_ReadOnly: 1

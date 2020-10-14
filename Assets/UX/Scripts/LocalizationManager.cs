@@ -10,9 +10,11 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class LocalizationManager : MonoBehaviour
 {
+    // alphabetized for sorting to enum index check 
     public enum SupportedLanguages
     {
         ChineseSimplified,
+        Dutch,
         English,
         French,
         German,

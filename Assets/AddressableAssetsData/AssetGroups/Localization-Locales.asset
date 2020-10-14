@@ -35,6 +35,15 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 05140a9bfe6cd6b41b69d86338a694f7
+    m_Address: Dutch (nl)
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale
+    m_mainAssetType: UnityEngine.Localization.Locale, Unity.Localization, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 35f34f7ea21324817b9a388413d28b46
     m_Address: Hindi (hi)
     m_ReadOnly: 1
@@ -100,24 +109,6 @@ MonoBehaviour:
     m_TargetAsset: {fileID: 0}
   - m_GUID: b51b98c77c20146e0a686e8e8aa64665
     m_Address: Japanese (ja)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    m_mainAssetType: UnityEngine.Localization.Locale, Unity.Localization, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: c5f6f4890b84d4a92976c1455be99808
-    m_Address: Telugu (India) (te-IN)
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale
-    m_mainAssetType: UnityEngine.Localization.Locale, Unity.Localization, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
-  - m_GUID: cfb2765abe3dc4990b6edf527dbf01b1
-    m_Address: Tamil (India) (ta-IN)
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale

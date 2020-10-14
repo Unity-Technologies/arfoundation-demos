@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReasonsUX_nl
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: nl
+  m_SharedData: {fileID: 11400000, guid: 4b685a2129bdd4b99847d9871d566acc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 1
+    m_Localized: "Zoek naar meer textuur en details in de omgeving.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2
+    m_Localized: "Initialiseren van Augmented Reality \r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3
+    m_Localized: "Het is te donker. Ga naar een beter verlichte omgeving.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4
+    m_Localized: "Probeer langzamer te bewegen.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5
+    m_Localized: "Wacht tot het meten van bewegingen start\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6
+    m_Localized: "AR-inhoud is niet ondersteund.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7
+    m_Localized: "Zoek een lichaam om te volgen.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8
+    m_Localized: "Zoek een gezicht om te volgen.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9
+    m_Localized: "Zoek een afbeelding om te volgen.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10
+    m_Localized: "Zoek een object om te volgen\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11
+    m_Localized: "Beweeg uw apparaat langzaamer.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12
+    m_Localized: Tap om AR-object te plaatsen.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

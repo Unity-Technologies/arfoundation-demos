@@ -940,7 +940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6f51f6bfbde451a92c25e3a2a6792b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentLocalizedLanguage: 1
+  CurrentLocalizedLanguage: 2
   localizedInit: 
   localizedMotion: 
   localizedLight: 
