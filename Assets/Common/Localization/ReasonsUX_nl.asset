@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5
-    m_Localized: "Wacht tot het meten van bewegingen start\r"
+    m_Localized: "Wacht to het tracking begint.\r"
     m_Metadata:
       m_Items: []
   - m_Id: 6
