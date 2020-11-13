@@ -13,6 +13,7 @@
     "com.unity.xr.arcore": "4.1.0-preview.10",
     "com.unity.xr.arfoundation": "4.1.0-preview.10",
     "com.unity.xr.arkit": "4.1.0-preview.10",
+    "com.unity.xr.interaction.toolkit": "0.10.0-preview.7",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
