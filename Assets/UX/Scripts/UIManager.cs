@@ -223,10 +223,16 @@ public class UIManager : MonoBehaviour
         {
             // pop off
             m_CurrentHandle = m_UXOrderedQueue.Dequeue();
+            
+            // exit instantly, if the goal is already met it will skip showing the first UI and move to the next in the queue 
+            m_GoalReached = GetGoal(m_CurrentHandle.Goal);
+            if (m_GoalReached.Invoke())
+            {
+                return;
+            }
 
             // fade on
             FadeOnInstructionalUI(m_CurrentHandle.InstructionalUI);
-            m_GoalReached = GetGoal(m_CurrentHandle.Goal);
             m_ProcessingInstructions = true;
             m_FadedOff = false;
         }
