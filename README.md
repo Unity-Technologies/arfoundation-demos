@@ -280,6 +280,10 @@ Both of these shaders are built to be applied on a single flat surface such as a
 ![BlurredShadows](https://user-images.githubusercontent.com/2120584/90286951-b03d7880-de2b-11ea-94da-cb81387191e2.gif)
 The blurred shadows have two custom node inputs. One for contact shadows created with objects close to the plane using this shader. Another for implementing stocastic blurring to create much softer shadows giving it a blurred edge. It is recommended to use these shadows for dynamic content.
 
+* It is highly recommended to have `No Cascades` in the Shadow settings of the Universal Render Pipeline Asset, Shadow Settings to greatly increase performance.
+
+To further increase performance you can lower the [NUM_STEPS](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Shaders/Shadows/ShaderGraphs/BlurredShadowPlaneLighting.hlsl#L6) from 10 to 5 and the [TOTAL_STEPS](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Shaders/Shadows/ShaderGraphs/PlaneContactShadows.hlsl#L7) from 10 to 5. There will be a noticable visual difference but should give higher performance especially on lower end platforms. 
+
 
 ### Hard Shadows
 ![ShadowsHardGif](https://user-images.githubusercontent.com/2120584/90287687-33ab9980-de2d-11ea-86ba-50c8d95dc3df.gif)
