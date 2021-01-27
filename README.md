@@ -7,7 +7,7 @@ For questions and issues related to AR Foundation please post on the AR Foundati
 # arfoundation-demos
 AR Foundation demo projects.
 
-Demo projects that use [*AR Foundation 3.0*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html) and demonstrate more advanced functionality around certain features
+Demo projects that use [*AR Foundation 4.1*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) and demonstrate more advanced functionality around certain features
 
 This set of demos relies on five Unity packages:
 
