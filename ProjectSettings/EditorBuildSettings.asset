@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Meshing/Scenes/Meshing.unity
     guid: d5ebb81bb19834855bb7ca490ab73fbf
   m_configObjects:
-    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 0f640456e31a1497aa336938d310040e,
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ad4d7f226aa3a534b8fb28f89c84e258,
       type: 2}
-    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: aa5435beafbd54df081a4bc6c3fb48d1,
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 30571f171d978f94794c6f87b8667a08,
       type: 2}
     com.unity.addressableassets: {fileID: 11400000, guid: fd30cf7030bd342e1b45a869462e0ee0,
       type: 2}
@@ -25,5 +25,5 @@ EditorBuildSettings:
       type: 2}
     com.unity.xr.arcore.PlayerSettings: {fileID: 11400000, guid: 548641ba2e111fb4bb0267a9742ca02c,
       type: 2}
-    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5c86decb01f9d6b46a50ce486fba0042,
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0c7320f37e3f8b24c9e5b5fd999e40e0,
       type: 2}
