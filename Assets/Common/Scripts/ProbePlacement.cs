@@ -35,7 +35,9 @@ public class ProbePlacement : MonoBehaviour
                 if (m_RaycastManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), k_Hits))
                 {
                     Pose hitPose = k_Hits[0].pose;
-                    m_ProbeManager.AddEnvironmentProbe(hitPose, Vector3.one, Vector3.one);
+                    GameObject m_ProbeObject = new GameObject("EnvProbeObject");
+                    m_ProbeObject.transform.position = hitPose.position;
+                    m_ProbeObject.AddComponent<AREnvironmentProbe>();
                 }
             }
         }
