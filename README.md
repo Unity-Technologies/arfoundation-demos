@@ -19,7 +19,7 @@ This set of demos relies on five Unity packages:
 
 ARSubsystems defines an interface, and the platform-specific implementations are in the ARCore and ARKit packages. ARFoundation turns the AR data provided by ARSubsystems into Unity `GameObject`s and `MonoBehavour`s.
 
-The `master` branch is compatible with Unity 2019.4 and Unity 2020.2
+The `master` branch is compatible with Unity 2019.4.15f1+ and Unity 2020.2
 
 ### Building for Unity 2020.2
 When building for *Android in Unity 2020.2* you need to modify the following settings under Project Settings / Player / Publishing Settings
