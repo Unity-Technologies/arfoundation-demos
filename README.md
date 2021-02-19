@@ -7,7 +7,7 @@ For questions and issues related to AR Foundation please post on the AR Foundati
 # arfoundation-demos
 AR Foundation demo projects.
 
-Demo projects that use [*AR Foundation 4.1*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) and demonstrate more advanced functionality around certain features
+Demo projects that use [*AR Foundation 4.1.5*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) and demonstrate more advanced functionality around certain features
 
 This set of demos relies on five Unity packages:
 
@@ -19,7 +19,14 @@ This set of demos relies on five Unity packages:
 
 ARSubsystems defines an interface, and the platform-specific implementations are in the ARCore and ARKit packages. ARFoundation turns the AR data provided by ARSubsystems into Unity `GameObject`s and `MonoBehavour`s.
 
-The `master` branch is compatible with Unity 2019.3 
+The `master` branch is compatible with Unity 2019.4 and Unity 2020.2
+
+### Building for Unity 2020.2
+When building for *Android in Unity 2020.2* you need to modify the following settings under Project Settings / Player / Publishing Settings
+* Uncheck Custom Main Gradle Template and 
+* Uncheck Custom Launcher Gradle Template  
+
+These are currently enabled to support building an ARCore project in Unity 2019.4
 
   
 [Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#mesh-placement) | [Shaders](#shaders)
