@@ -116,7 +116,9 @@ public class UIManager : MonoBehaviour
 
     Func<bool> m_GoalReached;
     bool m_SecondaryGoalReached;
-    
+
+    public bool GoalReached => m_GoalReached != null && m_GoalReached.Invoke();
+
     Queue<UXHandle> m_UXOrderedQueue;
     UXHandle m_CurrentHandle;
     bool m_ProcessingInstructions;
