@@ -7,26 +7,25 @@ For questions and issues related to AR Foundation please post on the AR Foundati
 # arfoundation-demos
 AR Foundation demo projects.
 
-Demo projects that use [*AR Foundation 4.1.5*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) and demonstrate more advanced functionality around certain features
+Demo projects that use [*AR Foundation 4.1.7*](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html) and demonstrate more advanced functionality around certain features
 
 This set of demos relies on five Unity packages:
 
-* ARSubsystems ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@3.0/manual/index.html))
-* ARCore XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arcore@3.0/manual/index.html))
-* ARKit XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arkit@3.0/manual/index.html))
-* ARKit Face Tracking ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arkit-face-tracking@3.0/manual/index.html))
-* ARFoundation ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@3.0/manual/index.html))
+* ARSubsystems ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.1/manual/index.html))
+* ARCore XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arcore@4.1/manual/index.html))
+* ARKit XR Plugin ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arkit@4.1/manual/index.html))
+* ARFoundation ([documentation](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/manual/index.html))
 
 ARSubsystems defines an interface, and the platform-specific implementations are in the ARCore and ARKit packages. ARFoundation turns the AR data provided by ARSubsystems into Unity `GameObject`s and `MonoBehavour`s.
 
-The `master` branch is compatible with Unity 2019.4.15f1+ and Unity 2020.2
+The `master` branch is compatible with Unity 2020.3.13f1+
 
 ### Building for Unity 2020.2
 When building for *Android in Unity 2020.2* you need to modify the following settings under Project Settings / Player / Publishing Settings
 * Uncheck Custom Main Gradle Template and 
 * Uncheck Custom Launcher Gradle Template  
 
-These are currently enabled to support building an ARCore project in Unity 2019.4
+These are been removed during the upgrade to Unity 2020.3 LTS
 
   
 [Image Tracking](#image-tracking--also-available-on-the-asset-store-here) | [Onboarding UX](#ux--also-available-on-the-asset-store-here) | [Mesh Placement](#mesh-placement) | [Shaders](#shaders)
@@ -296,7 +295,7 @@ To further increase performance you can lower the [NUM_STEPS](https://github.com
 ![ShadowsHardGif](https://user-images.githubusercontent.com/2120584/90287687-33ab9980-de2d-11ea-86ba-50c8d95dc3df.gif)
 This uses a custom node to consume the lighting data in the scene and apply it to a transparent surface. The shadows of this shader are driven by the graphics and quality settings in the project. These are the level of shadows you can expect out of the box from Unity. It is recommended to use these shadows for static content.
 
-## Camera Grain - Only compatible in Unity 2020.2+ and ARKit
+## Camera Grain - Only compatible in Unity 2020.3+ and ARKit
 ![CameraGrainGif](https://user-images.githubusercontent.com/2120584/90287142-2215c200-de2c-11ea-8663-e180019c1e1d.gif)
 ![CameraGrain](https://user-images.githubusercontent.com/2120584/90286950-af0c4b80-de2b-11ea-8fdb-fb15bf8bd253.png)
 Camera grain is a unique feature to ARKit which produces a tileable metal texture to match the visual characteristics of the current video stream. In Unity this is surfaced as a 3D grain texture through the [ARCameraFrameEventArgs](https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@4.1/api/UnityEngine.XR.ARFoundation.ARCameraFrameEventArgs.html). For  the shader sample this grain texture is then applied to a custom shader graph that also creates visual noise on the object. This effect in general is very subtle and more visible in darker areas where the grain on the camera feed is also more apparent. 
