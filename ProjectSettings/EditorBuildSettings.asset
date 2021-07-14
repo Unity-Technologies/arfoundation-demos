@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/UX/Scenes/UXManagerScene.unity
     guid: 5d9539f4c7ee5c74c85a038c90cb6e1b
   - enabled: 1
