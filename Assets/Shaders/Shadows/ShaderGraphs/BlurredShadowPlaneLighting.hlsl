@@ -1,3 +1,5 @@
+// Code written by Landon Townsend
+
 void MainLightBlurShadow_half(half rand, half fadeTightness, SamplerState pointClamp, half blurRadius, half3 worldPos, out half shadowAtten)
 {
 #if SHADERGRAPH_PREVIEW

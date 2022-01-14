@@ -1,3 +1,5 @@
+// Code written by Landon Townsend
+
 void PlaneContactShadow_float(float rand, float3 position, float dist, float depth, out float shadowAmount)
 {
 #if SHADERGRAPH_PREVIEW
