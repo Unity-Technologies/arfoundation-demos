@@ -203,6 +203,9 @@ The Localization package uses [Addressables](https://docs.unity3d.com/Packages/c
 ![img](https://user-images.githubusercontent.com/2120584/87866691-77e47080-c939-11ea-9fe9-25a68ddd8a4b.JPG)
 An example scene for using [ARKit meshing](https://docs.unity3d.com/Packages/com.unity.xr.arkit@4.0/manual/arkit-meshing.html) feature with the available surface [classifications](https://developer.apple.com/documentation/arkit/armeshclassification) to place unique objects on surfaces. This demo adds some additional functionality for use cases helpful outside of this demo such as a placement reticle and the [DOTween tweening library](http://dotween.demigiant.com/). 
 
+## Disclaimer
+Meshing is only supported through ARKit on LiDAR Enabled devices (iPad Pro, iPhone 12 Pro, iPhone 13 Pro)
+
 ## Mesh Classificatons
 Classifying the surfaces is managed by the [MeshClassificationManager.cs](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Meshing/Scripts/MeshClassificationManager.cs) which maintains a [Dictionary](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Meshing/Scripts/MeshClassificationManager.cs#L49) of TrackableID's and a native array of ARMeshClassifications. By subscribing to the meshesChanged event on the AR Mesh Manager we maintain the dictionary of added, updated and removed meshes based on trackable ID's of the meshes generated. 
 
