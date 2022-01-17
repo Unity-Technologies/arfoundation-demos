@@ -235,7 +235,7 @@ Plane:
 
 
 ## Mesh Key
-To visualize and understand the different classified surfaces we are using a modified version of the [MeshFracking](https://github.com/Unity-Technologies/arfoundation-samples/blob/latest-preview/Assets/Scenes/Meshing/Scripts/MeshClassificationFracking.cs) script available in AR Foundaiton Samples. We've added an additional helper method to modify the alpha color of the generated meshes [ToggleVisability().](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Meshing/Scripts/MeshClassificationFracking.cs#L350-L366) This is all driven by a Toggle UI button in the scene and changes the shared material color on each material on the generated prefabs. By default they are configured to be completely transparent.
+To visualize and understand the different classified surfaces we are using a modified version of the [MeshFracking](https://github.com/Unity-Technologies/arfoundation-samples/blob/main/Assets/Scenes/Meshing/Scripts/MeshClassificationFracking.cs) script available in AR Foundaiton Samples. We've added an additional helper method to modify the alpha color of the generated meshes [ToggleVisability().](https://github.com/Unity-Technologies/arfoundation-demos/blob/master/Assets/Meshing/Scripts/MeshClassificationFracking.cs#L350-L366) This is all driven by a Toggle UI button in the scene and changes the shared material color on each material on the generated prefabs. By default they are configured to be completely transparent.
 
 
 ## DOTween is available on the Unity Asset store [here](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
