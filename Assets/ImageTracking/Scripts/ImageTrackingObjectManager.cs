@@ -155,7 +155,7 @@ public class ImageTrackingObjectManager : MonoBehaviour
             {
                 Destroy(m_SpawnedOnePrefab);
             }
-            else if (image.referenceImage.guid == s_FirstImageGUID)
+            else if (image.referenceImage.guid == s_SecondImageGUID)
             {
                 Destroy(m_SpawnedTwoPrefab);
             }
