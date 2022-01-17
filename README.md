@@ -33,7 +33,7 @@ These are been removed during the upgrade to Unity 2020.3 LTS
 
   
 
-## Image Tracking — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-image-tracking-164880)
+## Image Tracking 
 ![img](https://user-images.githubusercontent.com/2120584/86505962-759de600-bd7f-11ea-80c5-b494cdd96427.png)
   
 
@@ -61,7 +61,7 @@ If you import the image tracking package or download it from the asset store **w
 
 
   
-## UX — Also available on the asset store [here](https://assetstore.unity.com/packages/templates/ar-foundation-demos-onboarding-ux-164766)
+## UX 
 
 ![img](https://user-images.githubusercontent.com/2120584/87749152-b8fb4a00-c7ac-11ea-807c-0e04325f69da.png)
 
